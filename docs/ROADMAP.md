@@ -1,0 +1,584 @@
+# Roadmap
+
+## Phase 0 - Governance and Content Discovery
+
+Goals:
+
+- Approve the project specification
+- Collect factual content
+- Define asset requirements
+- Establish documentation
+- Record architecture decisions
+
+Deliverables:
+
+- Approved specification
+- Content checklist
+- Initial decision log
+- Project status record
+- Changelog entry
+
+Verification:
+
+- All Phase 0 documents exist
+- No application code has been created
+- No dependencies have been installed
+- No Git repository has been initialized
+
+Exit criteria:
+
+- Baseline approved by the owner
+- Missing content marked `Pending owner input`
+- Phase 1 remains pending approval
+
+Approval before moving forward:
+
+- Required
+
+Status: `Complete`
+
+## Phase 1 - Project Foundation and Architecture
+
+Goals:
+
+- Initialize Next.js
+- Configure strict TypeScript
+- Configure linting and formatting
+- Establish folder architecture
+- Configure content schemas
+- Validate builds and development environment
+
+Deliverables:
+
+- Next.js project scaffold
+- TypeScript configuration
+- ESLint and Prettier setup
+- Content model foundation
+- Initial development scripts
+
+Verification:
+
+- Project builds successfully
+- Type checking passes
+- Linting and formatting are configured
+- Folder architecture matches the approved plan
+
+Exit criteria:
+
+- Foundation is stable
+- Architecture is ready for design and shell implementation
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 2 - Design System
+
+Goals:
+
+- Define colors
+- Define typography
+- Define spacing
+- Define layout
+- Define radius
+- Define borders
+- Define shadows
+- Define motion
+- Define focus states
+- Define component variants
+
+Deliverables:
+
+- Design tokens
+- Theme direction
+- UI rules
+- Interaction guidance
+
+Verification:
+
+- Design tokens are documented
+- Accessibility guidance is included
+- The system supports responsive behavior
+
+Exit criteria:
+
+- Design system is approved for implementation
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 3 - Global Application Shell
+
+Goals:
+
+- Build the root layout
+- Establish metadata foundation
+- Add header
+- Add mobile navigation
+- Add footer
+- Add containers
+- Add skip link
+
+Deliverables:
+
+- Global shell structure
+- Site-wide navigation patterns
+- Shared layout primitives
+
+Verification:
+
+- Layout is responsive
+- Navigation is usable with keyboard input
+- Metadata foundation is in place
+
+Exit criteria:
+
+- Global shell approved for page work
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 4 - Homepage
+
+Goals:
+
+- Build the homepage narrative
+- Establish first impression and positioning
+- Surface featured projects and calls to action
+
+Deliverables:
+
+- Home page
+- Hero section
+- Featured project sections
+- Conversion calls to action
+
+Verification:
+
+- Primary visitor journey is clear
+- Content is factual and approved
+
+Exit criteria:
+
+- Homepage approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 5 - About
+
+Goals:
+
+- Present the professional story
+- Explain values and working principles
+
+Deliverables:
+
+- About page
+- Supporting content sections
+
+Verification:
+
+- Content is owner-approved
+- No unverified claims are present
+
+Exit criteria:
+
+- About page approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 6 - Skills and Capabilities
+
+Goals:
+
+- Present capability-based skills
+- Avoid arbitrary skill percentages
+
+Deliverables:
+
+- Skills page
+- Capability groups
+- Supporting technology lists
+
+Verification:
+
+- Skill claims match owner-approved facts
+- Presentation is organized by capability
+
+Exit criteria:
+
+- Skills page approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 7 - Projects Index
+
+Goals:
+
+- Showcase the initial project set
+- Present project status clearly
+
+Deliverables:
+
+- Projects index page
+- Project cards
+- Project status labels
+
+Verification:
+
+- Projects are shown with factual status
+- Private repository status is respected
+
+Exit criteria:
+
+- Projects index approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 8 - Project Case-Study System
+
+Goals:
+
+- Build the reusable dynamic case-study route
+- Support project-specific factual narratives
+
+Deliverables:
+
+- `/projects/[slug]`
+- Case-study section components
+- Content-driven project detail pages
+
+Verification:
+
+- Only factual sections render
+- Missing sections remain hidden or marked `Pending owner input`
+
+Exit criteria:
+
+- Case-study framework approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 9 - Experience and Resume
+
+Goals:
+
+- Present professional experience
+- Present resume access and evidence
+
+Deliverables:
+
+- Experience page
+- Resume page
+- Resume actions
+
+Verification:
+
+- Dates and roles are verified
+- Resume links are valid
+
+Exit criteria:
+
+- Experience and resume pages approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 10 - Contact System
+
+Goals:
+
+- Provide contact pathways
+- Keep submission handling approved before adding forms
+
+Deliverables:
+
+- Contact page
+- Contact methods
+- Social links
+
+Verification:
+
+- Contact details are owner-approved
+- Any form behavior is approved before use
+
+Exit criteria:
+
+- Contact system approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 11 - Motion and Interaction Polish
+
+Goals:
+
+- Refine movement and interaction quality
+- Keep motion purposeful and restrained
+
+Deliverables:
+
+- Motion rules
+- Interaction polish
+- Small usability refinements
+
+Verification:
+
+- Motion remains accessible
+- Reduced-motion preferences are respected
+
+Exit criteria:
+
+- Motion polish approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 12 - Accessibility Audit
+
+Goals:
+
+- Validate WCAG 2.2 AA alignment
+- Confirm keyboard and screen-reader support
+
+Deliverables:
+
+- Accessibility review notes
+- Remediation list
+
+Verification:
+
+- Focus order works
+- Contrast is sufficient
+- Semantics are correct
+
+Exit criteria:
+
+- Accessibility audit approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 13 - SEO and Social Sharing
+
+Goals:
+
+- Finalize metadata
+- Add social preview support
+- Add structured data
+
+Deliverables:
+
+- Metadata implementation
+- Open Graph and Twitter/X cards
+- Structured data plan
+- Sitemap and robots strategy
+
+Verification:
+
+- Titles and descriptions are correct
+- Social previews are valid
+
+Exit criteria:
+
+- SEO implementation approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 14 - Performance Optimization
+
+Goals:
+
+- Improve load performance
+- Minimize browser-side JavaScript
+- Optimize assets and rendering
+
+Deliverables:
+
+- Performance tuning notes
+- Asset optimization
+- Rendering improvements
+
+Verification:
+
+- Key routes remain efficient
+- Performance targets are assessed
+
+Exit criteria:
+
+- Performance review approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 15 - Testing
+
+Goals:
+
+- Validate functionality and content integrity
+- Confirm responsive behavior
+
+Deliverables:
+
+- Test coverage plan
+- Manual verification checklist
+- Regression notes
+
+Verification:
+
+- Representative viewport checks pass
+- Core journeys are validated
+
+Exit criteria:
+
+- Testing sign-off received
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 16 - Final Content and Visual Polish
+
+Goals:
+
+- Refine all visible content
+- Finalize visual consistency
+
+Deliverables:
+
+- Content pass
+- Visual polish pass
+
+Verification:
+
+- No invented or stale content remains
+- Visual consistency is maintained
+
+Exit criteria:
+
+- Final polish approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 17 - Deployment
+
+Goals:
+
+- Prepare for production release
+- Deploy to the approved hosting platform
+
+Deliverables:
+
+- Production deployment
+- Release checklist
+
+Verification:
+
+- Deployment succeeds
+- Production environment loads correctly
+
+Exit criteria:
+
+- Release approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Phase 18 - Post-Launch Maintenance
+
+Goals:
+
+- Monitor the release
+- Handle content updates and maintenance
+
+Deliverables:
+
+- Maintenance notes
+- Post-launch update process
+
+Verification:
+
+- Critical issues are tracked
+- Future improvements are recorded
+
+Exit criteria:
+
+- Maintenance process established
+
+Approval before moving forward:
+
+- Required
+
+Status: `Pending`
+
+## Version 1 Out Of Scope
+
+- Full CMS
+- Authentication
+- Admin dashboard
+- Database
+- Blog platform
+- Comments
+- Real-time functionality
+- Complex backend
+- AI chatbot
+- Unverified testimonials
+- Multiple themes
+- Excessive 3D effects
+- Advanced analytics dashboard
