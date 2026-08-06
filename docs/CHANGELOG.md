@@ -2,6 +2,16 @@
 
 ## 2026-08-06
 
+### Phase 4B-1
+
+- Implemented the approved homepage core: wider homepage containers, hero, credibility strip, and featured projects.
+- Replaced the temporary Design System Preview homepage with a production-facing homepage foundation.
+- Added structured homepage content for the approved profile and the three verified projects.
+- Used intentional preview surfaces because approved screenshots are not yet available.
+- Rendered the featured-project case-study action as a disabled placeholder instead of a dead link.
+- Kept the remaining homepage sections for a later phase.
+- No dependency was installed.
+
 ### Phase 4A
 
 - Added the homepage visual blueprint for implementation planning only.

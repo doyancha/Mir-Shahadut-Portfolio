@@ -49,14 +49,14 @@ The homepage should not visually privilege:
 
 The homepage must use section-specific widths instead of one universal container.
 
-| Area | Selected width | Purpose |
-| --- | --- | --- |
-| Hero | `97.5rem` | Lets the hero breathe on 1440px+ while keeping the text column bounded |
-| Featured projects | `97.5rem` | Supports editorial case-study rows and wide screenshots |
-| Engineering showcase | `97.5rem` | Keeps the proof-heavy section broad without becoming full-bleed |
-| General homepage content | `88rem` | Gives narrative sections room without overexpansion |
-| Narrative sections | `74rem` | Holds readable explanation, approach, and resume support content |
-| Long-form prose | `48rem` | Keeps paragraph-based reading comfortable |
+| Area                     | Selected width | Purpose                                                                |
+| ------------------------ | -------------- | ---------------------------------------------------------------------- |
+| Hero                     | `97.5rem`      | Lets the hero breathe on 1440px+ while keeping the text column bounded |
+| Featured projects        | `97.5rem`      | Supports editorial case-study rows and wide screenshots                |
+| Engineering showcase     | `97.5rem`      | Keeps the proof-heavy section broad without becoming full-bleed        |
+| General homepage content | `88rem`        | Gives narrative sections room without overexpansion                    |
+| Narrative sections       | `74rem`        | Holds readable explanation, approach, and resume support content       |
+| Long-form prose          | `48rem`        | Keeps paragraph-based reading comfortable                              |
 
 ### Container rules
 
@@ -85,17 +85,17 @@ All spacing below is derived from the Phase 2 spacing system:
 
 ### Exact rhythm
 
-| Rhythm point | Desktop | Tablet | Mobile | Role |
-| --- | --- | --- | --- | --- |
-| Hero top spacing under header | `2rem` | `1.5rem` | `1.25rem` | Keeps the hero visually tied to the shell without crowding the header |
-| Hero bottom spacing | `4.75rem` | `4rem` | `3rem` | Separates the hero from the proof strip and preserves the first impression |
-| Major section spacing | `var(--section-spacing)` | `clamp(2.25rem, 4vw, 4rem)` | `clamp(2rem, 4vw, 3rem)` | Default rhythm for the large sections |
-| Compact-section spacing | `2.25rem` | `1.75rem` | `1.25rem` | Used for resume CTA and final contact CTA |
-| Heading to supporting text | `0.75rem` | `0.75rem` | `0.625rem` | Keeps headings readable without collapsing the hierarchy |
-| Section intro to content grid | `1.5rem` | `1.25rem` | `1rem` | Prevents intro copy from feeling detached from the grid |
-| Project row spacing | `2rem` | `1.5rem` | `1.25rem` | Supports editorial pacing between case-study rows |
-| CTA gap inside a row | `0.75rem` | `0.75rem` | `0.625rem` | Keeps action buttons close enough to read as a pair |
-| CTA block spacing | `1rem` above and below | `1rem` above and below | `0.75rem` above and below | Keeps CTA bands compact and legible |
+| Rhythm point                  | Desktop                  | Tablet                      | Mobile                    | Role                                                                       |
+| ----------------------------- | ------------------------ | --------------------------- | ------------------------- | -------------------------------------------------------------------------- |
+| Hero top spacing under header | `2rem`                   | `1.5rem`                    | `1.25rem`                 | Keeps the hero visually tied to the shell without crowding the header      |
+| Hero bottom spacing           | `4.75rem`                | `4rem`                      | `3rem`                    | Separates the hero from the proof strip and preserves the first impression |
+| Major section spacing         | `var(--section-spacing)` | `clamp(2.25rem, 4vw, 4rem)` | `clamp(2rem, 4vw, 3rem)`  | Default rhythm for the large sections                                      |
+| Compact-section spacing       | `2.25rem`                | `1.75rem`                   | `1.25rem`                 | Used for resume CTA and final contact CTA                                  |
+| Heading to supporting text    | `0.75rem`                | `0.75rem`                   | `0.625rem`                | Keeps headings readable without collapsing the hierarchy                   |
+| Section intro to content grid | `1.5rem`                 | `1.25rem`                   | `1rem`                    | Prevents intro copy from feeling detached from the grid                    |
+| Project row spacing           | `2rem`                   | `1.5rem`                    | `1.25rem`                 | Supports editorial pacing between case-study rows                          |
+| CTA gap inside a row          | `0.75rem`                | `0.75rem`                   | `0.625rem`                | Keeps action buttons close enough to read as a pair                        |
+| CTA block spacing             | `1rem` above and below   | `1rem` above and below      | `0.75rem` above and below | Keeps CTA bands compact and legible                                        |
 
 ### Rhythm rules
 
@@ -321,6 +321,12 @@ Do not invent completion status or public source availability.
 
 - Show the live-demo CTA only when a verified URL exists.
 - If there is no verified URL, omit the button and show `Live demo: Pending owner input` as muted metadata.
+
+### Case-study behavior
+
+- In Phase 4B-1, render `Read case study` as a disabled placeholder button.
+- Do not create a dead link before the case-study route exists.
+- Keep the control visually consistent with the homepage CTA system so the later route can swap in without redesign.
 
 ### Screenshot behavior
 
@@ -690,20 +696,20 @@ Do not invent completion status or public source availability.
 
 The homepage should continue using the approved `Geist` and `IBM Plex Mono` system.
 
-| Homepage role | Design-system role | Desktop behavior | Tablet behavior | Mobile behavior | Max lines | Monospace use |
-| --- | --- | --- | --- | --- | --- | --- |
-| Hero eyebrow | `type-label` | Uppercase, small, muted or accent | Same | Same | 1 | No |
-| Hero heading | `type-display` | Large, name-first, may wrap to 2 lines | Slightly smaller scaling | Wrap naturally, 2-3 lines | 2 on desktop, 3 on mobile | No |
-| Hero body | `type-body-large` | 1 or 2 paragraphs max | Same | Shortened, one paragraph preferred | 3 | No |
-| Section eyebrow | `type-label` | Accent blue | Same | Same | 1 | No |
-| Section heading | `type-section-title` | Short and strong | Same | Slightly smaller by clamp | 2 | No |
-| Section introduction | `type-body` | Readable intro copy | Same | Trimmed to preserve rhythm | 3 | No |
-| Project title | `type-subsection-title` or `type-card-title` | Strong but not oversized | Same | Can step down to `type-card-title` if needed | 2 | No |
-| Project summary | `type-body-small` | 2-3 lines | 2-3 lines | 2 lines preferred on 320px | 3 | No |
-| Technology label | `type-metadata` or `type-caption` | Small, compact, scannable | Same | Wraps naturally | 1-2 | Only when label is technical metadata |
-| Status metadata | `type-metadata` | Monospace, calm, factual | Same | Same | 1 | Yes |
-| CTA text | button text | Clear and direct | Same | Full-width when stacked | 1 | No |
-| Caption | `type-caption` | Small supporting note | Same | Same | 2 | No |
+| Homepage role        | Design-system role                           | Desktop behavior                       | Tablet behavior          | Mobile behavior                              | Max lines                 | Monospace use                         |
+| -------------------- | -------------------------------------------- | -------------------------------------- | ------------------------ | -------------------------------------------- | ------------------------- | ------------------------------------- |
+| Hero eyebrow         | `type-label`                                 | Uppercase, small, muted or accent      | Same                     | Same                                         | 1                         | No                                    |
+| Hero heading         | `type-display`                               | Large, name-first, may wrap to 2 lines | Slightly smaller scaling | Wrap naturally, 2-3 lines                    | 2 on desktop, 3 on mobile | No                                    |
+| Hero body            | `type-body-large`                            | 1 or 2 paragraphs max                  | Same                     | Shortened, one paragraph preferred           | 3                         | No                                    |
+| Section eyebrow      | `type-label`                                 | Accent blue                            | Same                     | Same                                         | 1                         | No                                    |
+| Section heading      | `type-section-title`                         | Short and strong                       | Same                     | Slightly smaller by clamp                    | 2                         | No                                    |
+| Section introduction | `type-body`                                  | Readable intro copy                    | Same                     | Trimmed to preserve rhythm                   | 3                         | No                                    |
+| Project title        | `type-subsection-title` or `type-card-title` | Strong but not oversized               | Same                     | Can step down to `type-card-title` if needed | 2                         | No                                    |
+| Project summary      | `type-body-small`                            | 2-3 lines                              | 2-3 lines                | 2 lines preferred on 320px                   | 3                         | No                                    |
+| Technology label     | `type-metadata` or `type-caption`            | Small, compact, scannable              | Same                     | Wraps naturally                              | 1-2                       | Only when label is technical metadata |
+| Status metadata      | `type-metadata`                              | Monospace, calm, factual               | Same                     | Same                                         | 1                         | Yes                                   |
+| CTA text             | button text                                  | Clear and direct                       | Same                     | Full-width when stacked                      | 1                         | No                                    |
+| Caption              | `type-caption`                               | Small supporting note                  | Same                     | Same                                         | 2                         | No                                    |
 
 ### Wrapping rules
 
@@ -847,13 +853,13 @@ The homepage should continue using the approved `Geist` and `IBM Plex Mono` syst
 
 Motion is planning only. No motion should be required to understand the homepage.
 
-| Motion opportunity | Purpose | Duration category | Reduced-motion fallback | CSS sufficient? | Defer? |
-| --- | --- | --- | --- | --- | --- |
-| Hero preview hover lift | Give the screenshot frame a small tactile response | Fast | Keep the frame static | Yes | No |
-| Project media hover | Indicate that the case-study row is interactive | Fast | Remove the lift and maintain the border state | Yes | No |
-| CTA feedback | Reinforce clickability on buttons | Fast | Keep only color and border change | Yes | No |
-| Section entrance | Add a subtle reveal if later needed | Standard | No entrance motion | Maybe, but not required | Yes, unless a later phase proves value |
-| Technology-label interaction | Light hover and focus feedback on labels or links | Fast | Static labels with clear focus ring | Yes | No |
+| Motion opportunity           | Purpose                                            | Duration category | Reduced-motion fallback                       | CSS sufficient?         | Defer?                                 |
+| ---------------------------- | -------------------------------------------------- | ----------------- | --------------------------------------------- | ----------------------- | -------------------------------------- |
+| Hero preview hover lift      | Give the screenshot frame a small tactile response | Fast              | Keep the frame static                         | Yes                     | No                                     |
+| Project media hover          | Indicate that the case-study row is interactive    | Fast              | Remove the lift and maintain the border state | Yes                     | No                                     |
+| CTA feedback                 | Reinforce clickability on buttons                  | Fast              | Keep only color and border change             | Yes                     | No                                     |
+| Section entrance             | Add a subtle reveal if later needed                | Standard          | No entrance motion                            | Maybe, but not required | Yes, unless a later phase proves value |
+| Technology-label interaction | Light hover and focus feedback on labels or links  | Fast              | Static labels with clear focus ring           | Yes                     | No                                     |
 
 ### Motion rules
 
@@ -1011,9 +1017,9 @@ Motion is planning only. No motion should be required to understand the homepage
 
 ### 1536px and wider
 
-| Width | Container | Padding | Hero | Projects | Capabilities | Technology wrapping | Footer relationship | Shortening rules | Never hide |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1536px+ | Hero and featured: `97.5rem`; standard: `88rem`; narrative: `74rem`; prose: `48rem` | `clamp(1rem, 2vw, 1.75rem)` | `44% / 56%` split, two-column | Alternating editorial rows | 2 columns | 2-3 rows of compact labels | Footer remains separate and full width | Long summaries may trim to 2 lines | Project names, status labels, CTAs |
+| Width   | Container                                                                           | Padding                     | Hero                          | Projects                   | Capabilities | Technology wrapping        | Footer relationship                    | Shortening rules                   | Never hide                         |
+| ------- | ----------------------------------------------------------------------------------- | --------------------------- | ----------------------------- | -------------------------- | ------------ | -------------------------- | -------------------------------------- | ---------------------------------- | ---------------------------------- |
+| 1536px+ | Hero and featured: `97.5rem`; standard: `88rem`; narrative: `74rem`; prose: `48rem` | `clamp(1rem, 2vw, 1.75rem)` | `44% / 56%` split, two-column | Alternating editorial rows | 2 columns    | 2-3 rows of compact labels | Footer remains separate and full width | Long summaries may trim to 2 lines | Project names, status labels, CTAs |
 
 ```text
 [Header]
@@ -1032,9 +1038,9 @@ Motion is planning only. No motion should be required to understand the homepage
 
 ### 1440px
 
-| Width | Container | Padding | Hero | Projects | Capabilities | Technology wrapping | Footer relationship | Shortening rules | Never hide |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1440px | Same caps as above | `clamp(1rem, 2vw, 1.75rem)` | `44% / 56%` split | Alternating editorial rows with `58% / 42%` row split | 2 columns | 2 rows or 3 compact groups | Footer stays below a full section gap | Summaries may trim to 2 lines | Project names, CTAs, proof labels |
+| Width  | Container          | Padding                     | Hero              | Projects                                              | Capabilities | Technology wrapping        | Footer relationship                   | Shortening rules              | Never hide                        |
+| ------ | ------------------ | --------------------------- | ----------------- | ----------------------------------------------------- | ------------ | -------------------------- | ------------------------------------- | ----------------------------- | --------------------------------- |
+| 1440px | Same caps as above | `clamp(1rem, 2vw, 1.75rem)` | `44% / 56%` split | Alternating editorial rows with `58% / 42%` row split | 2 columns    | 2 rows or 3 compact groups | Footer stays below a full section gap | Summaries may trim to 2 lines | Project names, CTAs, proof labels |
 
 ```text
 [Hero left text]                                [Hero right preview]
@@ -1052,9 +1058,9 @@ Motion is planning only. No motion should be required to understand the homepage
 
 ### 1280px
 
-| Width | Container | Padding | Hero | Projects | Capabilities | Technology wrapping | Footer relationship | Shortening rules | Never hide |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1280px | Same caps, but hero and featured sections remain broad | `clamp(1rem, 2vw, 1.5rem)` | Slightly tighter split, still two-column | Rows can stack text under media sooner if needed | 2 columns if cards remain readable | Tags wrap earlier | Footer unchanged | Project summaries may shorten to 2 lines | Screenshots, labels, CTAs |
+| Width  | Container                                              | Padding                    | Hero                                     | Projects                                         | Capabilities                       | Technology wrapping | Footer relationship | Shortening rules                         | Never hide                |
+| ------ | ------------------------------------------------------ | -------------------------- | ---------------------------------------- | ------------------------------------------------ | ---------------------------------- | ------------------- | ------------------- | ---------------------------------------- | ------------------------- |
+| 1280px | Same caps, but hero and featured sections remain broad | `clamp(1rem, 2vw, 1.5rem)` | Slightly tighter split, still two-column | Rows can stack text under media sooner if needed | 2 columns if cards remain readable | Tags wrap earlier   | Footer unchanged    | Project summaries may shorten to 2 lines | Screenshots, labels, CTAs |
 
 ```text
 [Hero]
@@ -1072,8 +1078,8 @@ Motion is planning only. No motion should be required to understand the homepage
 
 ### 1024px
 
-| Width | Container | Padding | Hero | Projects | Capabilities | Technology wrapping | Footer relationship | Shortening rules | Never hide |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Width  | Container                                                                             | Padding                                             | Hero                                    | Projects                                                                                           | Capabilities                                               | Technology wrapping        | Footer relationship                    | Shortening rules                                           | Never hide                                      |
+| ------ | ------------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | -------------------------- | -------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------- |
 | 1024px | Hero and featured sections still use the broad caps, but content collapses more often | `1.25rem` effective minimum from the existing clamp | Stacked or near-stacked with text first | Each project becomes a vertical row with image first or text first depending on screenshot quality | 2 columns if the cards remain balanced, otherwise 1 column | Tags wrap to multiple rows | Footer remains below the last CTA band | Summary text may shorten and project metadata may compress | Project numbers, status labels, case-study CTAs |
 
 ```text
@@ -1099,8 +1105,8 @@ Motion is planning only. No motion should be required to understand the homepage
 
 ### 768px
 
-| Width | Container | Padding | Hero | Projects | Capabilities | Technology wrapping | Footer relationship | Shortening rules | Never hide |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Width | Container                                   | Padding   | Hero    | Projects                    | Capabilities        | Technology wrapping                            | Footer relationship   | Shortening rules                                      | Never hide                                              |
+| ----- | ------------------------------------------- | --------- | ------- | --------------------------- | ------------------- | ---------------------------------------------- | --------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
 | 768px | Standard page padding, full available width | `1.25rem` | Stacked | Single-column project stack | Single-column cards | Wrapped tags with more vertical breathing room | Footer stays separate | Headings and summaries may shorten, but not disappear | Screenshot placeholders, case-study CTAs, status labels |
 
 ```text
@@ -1129,9 +1135,9 @@ Motion is planning only. No motion should be required to understand the homepage
 
 ### 430px
 
-| Width | Container | Padding | Hero | Projects | Capabilities | Technology wrapping | Footer relationship | Shortening rules | Never hide |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 430px | Full width with the standard clamp padding | `1rem` minimum | Stacked with tight CTA spacing | One project per row | One column | Compact tag wrap | Footer remains after a full section gap | Summaries may trim to 2 lines | Project title, status, screenshot placeholder, CTAs |
+| Width | Container                                  | Padding        | Hero                           | Projects            | Capabilities | Technology wrapping | Footer relationship                     | Shortening rules              | Never hide                                          |
+| ----- | ------------------------------------------ | -------------- | ------------------------------ | ------------------- | ------------ | ------------------- | --------------------------------------- | ----------------------------- | --------------------------------------------------- |
+| 430px | Full width with the standard clamp padding | `1rem` minimum | Stacked with tight CTA spacing | One project per row | One column   | Compact tag wrap    | Footer remains after a full section gap | Summaries may trim to 2 lines | Project title, status, screenshot placeholder, CTAs |
 
 ```text
 [Hero]
@@ -1150,9 +1156,9 @@ Motion is planning only. No motion should be required to understand the homepage
 
 ### 390px
 
-| Width | Container | Padding | Hero | Projects | Capabilities | Technology wrapping | Footer relationship | Shortening rules | Never hide |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 390px | Full width with clamp padding | `1rem` | Name, intro, stacked CTA, compact preview | One project per row with screenshot first if available | One column | Tags wrap to 2-3 rows as needed | Footer unchanged | Hero intro may shorten, project summaries may trim | Project titles, case-study CTA, private repo label |
+| Width | Container                     | Padding | Hero                                      | Projects                                               | Capabilities | Technology wrapping             | Footer relationship | Shortening rules                                   | Never hide                                         |
+| ----- | ----------------------------- | ------- | ----------------------------------------- | ------------------------------------------------------ | ------------ | ------------------------------- | ------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| 390px | Full width with clamp padding | `1rem`  | Name, intro, stacked CTA, compact preview | One project per row with screenshot first if available | One column   | Tags wrap to 2-3 rows as needed | Footer unchanged    | Hero intro may shorten, project summaries may trim | Project titles, case-study CTA, private repo label |
 
 ```text
 [Eyebrow]
@@ -1175,9 +1181,9 @@ Motion is planning only. No motion should be required to understand the homepage
 
 ### 360px
 
-| Width | Container | Padding | Hero | Projects | Capabilities | Technology wrapping | Footer relationship | Shortening rules | Never hide |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 360px | Full width with clamp padding | `1rem` | Tightest stacked hero | One project per row | One column | Tags wrap aggressively but remain readable | Footer unchanged | Reduce nonessential copy before hiding proof | Status labels, CTAs, screenshot placeholders |
+| Width | Container                     | Padding | Hero                  | Projects            | Capabilities | Technology wrapping                        | Footer relationship | Shortening rules                             | Never hide                                   |
+| ----- | ----------------------------- | ------- | --------------------- | ------------------- | ------------ | ------------------------------------------ | ------------------- | -------------------------------------------- | -------------------------------------------- |
+| 360px | Full width with clamp padding | `1rem`  | Tightest stacked hero | One project per row | One column   | Tags wrap aggressively but remain readable | Footer unchanged    | Reduce nonessential copy before hiding proof | Status labels, CTAs, screenshot placeholders |
 
 ```text
 [Hero]
@@ -1197,9 +1203,9 @@ Motion is planning only. No motion should be required to understand the homepage
 
 ### 320px
 
-| Width | Container | Padding | Hero | Projects | Capabilities | Technology wrapping | Footer relationship | Shortening rules | Never hide |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 320px | Full width with clamp padding | `1rem` | Minimal but complete | One project per row with the screenshot still reserved | One column, tightly stacked | Only the most relevant labels should remain visible | Footer unchanged | Shorten summaries first, then group labels, never hide CTAs or status | Name, title, project proof, CTA labels, pending placeholders |
+| Width | Container                     | Padding | Hero                 | Projects                                               | Capabilities                | Technology wrapping                                 | Footer relationship | Shortening rules                                                      | Never hide                                                   |
+| ----- | ----------------------------- | ------- | -------------------- | ------------------------------------------------------ | --------------------------- | --------------------------------------------------- | ------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------ |
+| 320px | Full width with clamp padding | `1rem`  | Minimal but complete | One project per row with the screenshot still reserved | One column, tightly stacked | Only the most relevant labels should remain visible | Footer unchanged    | Shorten summaries first, then group labels, never hide CTAs or status | Name, title, project proof, CTA labels, pending placeholders |
 
 ```text
 [Eyebrow]
@@ -1224,33 +1230,33 @@ Motion is planning only. No motion should be required to understand the homepage
 
 Everything below is needed before Phase 4B can be implemented cleanly.
 
-| Item | State |
-| --- | --- |
-| Approved project display order | `Pending owner input` |
-| Proposed neutral project order | `HRH Shopping`, `BookEasy`, `TaskOrbit` |
-| HRH Shopping summary | `Pending owner input` |
-| HRH Shopping status | `Pending owner input` |
-| HRH Shopping technology list | `Pending owner input` |
-| HRH Shopping cover screenshot | `Pending owner input` |
-| HRH Shopping live-demo URL | `Pending owner input` |
-| HRH Shopping implementation limitations | `Pending owner input` |
-| BookEasy summary | `Pending owner input` |
-| BookEasy status | `Pending owner input` |
-| BookEasy technology list | `Pending owner input` |
-| BookEasy cover screenshot | `Pending owner input` |
-| BookEasy live-demo URL | `Pending owner input` |
-| BookEasy implementation limitations | `Pending owner input` |
-| TaskOrbit summary | `Pending owner input` |
-| TaskOrbit status | `Pending owner input` |
-| TaskOrbit technology list | `Pending owner input` |
-| TaskOrbit cover screenshot | `Pending owner input` |
-| TaskOrbit live-demo URL | `Pending owner input` |
-| TaskOrbit implementation limitations | `Pending owner input` |
-| Resume PDF or destination | `Pending owner input` |
-| Verified social links | `Pending owner input` |
-| Professional email | `Pending owner input` |
-| Optional trust evidence | `Pending owner input` |
-| Any approved status labels | `Pending owner input` |
+| Item                                    | State                                   |
+| --------------------------------------- | --------------------------------------- |
+| Approved project display order          | `Pending owner input`                   |
+| Proposed neutral project order          | `HRH Shopping`, `BookEasy`, `TaskOrbit` |
+| HRH Shopping summary                    | `Pending owner input`                   |
+| HRH Shopping status                     | `Pending owner input`                   |
+| HRH Shopping technology list            | `Pending owner input`                   |
+| HRH Shopping cover screenshot           | `Pending owner input`                   |
+| HRH Shopping live-demo URL              | `Pending owner input`                   |
+| HRH Shopping implementation limitations | `Pending owner input`                   |
+| BookEasy summary                        | `Pending owner input`                   |
+| BookEasy status                         | `Pending owner input`                   |
+| BookEasy technology list                | `Pending owner input`                   |
+| BookEasy cover screenshot               | `Pending owner input`                   |
+| BookEasy live-demo URL                  | `Pending owner input`                   |
+| BookEasy implementation limitations     | `Pending owner input`                   |
+| TaskOrbit summary                       | `Pending owner input`                   |
+| TaskOrbit status                        | `Pending owner input`                   |
+| TaskOrbit technology list               | `Pending owner input`                   |
+| TaskOrbit cover screenshot              | `Pending owner input`                   |
+| TaskOrbit live-demo URL                 | `Pending owner input`                   |
+| TaskOrbit implementation limitations    | `Pending owner input`                   |
+| Resume PDF or destination               | `Pending owner input`                   |
+| Verified social links                   | `Pending owner input`                   |
+| Professional email                      | `Pending owner input`                   |
+| Optional trust evidence                 | `Pending owner input`                   |
+| Any approved status labels              | `Pending owner input`                   |
 
 ## Phase 4B Implementation Boundaries
 

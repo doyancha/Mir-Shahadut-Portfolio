@@ -22,6 +22,7 @@ export interface ProjectRecord {
   slug: string;
   name: string;
   shortSummary: Nullable<string>;
+  homepageSummary?: Nullable<string>;
   description: Nullable<string>;
   problem: Nullable<string>;
   goals: string[];
@@ -29,6 +30,7 @@ export interface ProjectRecord {
   features: ProjectFeature[];
   architecture: Nullable<string>;
   technologyStack: string[];
+  homepageTechnologyStack?: string[];
   challenges: string[];
   solutions: string[];
   currentStatus: Nullable<string>;

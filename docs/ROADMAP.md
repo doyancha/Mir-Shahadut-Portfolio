@@ -207,29 +207,63 @@ Approval before moving forward:
 
 Status: `Complete`
 
-## Phase 4B - Homepage Implementation
+## Phase 4B-1 - Homepage Core
 
 Goals:
 
-- Build the final homepage narrative
-- Establish first impression and positioning
-- Surface featured projects and calls to action
+- Build the homepage hero
+- Build the credibility strip
+- Build the featured-project section
+- Preserve later homepage sections for a follow-up phase
 
 Deliverables:
 
-- Home page
-- Hero section
-- Featured project sections
-- Conversion calls to action
+- Homepage hero
+- Credibility strip
+- Featured projects
+- Structured homepage content
+- Disabled case-study CTA placeholder behavior
 
 Verification:
 
 - Primary visitor journey is clear
 - Content is factual and approved
+- Case-study CTAs do not create dead links
+- The homepage core is wider than the old preview
 
 Exit criteria:
 
-- Homepage approved
+- Homepage core approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Complete`
+
+## Phase 4B-2 - Remaining Homepage Sections
+
+Goals:
+
+- Build the remaining homepage sections
+- Add the rest of the conversion flow
+
+Deliverables:
+
+- Core capabilities
+- Engineering approach
+- Selected technologies
+- Resume CTA
+- Final contact CTA
+
+Verification:
+
+- Content is factual and approved
+- No unsupported claims are introduced
+
+Exit criteria:
+
+- Remaining homepage sections approved
 
 Approval before moving forward:
 

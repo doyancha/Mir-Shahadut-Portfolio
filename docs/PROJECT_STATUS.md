@@ -6,13 +6,15 @@
 - Phase 3A implementation is approved and locked.
 - Phase 3B homepage UX architecture is locked as the planning baseline for later phases.
 - Phase 4A homepage visual planning is complete and documentation-only.
+- Phase 4B-1 homepage core has been implemented.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
 - The working tree was clean at the start of this task.
 - Owner content remains pending.
-- Phase 4A is the only authorized scope.
-- Phase 4B is not authorized.
+- Phase 4A is the only authorized planning scope.
+- Phase 4B-1 is complete.
+- Phase 4B-2 is not authorized.
 - The Phase 4A blueprint is ready for review.
 
 ## Implementation Summary
@@ -24,6 +26,8 @@
 - The temporary homepage remains the `Design System Preview`.
 - The Phase 3B homepage UX architecture remains the planning baseline for the homepage.
 - The Phase 4A homepage visual blueprint is now documented in a planning-only file.
+- The homepage core now replaces the temporary Design System Preview with the approved hero, credibility strip, and featured projects.
+- The homepage uses structured content for the approved profile and project facts.
 - Structured content models remain in place and still use pending values where content is missing.
 
 ## Files Added Or Changed In Phase 3A and Phase 3B Planning
@@ -62,15 +66,16 @@
 - This task changed documentation only.
 - No React or application implementation files were changed.
 - No dependency was installed.
-- No homepage implementation was created.
-- No Phase 4B implementation was started.
+- No dependency was installed.
+- The approved homepage core was implemented.
+- The remaining homepage sections were not started.
 - `git diff --check` was run after the documentation updates.
 - `git status --short --branch`, `git diff --stat`, and `git diff --name-only` were reviewed.
 
 ## Remaining Concerns
 
 - The preview homepage is temporary and remains in place until Phase 4.
-- No final homepage implementation has been started.
+- The remaining homepage sections have not been started.
 - Project facts remain intentionally neutral or pending owner input.
-- Phase 4B is not authorized.
+- Phase 4B-2 is not authorized.
 - Owner input is still required before implementation can begin.

@@ -27,6 +27,11 @@
   --container-prose: 42rem;
   --container-content: 72rem;
   --container-wide: 84rem;
+  --container-home-hero: 97.5rem;
+  --container-home-featured: 97.5rem;
+  --container-home-standard: 88rem;
+  --container-home-narrative: 74rem;
+  --container-home-prose: 48rem;
   --page-padding: clamp(1rem, 2vw, 1.75rem);
   --section-spacing: clamp(2.5rem, 5vw, 4.75rem);
   --control-height-sm: 2.25rem;

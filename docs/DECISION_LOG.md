@@ -81,3 +81,12 @@
 5. Treat `Pending owner input` as the required fallback for missing screenshots, resume destination, social links, technology data, and project facts.
 6. Keep the current temporary Design System Preview homepage unchanged during planning.
 7. Keep Phase 4B as a separate implementation phase that remains unauthorized until the planning blueprint is approved.
+
+## Phase 4B-1 Decisions
+
+1. Implement only the homepage core: the wider container strategy, hero, credibility strip, and featured projects.
+2. Use structured homepage content to hold the approved name, title, introduction, project summaries, statuses, technologies, and live-demo URLs.
+3. Keep approved project screenshots optional for now and render intentional preview surfaces instead of fake screenshots.
+4. Render the featured-project case-study action as a disabled placeholder until a real case-study route exists.
+5. Keep live-demo actions external and clearly labeled without exposing repository links.
+6. Keep the remaining homepage sections deferred to Phase 4B-2.
