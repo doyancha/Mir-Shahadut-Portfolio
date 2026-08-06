@@ -57,3 +57,17 @@
 1. Keep the build-only `tsconfig.build.json` and route Next production type checking through it, because this Next 16 environment generates a `.next/dev/types` tree that otherwise collides with the normal app types during build-time checking.
 2. Keep `tsconfig.json` focused on editor and local type checking, explicitly excluding `.next/dev` generated output so the repository does not depend on stale build artifacts.
 3. Keep `next-env.d.ts` as the standard Next-generated file that references `.next/types`; do not treat the generated dev variant as a source change.
+
+## Phase 3B Decisions
+
+1. Put featured projects directly after the hero because project evidence is the strongest conversion proof for this portfolio.
+2. Use `View Projects` as the primary homepage CTA and `View Resume` as the secondary CTA to avoid competing primary actions.
+3. Present the three initial projects as editorial case-study cards with screenshots, status labels, and private-repository disclosure instead of source-code links.
+4. Keep capabilities grouped by capability category rather than by arbitrary percentages or oversized technology-logo clouds.
+5. Use a wider, section-specific homepage container strategy so hero and project sections can expand on large displays while narrative text remains readable.
+6. Keep profile imagery optional and avoid inventing a hero headshot requirement until the owner approves one.
+7. Keep the homepage planning phase strictly documentation-only; do not begin Phase 4 implementation until owner approval is received.
+8. Use `Full Stack Web Developer` as the public professional title and the approved homepage intro: `I build modern, responsive, and production-focused web applications with thoughtful user experiences, clean architecture, and maintainable code.`
+9. Do not display an availability statement or hero social-icon row on the homepage until the owner explicitly approves them.
+10. Keep homepage social visibility restrained, with GitHub and LinkedIn only in shell, footer, or contact areas once verified, and keep Upwork, Fiverr, and email primarily on the Contact page once verified.
+11. Keep trust signals factual and evidence-based: project screenshots, architecture, technologies, case studies, and honest status labels only.

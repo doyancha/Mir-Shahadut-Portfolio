@@ -4,12 +4,12 @@
 
 - Phase 2 implementation is locked.
 - Phase 3A implementation is approved and locked.
+- Phase 3B homepage UX architecture is documented and pending owner approval.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
-- The working tree was not clean at the start of this task because `next-env.d.ts` was already modified.
+- The working tree was clean at the start of this task.
 - Owner content remains pending.
-- Phase 3B is not authorized.
 - Phase 4 is not authorized.
 
 ## Implementation Summary
@@ -19,9 +19,10 @@
 - Route-aware desktop and mobile navigation were added.
 - Minimal route foundations were added for the authorized public routes.
 - The temporary homepage remains the `Design System Preview`.
+- The Phase 3B homepage UX architecture is now documented in a planning-only file.
 - Structured content models remain in place and still use pending values where content is missing.
 
-## Files Added Or Changed In Phase 3A
+## Files Added Or Changed In Phase 3A and Phase 3B Planning
 
 - `src/app/(marketing)/about/page.tsx`
 - `src/app/(marketing)/contact/page.tsx`
@@ -46,25 +47,25 @@
 - `src/lib/navigation.ts`
 - `src/lib/site-url.ts`
 - `docs/CHANGELOG.md`
+- `docs/HOMEPAGE_UX_ARCHITECTURE.md`
 - `docs/ROADMAP.md`
 - `docs/PROJECT_STATUS.md`
 - `docs/DECISION_LOG.md`
 
 ## Verification Results
 
-- `npm run typecheck` passed.
-- `npm run lint` passed.
-- `npm run format:check` passed.
-- `npm run build` passed.
-- `git diff --check` passed with line-ending warnings only.
-- `git diff --stat` and `git diff --name-only` were reviewed.
-- Browser verification was attempted, but live menu interaction could not be completed in this sandbox because a reliable local server process could not be kept running.
+- This task changed documentation only.
+- No React or application implementation files were changed.
+- No dependency was installed.
+- No homepage implementation was created.
+- No Phase 4 work was started.
+- `git diff --check` was run after the documentation updates.
+- `git status --short --branch`, `git diff --stat`, and `git diff --name-only` were reviewed.
 
 ## Remaining Concerns
 
 - The preview homepage is temporary and remains in place until Phase 4.
-- No final portfolio content has been approved yet.
+- No final homepage implementation has been started.
 - Project facts remain intentionally neutral or pending owner input.
-- Full browser interaction verification remains blocked by the local process-launch restrictions in this environment.
-- Phase 3B is not authorized.
 - Phase 4 is not authorized.
+- Phase 3B awaits owner approval of the documented homepage architecture.

@@ -2,6 +2,15 @@
 
 ## 2026-08-06
 
+### Phase 3B
+
+- Documented the homepage UX architecture for the future homepage.
+- Recorded the owner-approved homepage title, intro, CTA labels, hero visual direction, and restrained social-link policy.
+- Defined homepage goals, audience journeys, section order, hero structure, featured-project strategy, CTA strategy, responsive wireframes, accessibility plan, performance plan, and Phase 4 boundaries.
+- Added a homepage-specific content checklist with `Pending owner input` markers for missing facts.
+- Kept the temporary Design System Preview homepage unchanged.
+- No homepage implementation was created.
+
 ### Phase 3A
 
 - Implemented the reusable global application shell.

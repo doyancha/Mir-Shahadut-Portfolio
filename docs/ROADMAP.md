@@ -174,7 +174,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Not authorized`
+Status: `Pending owner approval`
 
 ## Phase 4 - Homepage Implementation
 
