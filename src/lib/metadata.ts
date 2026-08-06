@@ -29,6 +29,9 @@ export function createMetadata({ path = "/", ...overrides }: CreateMetadataOptio
     alternates: {
       canonical: canonicalPath,
     },
+    icons: {
+      icon: "/icon.svg",
+    },
     openGraph: {
       type: "website",
       locale: "en_US",

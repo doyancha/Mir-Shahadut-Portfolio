@@ -2,6 +2,10 @@
 
 ## 2026-08-06
 
+### Homepage Final QA & Polish
+
+- Corrected the generated Next.js type imports in `next-env.d.ts` so the project typecheck resolves the app router route types cleanly.
+
 ### Phase 4B-2
 
 - Implemented the remaining homepage sections: core capabilities, engineering approach, selected technologies, resume CTA, and final contact CTA.

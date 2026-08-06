@@ -13,8 +13,8 @@ export const homepageHeroContent = {
     href: "/projects",
   },
   secondaryCta: {
-    label: "View Resume",
-    href: "/resume",
+    label: "View Experience",
+    href: "/experience",
   },
 } as const;
 
@@ -27,7 +27,7 @@ export const homepageCredibilityItems = [
 export const homepageCredibilityLabel = "ENGINEERING FOCUS";
 
 export const homepageCredibilityNote =
-  "Evidence is presented through live demos and detailed case studies. Repositories remain private.";
+  "Project work is presented through live demos, technical summaries, and transparent development status. Repositories remain private.";
 
 export const homepageFeaturedProjectSlugs = ["hrh-shopping", "bookeasy", "taskorbit"] as const;
 
