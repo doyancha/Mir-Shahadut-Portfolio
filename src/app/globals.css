@@ -1,12 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
+  --background: 222 31% 8%;
+  --background-elevated: 223 28% 11%;
+  --surface: 223 27% 14%;
+  --surface-muted: 223 23% 17%;
+  --foreground: 220 38% 97%;
+  --foreground-secondary: 215 23% 83%;
+  --foreground-muted: 215 13% 63%;
+  --border: 219 16% 24%;
+  --border-strong: 219 17% 35%;
+  --accent: 217 100% 62%;
+  --accent-hover: 217 100% 68%;
+  --accent-foreground: 220 38% 97%;
+  --success: 158 64% 47%;
+  --warning: 39 92% 59%;
+  --error: 4 89% 67%;
+  --focus-ring: 217 100% 70%;
+  --selection: 217 100% 62%;
+  --shadow-color: 224 43% 4%;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.85rem;
+  --radius-lg: 1.15rem;
+  --radius-xl: 1.5rem;
+  --container-prose: 42rem;
+  --container-content: 72rem;
+  --container-wide: 84rem;
+  --page-padding: clamp(1rem, 2vw, 1.75rem);
+  --section-spacing: clamp(2.5rem, 5vw, 4.75rem);
+  --control-height-sm: 2.25rem;
+  --control-height-md: 2.75rem;
+  --control-height-lg: 3.25rem;
+  --motion-fast: 140ms;
+  --motion-standard: 220ms;
+  --motion-slow: 320ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --shadow-soft:
+    0 1px 1px hsl(var(--shadow-color) / 0.25), 0 10px 30px hsl(var(--shadow-color) / 0.28);
+  --shadow-lift:
+    0 1px 1px hsl(var(--shadow-color) / 0.24), 0 18px 40px hsl(var(--shadow-color) / 0.3);
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-code: var(--font-mono);
+  --text-display: clamp(2.75rem, 7vw, 5rem);
+  --text-page-title: clamp(2rem, 4vw, 3.25rem);
+  --text-section-title: clamp(1.4rem, 2.25vw, 1.9rem);
+  --text-subsection-title: clamp(1.1rem, 1.6vw, 1.35rem);
+  --text-card-title: clamp(1rem, 1.25vw, 1.1rem);
+  --text-body-large: clamp(1rem, 1.15vw, 1.125rem);
+  --text-body: 1rem;
+  --text-body-small: 0.9375rem;
+  --text-label: 0.8125rem;
+  --text-caption: 0.75rem;
+  --text-metadata: 0.8125rem;
+  --text-code: 0.875rem;
 }
 
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  background:
+    radial-gradient(circle at top, hsl(var(--accent) / 0.09), transparent 34%),
+    radial-gradient(circle at bottom right, hsl(219 100% 65% / 0.04), transparent 28%),
+    hsl(var(--background));
 }
 
 *,
@@ -24,11 +81,30 @@ body {
 body {
   min-height: 100vh;
   overflow-x: clip;
-  background: #ffffff;
-  color: #0f172a;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
+  background:
+    radial-gradient(circle at top, hsl(var(--accent) / 0.05), transparent 30%),
+    linear-gradient(180deg, hsl(var(--background-elevated) / 0.22), transparent 18%),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.6;
   text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
 }
 
 a {
@@ -37,9 +113,153 @@ a {
   text-underline-offset: 0.18em;
 }
 
+::selection {
+  background: hsl(var(--selection) / 0.28);
+  color: hsl(var(--foreground));
+}
+
 :focus-visible {
-  outline: 2px solid #0f172a;
+  outline: 2px solid hsl(var(--focus-ring));
   outline-offset: 3px;
+}
+
+@layer components {
+  .surface-card {
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius-lg);
+    background: hsl(var(--surface));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .surface-card-muted {
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius-lg);
+    background: hsl(var(--surface-muted));
+  }
+
+  .surface-card-elevated {
+    border: 1px solid hsl(var(--border-strong));
+    border-radius: var(--radius-lg);
+    background: hsl(var(--background-elevated));
+    box-shadow: var(--shadow-lift);
+  }
+
+  .surface-divider {
+    background: hsl(var(--border));
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-lift {
+    box-shadow: var(--shadow-lift);
+  }
+
+  .container-page {
+    width: min(100%, var(--container-content));
+    margin-inline: auto;
+    padding-inline: var(--page-padding);
+  }
+
+  .container-wide {
+    width: min(100%, var(--container-wide));
+    margin-inline: auto;
+    padding-inline: var(--page-padding);
+  }
+
+  .container-prose {
+    width: min(100%, var(--container-prose));
+    margin-inline: auto;
+    padding-inline: var(--page-padding);
+  }
+
+  .section-shell {
+    padding-block: var(--section-spacing);
+  }
+
+  .type-display {
+    font-family: var(--font-display), sans-serif;
+    font-size: var(--text-display);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+  }
+
+  .type-page-title {
+    font-family: var(--font-display), sans-serif;
+    font-size: var(--text-page-title);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+
+  .type-section-title {
+    font-family: var(--font-display), sans-serif;
+    font-size: var(--text-section-title);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    font-weight: 650;
+  }
+
+  .type-subsection-title {
+    font-family: var(--font-display), sans-serif;
+    font-size: var(--text-subsection-title);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 650;
+  }
+
+  .type-card-title {
+    font-family: var(--font-display), sans-serif;
+    font-size: var(--text-card-title);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  .type-body-large {
+    font-size: var(--text-body-large);
+    line-height: 1.7;
+  }
+
+  .type-body {
+    font-size: var(--text-body);
+    line-height: 1.7;
+  }
+
+  .type-body-small {
+    font-size: var(--text-body-small);
+    line-height: 1.6;
+  }
+
+  .type-label {
+    font-size: var(--text-label);
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .type-caption {
+    font-size: var(--text-caption);
+    line-height: 1.45;
+    letter-spacing: 0.03em;
+  }
+
+  .type-metadata {
+    font-family: var(--font-code), monospace;
+    font-size: var(--text-metadata);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .type-code {
+    font-family: var(--font-code), monospace;
+    font-size: var(--text-code);
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

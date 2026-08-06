@@ -1,6 +1,6 @@
 # Decision Log
 
-## 2026-08-06 - Phase 0 Governance Setup
+## Phase 0 Decisions
 
 1. Use Next.js App Router.
 2. Use strict TypeScript.
@@ -9,7 +9,7 @@
 5. Use Server Components by default.
 6. Use Client Components only where required.
 7. Use one polished theme initially.
-8. Keep project repositories private.
+8. Keep showcased project repositories private.
 9. Use live demos, screenshots, and case studies as project evidence.
 10. Do not use arbitrary skill percentages.
 11. Do not use a database unless a genuine requirement appears.
@@ -19,18 +19,26 @@
 15. Prioritize Home, Projects, and Case Studies before secondary pages.
 16. Never publish invented or unverified claims.
 
-## 2026-08-06 - Repository And Content Safety
+## Phase 1 Decisions
 
-- Preserve all existing files and avoid destructive operations.
-- Keep private repository content out of planning documentation.
-- Mark unresolved facts and missing content as `Pending owner input`.
-- Avoid hardcoding factual content throughout page components in future phases.
+1. Initialize the application at the project root rather than creating a nested folder.
+2. Use npm as the package manager.
+3. Keep the foundation dependency set minimal.
+4. Use the `@/*` import alias for `src/*`.
+5. Keep the root layout and content architecture server-first.
+6. Preserve private or draft status for incomplete project records.
+7. Keep `NEXT_PUBLIC_SITE_URL` optional with a local fallback for metadata generation.
 
-## 2026-08-06 - Phase 1 Foundation Toolchain
+## Phase 2 Decisions
 
-- Use `npm` as the package manager for the initial foundation.
-- Use TypeScript `6.0.3` because it is compatible with the Next.js and ESLint toolchain available in this environment.
-- Use ESLint `9.39.5` because it is compatible with `eslint-config-next` in this environment.
-- Use `http://localhost:3000` as the temporary site URL fallback until a production domain is approved.
-- Initialize Git on the `main` branch.
-- Remove `autoprefixer` because the Tailwind v4 PostCSS configuration uses `@tailwindcss/postcss` directly and does not require a separate autoprefixer plugin in this foundation.
+1. Use a single dark-neutral theme for version 1.
+2. Use semantic CSS custom properties as the styling API.
+3. Use `Geist` as the primary font and `IBM Plex Mono` for technical metadata.
+4. Keep shadows minimal and rely primarily on borders for separation.
+5. Use CSS transitions for foundational interaction feedback.
+6. Respect reduced-motion preferences at the CSS layer.
+7. Keep the preview homepage explicitly labeled `Design System Preview`.
+8. Defer `shadcn/ui` initialization because it was not required for the Phase 2 foundation.
+9. Install no new package for Phase 2 because the existing stack was sufficient.
+10. Keep `Button`, `AppLink`, `IconButton`, `Badge`, `Tag`, `Card`, `Separator`, `VisuallyHidden`, `PageContainer`, `Section`, `SectionHeader`, `Stack`, `Cluster`, and `Prose` as the only Phase 2 primitives.
+11. Wire the global stylesheet into the root layout so the semantic tokens are actually applied.

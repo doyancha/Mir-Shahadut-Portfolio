@@ -1,143 +1,259 @@
 # Design System
 
-## 1. Current Direction
+## 1. Status
 
-The design system is defined at the level of semantic roles and implementation rules only.
-Exact colors, fonts, sizes, and visual tokens remain pending Phase 2 approval.
+Phase 2 design system is implemented as a reusable foundation and validated through the temporary `Design System Preview` homepage.
 
-## 2. Design Principles
+## 2. Visual Direction
 
+- Premium
 - Modern
 - Calm
-- Premium
+- Confident
 - Technical
 - Precise
-- Confident
 - Minimal
 - Trustworthy
 
-Avoid:
+The theme is a single dark-neutral palette. It uses layered navy, charcoal, and slate values rather than pure black.
 
-- Gaming aesthetics
-- Cyberpunk
-- Excessive glow
-- Excessive animation
-- Visual clutter
-- Generic portfolio templates
-- Unnecessary 3D effects
-- Distracting parallax
-- Large decorative effects without purpose
+## 3. Semantic Color Tokens
 
-## 3. Inspiration Boundaries
+All component-facing styling uses semantic CSS variables.
 
-Use companies such as Vercel, Stripe, Linear, GitHub, Apple, Raycast, and Framer only as inspiration.
-Do not copy their designs.
+### Colors
 
-## 4. Semantic Color Roles
+- `--background`: `222 31% 8%`
+- `--background-elevated`: `223 28% 11%`
+- `--surface`: `223 27% 14%`
+- `--surface-muted`: `223 23% 17%`
+- `--foreground`: `220 38% 97%`
+- `--foreground-secondary`: `215 23% 83%`
+- `--foreground-muted`: `215 13% 63%`
+- `--border`: `219 16% 24%`
+- `--border-strong`: `219 17% 35%`
+- `--accent`: `217 100% 62%`
+- `--accent-hover`: `217 100% 68%`
+- `--accent-foreground`: `220 38% 97%`
+- `--success`: `158 64% 47%`
+- `--warning`: `39 92% 59%`
+- `--error`: `4 89% 67%`
+- `--focus-ring`: `217 100% 70%`
+- `--selection`: `217 100% 62%`
 
-- Background
-- Elevated surface
-- Secondary surface
-- Primary text
-- Secondary text
-- Muted text
-- Border
-- Strong border
-- Accent
-- Accent hover
-- Success
-- Warning
-- Error
-- Focus ring
+## 4. Typography
 
-## 5. Typography Roles
+The implementation uses `next/font` with:
 
-- Display
-- Page title
-- Section title
-- Subsection title
-- Body
-- Supporting text
-- Label
-- Code or technical text
+- Primary font: `Geist`
+- Monospace font: `IBM Plex Mono`
 
-## 6. Spacing System
+Typography roles:
 
-- Use a consistent spacing scale
-- Preserve comfortable rhythm between sections
-- Avoid dense layouts that reduce readability
+- `--text-display`: `clamp(2.75rem, 7vw, 5rem)`
+- `--text-page-title`: `clamp(2rem, 4vw, 3.25rem)`
+- `--text-section-title`: `clamp(1.4rem, 2.25vw, 1.9rem)`
+- `--text-subsection-title`: `clamp(1.1rem, 1.6vw, 1.35rem)`
+- `--text-card-title`: `clamp(1rem, 1.25vw, 1.1rem)`
+- `--text-body-large`: `clamp(1rem, 1.15vw, 1.125rem)`
+- `--text-body`: `1rem`
+- `--text-body-small`: `0.9375rem`
+- `--text-label`: `0.8125rem`
+- `--text-caption`: `0.75rem`
+- `--text-metadata`: `0.8125rem`
+- `--text-code`: `0.875rem`
 
-## 7. Container Widths
+Supporting typography rules:
 
-- Use constrained page containers for reading comfort
-- Use wider containers only where project grids or screenshots benefit from them
+- Line height is intentionally generous for readability.
+- Letter spacing is tightened on display text and widened on labels.
+- Monospace is used only for metadata and code-style labels.
+- Responsive scaling is capped to keep mobile headings readable.
 
-## 8. Border Radius Policy
+## 5. Spacing
 
-- Use a consistent radius scale
-- Keep surfaces polished and restrained
-- Avoid extreme rounding unless a component specifically benefits from it
+Spacing is controlled by semantic tokens and compact utility groups.
 
-## 9. Border And Shadow Policy
+### Layout Spacing Tokens
 
-- Use borders to define structure
-- Use shadows sparingly
-- Prefer subtle elevation over decorative depth
-- Avoid heavy glow effects
+- `--page-padding`: `clamp(1rem, 2vw, 1.75rem)`
+- `--section-spacing`: `clamp(2.5rem, 5vw, 4.75rem)`
 
-## 10. Interaction States
+### Component Gaps
 
-- Default
-- Hover
-- Active
-- Focus
-- Disabled
-- Selected
-- Loading
+- `Stack`: `xs`, `sm`, `md`, `lg`, `xl`
+- `Cluster`: `xs`, `sm`, `md`, `lg`
+- Button and card spacing use component-level padding tokens rather than ad hoc values.
 
-## 11. Icon Usage
+## 6. Containers
 
-- Use icons to clarify actions or status
-- Do not use icons as decoration without meaning
-- Keep icon style consistent
+Container strategy:
 
-## 12. Image Handling
+- `--container-prose`: `42rem`
+- `--container-content`: `72rem`
+- `--container-wide`: `84rem`
 
-- Use optimized images
-- Prefer responsive images
-- Use meaningful alt text
-- Avoid decorative imagery that does not support the content
+Utility classes:
 
-## 13. Motion Principles
+- `.container-prose`
+- `.container-page`
+- `.container-wide`
 
-- Motion must serve clarity
-- Keep animation purposeful and restrained
-- Respect reduced-motion preferences
-- Avoid distracting parallax or excessive transitions
+Usage:
 
-## 14. Accessibility Requirements
+- `container-prose` for readable long-form copy.
+- `container-page` for standard page content.
+- `container-wide` for broader media or denser preview layouts.
 
-- Ensure accessible contrast
-- Preserve visible focus states
-- Support keyboard navigation
-- Support screen readers
-- Keep touch targets comfortable
-- Avoid hover-only essential information
+## 7. Radius
 
-## 15. Component Styling Direction
+Radius is restrained and intentionally not pill-heavy.
 
-- One polished theme initially
-- Reusable variants only where needed
-- Keep UI consistent across pages
-- Avoid multiple themes in version 1
+- `--radius-sm`: `0.5rem`
+- `--radius-md`: `0.85rem`
+- `--radius-lg`: `1.15rem`
+- `--radius-xl`: `1.5rem`
 
-## 16. Design Inputs Pending Owner Input
+Usage:
 
-- Reference sites or inspiration detail
-- Preferred tone
-- Preferred primary color family
-- Preferred accent color family
-- Preferred type style
-- Preferred imagery usage
-- Preferred section hierarchy
-- Preferred motion intensity
+- Small radius for compact controls.
+- Medium radius for buttons and icon buttons.
+- Large radius for cards and major surfaces.
+
+## 8. Borders And Shadows
+
+Border policy:
+
+- Default separation relies on borders.
+- Strong borders are reserved for emphasis and interaction.
+- Accent borders are used only where they clarify a state.
+
+Shadow tokens:
+
+- `--shadow-soft`
+- `--shadow-lift`
+
+Shadow policy:
+
+- Soft and low opacity only.
+- Shadows support elevation, not decoration.
+- No glow effects.
+
+## 9. Motion
+
+Motion tokens:
+
+- `--motion-fast`: `140ms`
+- `--motion-standard`: `220ms`
+- `--motion-slow`: `320ms`
+- `--ease-standard`: `cubic-bezier(0.2, 0, 0, 1)`
+
+Motion principles:
+
+- Fast
+- Subtle
+- Purposeful
+- Interruptible
+- Performance-conscious
+- Reduced-motion aware
+
+Implemented motion:
+
+- Button hover state transitions
+- Focus-state transitions
+- Small surface and border feedback
+
+Not implemented in Phase 2:
+
+- Page transitions
+- Section reveal animations
+- Motion-heavy interactions
+
+## 10. Accessibility Behavior
+
+The design system supports:
+
+- Visible `:focus-visible` states
+- WCAG AA contrast goals for text and controls
+- Reduced-motion preferences
+- Comfortable touch targets
+- Semantic disabled states
+- No color-only meaning
+- Readable line height
+- Selection styling
+- Keyboard-accessible controls
+
+## 11. Foundation Components
+
+Implemented Phase 2 primitives:
+
+- `Button`
+- `AppLink`
+- `IconButton`
+- `Badge`
+- `Tag`
+- `Card`
+- `Separator`
+- `VisuallyHidden`
+- `PageContainer`
+- `Section`
+- `SectionHeader`
+- `Stack`
+- `Cluster`
+- `Prose`
+
+Usage rules:
+
+- Use semantic HTML first.
+- Prefer server-rendered markup unless interactivity requires a client component.
+- Keep variants predictable and minimal.
+- Do not introduce decorative complexity without content need.
+- Avoid adding more primitives until a later phase genuinely requires them.
+
+## 12. Responsive Principles
+
+The design system is validated across:
+
+- 320px
+- 360px
+- 390px
+- 430px
+- 768px
+- 1024px
+- 1280px
+- 1440px
+- Wide desktop screens
+
+Responsive rules:
+
+- Preserve readable line lengths.
+- Avoid document-level horizontal overflow.
+- Keep controls comfortably tappable.
+- Allow preview content to compress cleanly on mobile.
+- Maintain controlled width on large displays.
+
+## 13. Package Policy
+
+No additional Phase 2 package was required.
+
+This phase deliberately deferred:
+
+- `shadcn/ui`
+- `Framer Motion`
+- `lucide-react`
+
+Reason:
+
+- The foundation requirements were satisfied with the existing stack plus CSS and typed primitives.
+
+## 14. Pending Owner Inputs
+
+The following remain pending owner input and are intentionally not invented in Phase 2:
+
+- Final portfolio content
+- Final case-study facts
+- Final resume content
+- Final social links
+- Final project evidence
+- Final brand imagery
+- Final accent preference beyond the approved direction
