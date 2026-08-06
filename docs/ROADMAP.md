@@ -174,9 +174,40 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending owner approval`
+Status: `Locked`
 
-## Phase 4 - Homepage Implementation
+## Phase 4A - Homepage Visual Blueprint
+
+Goals:
+
+- Define the homepage visual system for implementation
+- Finalize section rhythm, widths, and responsive behavior
+- Preserve the current temporary preview until implementation is authorized
+
+Deliverables:
+
+- Homepage visual blueprint
+- Width strategy
+- Hero specification
+- Section-by-section implementation guidance
+
+Verification:
+
+- Documentation is complete
+- Only docs changed
+- No homepage implementation was created
+
+Exit criteria:
+
+- Blueprint ready for review
+
+Approval before moving forward:
+
+- Required
+
+Status: `Complete`
+
+## Phase 4B - Homepage Implementation
 
 Goals:
 

@@ -71,3 +71,13 @@
 9. Do not display an availability statement or hero social-icon row on the homepage until the owner explicitly approves them.
 10. Keep homepage social visibility restrained, with GitHub and LinkedIn only in shell, footer, or contact areas once verified, and keep Upwork, Fiverr, and email primarily on the Contact page once verified.
 11. Keep trust signals factual and evidence-based: project screenshots, architecture, technologies, case studies, and honest status labels only.
+
+## Phase 4A Decisions
+
+1. Keep the homepage proof-led and editorial rather than marketing-led or card-grid generic.
+2. Use section-specific homepage widths: `97.5rem` for hero and featured projects, `88rem` for general content, `74rem` for narrative sections, and `48rem` for long-form prose.
+3. Keep the hero name-first, left-aligned, project-preview right, with no profile photo, no social-icon row, and no availability statement.
+4. Use a neutral featured-project order of `HRH Shopping`, `BookEasy`, `TaskOrbit` until the owner approves a different priority.
+5. Treat `Pending owner input` as the required fallback for missing screenshots, resume destination, social links, technology data, and project facts.
+6. Keep the current temporary Design System Preview homepage unchanged during planning.
+7. Keep Phase 4B as a separate implementation phase that remains unauthorized until the planning blueprint is approved.

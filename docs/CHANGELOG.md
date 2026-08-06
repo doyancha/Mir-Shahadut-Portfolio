@@ -2,6 +2,14 @@
 
 ## 2026-08-06
 
+### Phase 4A
+
+- Added the homepage visual blueprint for implementation planning only.
+- Defined the exact homepage container widths, rhythm, hero composition, section blueprints, responsive wireframes, accessibility rules, media standards, motion opportunities, and performance constraints.
+- Preserved the temporary Design System Preview homepage.
+- Marked all unresolved facts as `Pending owner input`.
+- No homepage implementation was created.
+
 ### Phase 3B
 
 - Documented the homepage UX architecture for the future homepage.
