@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { forwardRef } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -40,17 +41,15 @@ function getIconButtonClasses(
   return cn(baseClasses, variantClasses[variant], sizeClasses[size], "shadow-soft", className);
 }
 
-export function IconButton({
-  children,
-  className,
-  variant = "secondary",
-  size = "md",
-  label,
-  ...props
-}: IconButtonProps) {
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
+  { children, className, variant = "secondary", size = "md", label, ...props },
+  ref
+) {
   const classes = getIconButtonClasses(variant, size, className);
+
   return (
     <button
+      ref={ref}
       type={props.type ?? "button"}
       className={classes}
       aria-label={label}
@@ -60,4 +59,4 @@ export function IconButton({
       {children}
     </button>
   );
-}
+});

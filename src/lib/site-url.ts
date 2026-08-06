@@ -7,5 +7,9 @@ export function getSiteUrl(): string {
     return DEFAULT_SITE_URL;
   }
 
-  return new URL(configuredUrl).toString().replace(/\/+$/, "");
+  try {
+    return new URL(configuredUrl).toString().replace(/\/+$/, "");
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
 }

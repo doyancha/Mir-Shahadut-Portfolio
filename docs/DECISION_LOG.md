@@ -42,3 +42,18 @@
 9. Install no new package for Phase 2 because the existing stack was sufficient.
 10. Keep `Button`, `AppLink`, `IconButton`, `Badge`, `Tag`, `Card`, `Separator`, `VisuallyHidden`, `PageContainer`, `Section`, `SectionHeader`, `Stack`, `Cluster`, and `Prose` as the only Phase 2 primitives.
 11. Wire the global stylesheet into the root layout so the semantic tokens are actually applied.
+
+## Phase 3A Decisions
+
+1. Keep the root header non-sticky to avoid obscuring anchor targets and to keep the shell visually stable.
+2. Use a route-aware client navigation layer for the desktop and mobile menus, with exact matching for Home and prefix matching for `Projects`.
+3. Use a lightweight controlled mobile overlay with body scroll lock, Escape-to-close behavior, and keyboard focus restoration without adding a dialog or sheet dependency.
+4. Keep the footer concise and factual, rendering navigation links only when verified social links are absent.
+5. Extend the metadata helper to derive canonical URLs and Open Graph URLs from the current route path, while preserving the localhost fallback.
+6. Keep `shadcn/ui` deferred because the shell requirements were satisfied with the approved primitives and native browser behavior.
+
+## Phase 3A Correction Pass Decisions
+
+1. Keep the build-only `tsconfig.build.json` and route Next production type checking through it, because this Next 16 environment generates a `.next/dev/types` tree that otherwise collides with the normal app types during build-time checking.
+2. Keep `tsconfig.json` focused on editor and local type checking, explicitly excluding `.next/dev` generated output so the repository does not depend on stale build artifacts.
+3. Keep `next-env.d.ts` as the standard Next-generated file that references `.next/types`; do not treat the generated dev variant as a source change.

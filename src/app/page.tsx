@@ -78,7 +78,7 @@ function MetricCard({ title, value, note }: { title: string; value: string; note
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    <div>
       <PageContainer className="pb-12 pt-8">
         <Section className="pt-4">
           <Stack gap="lg">
@@ -319,6 +319,6 @@ export default function HomePage() {
           </Card>
         </Section>
       </PageContainer>
-    </main>
+    </div>
   );
 }

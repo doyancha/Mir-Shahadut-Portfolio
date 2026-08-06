@@ -2,6 +2,17 @@
 
 ## 2026-08-06
 
+### Phase 3A
+
+- Implemented the reusable global application shell.
+- Added the skip-to-content link, site header, desktop navigation, mobile navigation, and site footer.
+- Added route-aware active navigation states with exact Home matching and prefix support for nested project routes later.
+- Added minimal route foundations for the authorized public routes.
+- Extended the metadata foundation with canonical and Open Graph URL support.
+- Kept the temporary homepage as the Design System Preview.
+- Added no new dependency.
+- Phase 3A was approved and locked after review.
+
 ### Phase 2
 
 - Implemented the reusable design system foundation.

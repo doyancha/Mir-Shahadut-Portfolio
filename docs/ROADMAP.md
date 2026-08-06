@@ -35,7 +35,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Complete`
+Status: `Locked`
 
 ## Phase 1 - Project Foundation and Architecture
 
@@ -72,7 +72,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
 ## Phase 2 - Design System
 
@@ -110,9 +110,9 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
-## Phase 3 - Global Application Shell
+## Phase 3A - Global Application Shell
 
 Goals:
 
@@ -144,13 +144,43 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
-## Phase 4 - Homepage
+## Phase 3B - Homepage UX Architecture
 
 Goals:
 
-- Build the homepage narrative
+- Define the homepage information architecture
+- Define the homepage content flow
+- Define the homepage section order
+- Preserve the current temporary preview until homepage implementation is authorized
+
+Deliverables:
+
+- Homepage architecture notes
+- Homepage content plan
+- Homepage section hierarchy
+
+Verification:
+
+- Homepage plan remains factual and approved
+- No final homepage implementation is created
+
+Exit criteria:
+
+- Homepage UX architecture approved
+
+Approval before moving forward:
+
+- Required
+
+Status: `Not authorized`
+
+## Phase 4 - Homepage Implementation
+
+Goals:
+
+- Build the final homepage narrative
 - Establish first impression and positioning
 - Surface featured projects and calls to action
 
@@ -174,7 +204,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Not authorized`
 
 ## Phase 5 - About
 

@@ -3,7 +3,21 @@ import type { Metadata } from "next";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 import { getSiteUrl } from "@/lib/site-url";
 
-export function createMetadata(overrides: Metadata = {}): Metadata {
+type CreateMetadataOptions = Metadata & {
+  path?: string;
+};
+
+function normalizePath(path: string): string {
+  if (path === "/") {
+    return path;
+  }
+
+  return `/${path.replace(/^\/+/, "").replace(/\/+$/, "")}`;
+}
+
+export function createMetadata({ path = "/", ...overrides }: CreateMetadataOptions = {}): Metadata {
+  const canonicalPath = normalizePath(path);
+
   return {
     metadataBase: new URL(getSiteUrl()),
     title: {
@@ -11,6 +25,23 @@ export function createMetadata(overrides: Metadata = {}): Metadata {
       template: `%s | ${SITE_NAME}`,
     },
     description: SITE_DESCRIPTION,
+    applicationName: SITE_NAME,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      siteName: SITE_NAME,
+      title: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      url: canonicalPath,
+    },
+    twitter: {
+      card: "summary",
+      title: SITE_NAME,
+      description: SITE_DESCRIPTION,
+    },
     ...overrides,
   };
 }
