@@ -2,6 +2,14 @@
 
 ## 2026-08-06
 
+### Phase 4B-2
+
+- Implemented the remaining homepage sections: core capabilities, engineering approach, selected technologies, resume CTA, and final contact CTA.
+- Refined the homepage rhythm so the new sections read as a continuous product-like flow after the approved homepage core.
+- Added structured homepage content for the new capability, principle, technology, and CTA sections.
+- Kept the locked hero, credibility strip, and featured projects unchanged.
+- No dependency was installed.
+
 ### Phase 4B-1
 
 - Implemented the approved homepage core: wider homepage containers, hero, credibility strip, and featured projects.

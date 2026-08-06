@@ -90,3 +90,10 @@
 4. Render the featured-project case-study action as a disabled placeholder until a real case-study route exists.
 5. Keep live-demo actions external and clearly labeled without exposing repository links.
 6. Keep the remaining homepage sections deferred to Phase 4B-2.
+
+## Phase 4B-2 Decisions
+
+1. Reuse the existing homepage section primitives and extend the page with dedicated capability, engineering, technology, resume, and contact sections.
+2. Keep the homepage proof-led by showing only verified technologies and factual descriptions derived from the current project content.
+3. Use a muted resume band and an elevated contact band so the closing conversion path feels distinct without becoming flashy.
+4. Keep the locked hero, credibility strip, and featured projects unchanged while refining the page rhythm through section spacing and content flow.

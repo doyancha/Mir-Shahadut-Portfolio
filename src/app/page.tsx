@@ -4,6 +4,11 @@ import { createMetadata } from "@/lib/metadata";
 import { HomeHero } from "@/components/home/home-hero";
 import { CredibilityStrip } from "@/components/home/credibility-strip";
 import { FeaturedProjects } from "@/components/home/featured-projects";
+import { CoreCapabilities } from "@/components/home/core-capabilities";
+import { EngineeringApproach } from "@/components/home/engineering-approach";
+import { SelectedTechnologies } from "@/components/home/selected-technologies";
+import { ResumeCtaSection } from "@/components/home/resume-cta";
+import { ContactCtaSection } from "@/components/home/contact-cta";
 
 export const metadata: Metadata = createMetadata({
   title: "Mir Shahadut Hossain",
@@ -13,11 +18,15 @@ export const metadata: Metadata = createMetadata({
 
 export default function HomePage() {
   return (
-    <div className="pb-12">
+    <div className="pb-16 md:pb-24">
       <HomeHero />
       <CredibilityStrip />
       <FeaturedProjects />
-      {/* Phase 4B-2 continues with capabilities, engineering approach, technologies, resume CTA, and contact CTA. */}
+      <CoreCapabilities />
+      <EngineeringApproach />
+      <SelectedTechnologies />
+      <ResumeCtaSection />
+      <ContactCtaSection />
     </div>
   );
 }

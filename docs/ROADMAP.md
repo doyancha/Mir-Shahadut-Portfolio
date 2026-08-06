@@ -269,7 +269,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Not authorized`
+Status: `Complete`
 
 ## Phase 5 - About
 
