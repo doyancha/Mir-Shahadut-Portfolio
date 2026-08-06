@@ -1,5 +1,12 @@
 # Changelog
 
+### Phase 5
+
+- Implemented the About page as a text-led, factual, professional section stack using the approved About architecture.
+- Added structured About content for the professional focus, journey, values, current focus, background preview, and next-step CTA sections.
+- Preserved the homepage layout and avoided introducing a profile image or unsupported claims.
+- Kept the page aligned to the approved navigation path into Projects and Experience.
+
 ## 2026-08-06
 
 ### Homepage Final QA & Polish

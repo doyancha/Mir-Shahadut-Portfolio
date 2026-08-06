@@ -7,7 +7,7 @@ export const personalProfile: PersonalProfile = {
   shortIntroduction:
     "I build modern, responsive, and production-focused web applications with thoughtful user experiences, clean architecture, and maintainable code.",
   fullAbout: null,
-  location: null,
+  location: "Dhaka, Bangladesh",
   email: "sujon6901@gmail.com",
   availability: null,
   resumeUrl: "/resume",

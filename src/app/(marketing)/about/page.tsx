@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
 
-import { PageContainer } from "@/components/layout/page-container";
-import { Prose } from "@/components/layout/prose";
-import { Section } from "@/components/layout/section";
-import { Stack } from "@/components/layout/stack";
+import { AboutCta } from "@/components/about/about-cta";
+import { AboutHero } from "@/components/about/about-hero";
+import { CurrentFocus } from "@/components/about/current-focus";
+import { EngineeringValues } from "@/components/about/engineering-values";
+import { JourneySummary } from "@/components/about/journey-summary";
+import { ProfessionalFocus } from "@/components/about/professional-focus";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   path: "/about",
-  title: "About",
-  description: "The full About page will be implemented in a later phase.",
+  title: "About Mir Shahadut Hossain",
+  description:
+    "Mir Shahadut Hossain is a Full Stack Web Developer based in Dhaka, Bangladesh, with a background in computer science and engineering, project management, and system and web development.",
 });
 
 export default function AboutPage() {
   return (
-    <Section>
-      <PageContainer size="prose">
-        <Stack gap="md">
-          <p className="type-label text-[hsl(var(--accent))]">About</p>
-          <h1 className="type-page-title text-[hsl(var(--foreground))]">About</h1>
-          <Prose className="p-0">
-            <p>The full About page will be implemented in a later phase.</p>
-          </Prose>
-        </Stack>
-      </PageContainer>
-    </Section>
+    <div className="pb-16 md:pb-24">
+      <AboutHero />
+      <ProfessionalFocus />
+      <JourneySummary />
+      <EngineeringValues />
+      <CurrentFocus />
+      <AboutCta />
+    </div>
   );
 }

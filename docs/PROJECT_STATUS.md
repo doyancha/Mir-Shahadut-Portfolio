@@ -8,6 +8,7 @@
 - Phase 4A homepage visual planning is complete and documentation-only.
 - Phase 4B-1 homepage core has been implemented.
 - Phase 4B-2 homepage completion has been implemented.
+- Phase 5 About page has been implemented and is pending owner approval.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -29,20 +30,29 @@
 - The homepage now also includes the approved capabilities, engineering approach, selected technologies, resume CTA, and final contact CTA sections.
 - The homepage uses structured content for the approved profile and project facts.
 - Structured content models remain in place and still use pending values where content is missing.
+- The About page now uses structured content for the approved identity, background, values, and navigation paths.
+- The About page remains text-led and intentionally omits a profile image.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 
-- `src/app/(marketing)/about/page.tsx`
 - `src/app/(marketing)/contact/page.tsx`
 - `src/app/(marketing)/experience/page.tsx`
 - `src/app/(marketing)/projects/page.tsx`
 - `src/app/(marketing)/resume/page.tsx`
 - `src/app/(marketing)/skills/page.tsx`
+- `src/app/(marketing)/about/page.tsx`
 - `src/app/layout.tsx`
 - `src/app/not-found.tsx`
 - `src/app/page.tsx`
 - `src/app/robots.ts`
 - `src/app/sitemap.ts`
+- `src/components/about/about-cta.tsx`
+- `src/components/about/about-hero.tsx`
+- `src/components/about/background-preview.tsx`
+- `src/components/about/current-focus.tsx`
+- `src/components/about/engineering-values.tsx`
+- `src/components/about/journey-summary.tsx`
+- `src/components/about/professional-focus.tsx`
 - `src/components/home/contact-cta.tsx`
 - `src/components/home/core-capabilities.tsx`
 - `src/components/home/engineering-approach.tsx`
@@ -55,6 +65,7 @@
 - `src/components/layout/skip-link.tsx`
 - `src/components/ui/icon-button.tsx`
 - `src/content/navigation.ts`
+- `src/content/about.ts`
 - `src/content/site-config.ts`
 - `src/content/homepage.ts`
 - `src/lib/metadata.ts`
