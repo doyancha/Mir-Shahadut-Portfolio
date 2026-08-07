@@ -9,7 +9,8 @@
 - Phase 4B-1 homepage core has been implemented.
 - Phase 4B-2 homepage completion has been implemented.
 - Phase 5 About page has been implemented and is locked.
-- Phase 6 Skills and Capabilities page has been implemented and is pending owner approval.
+- Phase 6 Skills and Capabilities page has been implemented and is locked.
+- Phase 7 Projects Index page has been implemented and is pending owner approval.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -36,6 +37,8 @@
 - The About page remains text-led and intentionally omits a profile image.
 - The Skills and Capabilities page now uses structured content for verified project-applied capabilities and technologies.
 - The Skills and Capabilities page remains verified-only and intentionally omits percentages, ratings, and learning/exposure claims.
+- The Projects Index page now uses structured content for verified project evidence, public status labels, private repository disclosure, and live demos.
+- The Projects Index page remains evidence-led and intentionally omits case-study routes until a later phase.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 

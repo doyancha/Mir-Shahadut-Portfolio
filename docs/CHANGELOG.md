@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 7
+
+- Implemented the Projects Index page as an evidence-led public view of HRH Shopping, BookEasy, and TaskOrbit.
+- Added structured Projects page content for the hero, status guide, evidence note, CTA, and public label mappings.
+- Kept repositories private, used verified live-demo buttons, and replaced missing screenshots with polished placeholders.
+
 ### Phase 6
 
 - Implemented the Skills and Capabilities page as a verified-only inventory of project-applied capabilities and technologies.

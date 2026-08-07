@@ -1,29 +1,42 @@
 import type { Metadata } from "next";
 
+import { ProjectsCta } from "@/components/projects/projects-cta";
+import { ProjectsEvidenceNote } from "@/components/projects/projects-evidence-note";
+import { ProjectsHero } from "@/components/projects/projects-hero";
+import { ProjectEvidenceRow } from "@/components/projects/project-evidence-row";
+import { ProjectsStatusGuide } from "@/components/projects/projects-status-guide";
 import { PageContainer } from "@/components/layout/page-container";
-import { Prose } from "@/components/layout/prose";
 import { Section } from "@/components/layout/section";
-import { Stack } from "@/components/layout/stack";
 import { createMetadata } from "@/lib/metadata";
+import { projectEntries } from "@/content/projects";
 
 export const metadata: Metadata = createMetadata({
   path: "/projects",
   title: "Projects",
-  description: "The full Projects page will be implemented in a later phase.",
+  description:
+    "Full-stack project work including HRH Shopping, BookEasy, and TaskOrbit, presented through verified summaries, live demos, and factual development status.",
 });
 
 export default function ProjectsPage() {
   return (
-    <Section>
-      <PageContainer size="prose">
-        <Stack gap="md">
-          <p className="type-label text-[hsl(var(--accent))]">Projects</p>
-          <h1 className="type-page-title text-[hsl(var(--foreground))]">Projects</h1>
-          <Prose className="p-0">
-            <p>The full Projects page will be implemented in a later phase.</p>
-          </Prose>
-        </Stack>
-      </PageContainer>
-    </Section>
+    <div className="pb-16 md:pb-24">
+      <ProjectsHero />
+      <ProjectsStatusGuide />
+
+      <Section className="pt-12 pb-0 md:pt-16">
+        <PageContainer size="home-featured">
+          <ol className="grid gap-4 md:gap-5 lg:gap-6">
+            {projectEntries.map((project, index) => (
+              <li key={project.slug} className="min-w-0">
+                <ProjectEvidenceRow project={project} index={index} />
+              </li>
+            ))}
+          </ol>
+        </PageContainer>
+      </Section>
+
+      <ProjectsEvidenceNote />
+      <ProjectsCta />
+    </div>
   );
 }

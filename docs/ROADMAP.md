@@ -324,7 +324,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
 ## Phase 7 - Projects Index
 

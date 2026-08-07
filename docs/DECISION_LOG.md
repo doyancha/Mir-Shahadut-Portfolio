@@ -110,3 +110,11 @@
 2. Ground every skill claim in current project work and public project evidence.
 3. Exclude learning/exposure labels, education, and certifications from the Skills page.
 4. Use Projects and Experience as the primary follow-up actions for visitors who want deeper evidence.
+
+## Phase 7 Decisions
+
+1. Present Projects as an evidence-led index of the three approved projects.
+2. Keep repositories private and show a calm private-repository label instead of source-code links.
+3. Show live demo buttons only when a verified liveDemoUrl exists.
+4. Use polished screenshot pending placeholders until approved screenshots are available.
+5. Keep case studies out of Phase 7 and reserve `/projects/[slug]` for Phase 8.
