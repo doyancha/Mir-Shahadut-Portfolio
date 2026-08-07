@@ -97,3 +97,16 @@
 2. Keep the homepage proof-led by showing only verified technologies and factual descriptions derived from the current project content.
 3. Use a muted resume band and an elevated contact band so the closing conversion path feels distinct without becoming flashy.
 4. Keep the locked hero, credibility strip, and featured projects unchanged while refining the page rhythm through section spacing and content flow.
+
+## Phase 5 Decisions
+
+1. Build the About page as a factual, text-led summary of the owner’s professional identity, journey, values, and current focus.
+2. Keep the About page free of unsupported claims, profile imagery, and résumé-style expansion.
+3. Reuse the approved navigation path into Projects and Experience as the About page’s next-step CTA.
+
+## Phase 6 Decisions
+
+1. Present Skills as verified capability groups and verified technology groups rather than percentages or rating scales.
+2. Ground every skill claim in current project work and public project evidence.
+3. Exclude learning/exposure labels, education, and certifications from the Skills page.
+4. Use Projects and Experience as the primary follow-up actions for visitors who want deeper evidence.

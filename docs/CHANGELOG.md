@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 6
+
+- Implemented the Skills and Capabilities page as a verified-only inventory of project-applied capabilities and technologies.
+- Added structured Skills content for capability groups, technology groups, evidence notes, and the next-step CTA.
+- Kept the page factual, concise, and free of percentages, ratings, and unsupported learning claims.
+
 ### Phase 5
 
 - Implemented the About page as a text-led, factual, professional section stack using the approved About architecture.

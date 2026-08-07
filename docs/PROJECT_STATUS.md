@@ -8,13 +8,15 @@
 - Phase 4A homepage visual planning is complete and documentation-only.
 - Phase 4B-1 homepage core has been implemented.
 - Phase 4B-2 homepage completion has been implemented.
-- Phase 5 About page has been implemented and is pending owner approval.
+- Phase 5 About page has been implemented and is locked.
+- Phase 6 Skills and Capabilities page has been implemented and is pending owner approval.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
 - Owner content remains pending.
 - Phase 4B-1 is complete.
 - Phase 4B-2 is complete.
+- Phase 5 is complete.
 - The Phase 4A blueprint is ready for review.
 
 ## Implementation Summary
@@ -32,6 +34,8 @@
 - Structured content models remain in place and still use pending values where content is missing.
 - The About page now uses structured content for the approved identity, background, values, and navigation paths.
 - The About page remains text-led and intentionally omits a profile image.
+- The Skills and Capabilities page now uses structured content for verified project-applied capabilities and technologies.
+- The Skills and Capabilities page remains verified-only and intentionally omits percentages, ratings, and learning/exposure claims.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 
