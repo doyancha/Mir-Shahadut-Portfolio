@@ -6,6 +6,12 @@
 - Added the approved case-study content index and the three minimal project scaffolds without authoring full case-study narratives.
 - Kept unsupported sections hidden and left the live-demo architecture ready for future approved screenshots.
 
+### Phase 8B
+
+- Authored the BookEasy case-study narrative from verified implementation evidence only.
+- Added BookEasy overview, architecture, workflow, security, testing, deployment, limitations, and lessons sections to the reusable case-study content layer.
+- Preserved the locked Key Facts shell, optional-section behavior, and screenshot-free presentation.
+
 ### Phase 7
 
 - Implemented the Projects Index page as an evidence-led public view of HRH Shopping, BookEasy, and TaskOrbit.
