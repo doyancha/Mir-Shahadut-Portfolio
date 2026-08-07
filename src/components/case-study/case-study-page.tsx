@@ -19,7 +19,9 @@ const orderedSections = [
   ["overview", "Overview"],
   ["problem", "Problem"],
   ["goals", "Goals"],
+  ["architecture", "Architecture"],
   ["features", "Features"],
+  ["workflows", "Workflows"],
   ["decisions", "Technical decisions"],
   ["challenges", "Challenges"],
   ["solutions", "Solutions"],
@@ -78,6 +80,32 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
           return null;
         }
 
+        if (key === "architecture") {
+          return (
+            <Section key={key} className="pt-8 md:pt-12">
+              <PageContainer size="wide">
+                <CaseStudyArchitecture
+                  architecture={
+                    section as Parameters<typeof CaseStudyArchitecture>[0]["architecture"]
+                  }
+                />
+              </PageContainer>
+            </Section>
+          );
+        }
+
+        if (key === "workflows") {
+          return (
+            <Section key={key} className="pt-8 md:pt-12">
+              <PageContainer size="wide">
+                <CaseStudyWorkflows
+                  workflows={section as Parameters<typeof CaseStudyWorkflows>[0]["workflows"]}
+                />
+              </PageContainer>
+            </Section>
+          );
+        }
+
         return (
           <Section key={key} className="pt-8 md:pt-12">
             <PageContainer size={getSectionContainerSize(key)}>
@@ -90,22 +118,6 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
           </Section>
         );
       })}
-
-      {caseStudy.sections?.architecture ? (
-        <Section className="pt-8 md:pt-12">
-          <PageContainer size="wide">
-            <CaseStudyArchitecture architecture={caseStudy.sections.architecture} />
-          </PageContainer>
-        </Section>
-      ) : null}
-
-      {caseStudy.sections?.workflows ? (
-        <Section className="pt-8 md:pt-12">
-          <PageContainer size="wide">
-            <CaseStudyWorkflows workflows={caseStudy.sections.workflows} />
-          </PageContainer>
-        </Section>
-      ) : null}
 
       {caseStudy.sections?.screenshots?.length ? (
         <Section className="pt-8 md:pt-12">

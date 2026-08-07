@@ -13,8 +13,9 @@
 - Phase 7 Projects Index page has been implemented and is pending owner approval.
 - Phase 8A Case-Study System Foundation has been implemented and is locked.
 - Phase 8B BookEasy case study has been implemented and is locked.
-- Phase 8C TaskOrbit case study has been implemented and is pending owner approval.
-- Phase 8D HRH Shopping, Phase 8E Media Integration, and Phase 8F Case-Study Final QA & Lock have not started.
+- Phase 8C TaskOrbit case study has been implemented and is locked.
+- Phase 8D HRH Shopping case study has been implemented and is pending owner approval.
+- Phase 8E Media Integration and Phase 8F Case-Study Final QA & Lock have not started.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -46,6 +47,7 @@
 - The reusable project case-study route foundation now exists for the approved slugs and remains content-driven and static-first.
 - The BookEasy case-study narrative now presents verified implementation evidence without screenshots or unsupported claims.
 - The TaskOrbit case-study narrative now presents verified implementation evidence with the same reusable shell and section-width behavior.
+- The HRH Shopping case-study narrative now presents verified customer-facing implementation evidence without unsupported backend or admin claims.
 - Unsupported case-study sections remain omitted from rendering until authored.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2

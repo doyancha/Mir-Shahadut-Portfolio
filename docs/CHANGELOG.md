@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 8D
+
+- Authored the HRH Shopping case-study narrative from verified customer-facing implementation evidence only.
+- Added HRH Shopping overview, architecture, workflow, responsive, accessibility, testing, limitations, and lessons sections to the reusable case-study content layer.
+- Preserved the locked Key Facts shell, optional-section behavior, and screenshot-free presentation while keeping the backend and schema boundary explicit.
+
 ### Phase 8C
 
 - Authored the TaskOrbit case-study narrative from verified implementation evidence only.

@@ -379,8 +379,9 @@ Verification:
 - Missing sections remain hidden
 - Phase 8A is locked
 - Phase 8B is implemented and locked
-- Phase 8C is implemented and pending owner approval
-- Phase 8D, Phase 8E, and Phase 8F have not started
+- Phase 8C is implemented and locked
+- Phase 8D is implemented and pending owner approval
+- Phase 8E and Phase 8F have not started
 
 Exit criteria:
 
