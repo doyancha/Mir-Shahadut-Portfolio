@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 9A
+
+- Implemented the Experience page as a factual professional-background view using verified employment and education details only.
+- Added structured experience, education, and supporting-context content for the new page while keeping the Resume route unchanged.
+- Synchronized the site phase status to Phase 9A and kept the resume PDF pending owner approval.
+
 ### Phase 8F
 
 - Finalized the Phase 8 governance documents to reflect the locked Phase 8A-F baseline.

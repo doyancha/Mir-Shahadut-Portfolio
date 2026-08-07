@@ -403,24 +403,27 @@ Goals:
 
 Deliverables:
 
-- Experience page
-- Resume page
-- Resume actions
+- Phase 9A - Experience page
+- Phase 9B - Resume web page
+- Phase 9C - Resume PDF
+- Phase 9D - Final QA & Lock
 
 Verification:
 
 - Dates and roles are verified
-- Resume links are valid
+- Resume links are valid when approved
+- Experience page remains factual and concise
+- Resume PDF is only published when owner-approved content is available
 
 Exit criteria:
 
-- Experience and resume pages approved
+- Experience and resume work approved
 
 Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `In Progress`
 
 ## Phase 10 - Contact System
 

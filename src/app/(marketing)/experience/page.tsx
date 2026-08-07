@@ -1,29 +1,27 @@
 import type { Metadata } from "next";
 
-import { PageContainer } from "@/components/layout/page-container";
-import { Prose } from "@/components/layout/prose";
-import { Section } from "@/components/layout/section";
-import { Stack } from "@/components/layout/stack";
+import { ExperienceHero } from "@/components/experience/experience-hero";
+import { ExperienceOverview } from "@/components/experience/experience-overview";
+import { ExperienceTimeline } from "@/components/experience/experience-timeline";
+import { EducationSection } from "@/components/experience/education-section";
+import { ExperienceCta } from "@/components/experience/experience-cta";
 import { createMetadata } from "@/lib/metadata";
+import { experiencePageDescription } from "@/content/experience";
 
 export const metadata: Metadata = createMetadata({
   path: "/experience",
   title: "Experience",
-  description: "The full Experience page will be implemented in a later phase.",
+  description: experiencePageDescription,
 });
 
 export default function ExperiencePage() {
   return (
-    <Section>
-      <PageContainer size="prose">
-        <Stack gap="md">
-          <p className="type-label text-[hsl(var(--accent))]">Experience</p>
-          <h1 className="type-page-title text-[hsl(var(--foreground))]">Experience</h1>
-          <Prose className="p-0">
-            <p>The full Experience page will be implemented in a later phase.</p>
-          </Prose>
-        </Stack>
-      </PageContainer>
-    </Section>
+    <>
+      <ExperienceHero />
+      <ExperienceOverview />
+      <ExperienceTimeline />
+      <EducationSection />
+      <ExperienceCta />
+    </>
   );
 }
