@@ -19,7 +19,7 @@ const gapClasses: Record<StackGap, string> = {
 
 export function Stack({ children, className, gap = "md", ...props }: StackProps) {
   return (
-    <div className={cn("flex flex-col", gapClasses[gap], className)} {...props}>
+    <div className={cn("min-w-0 flex flex-col", gapClasses[gap], className)} {...props}>
       {children}
     </div>
   );

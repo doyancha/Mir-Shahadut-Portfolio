@@ -32,7 +32,10 @@ export function Card({
   ...props
 }: CardProps) {
   return (
-    <div className={cn(surfaceClasses[surface], paddingClasses[padding], className)} {...props}>
+    <div
+      className={cn("min-w-0", surfaceClasses[surface], paddingClasses[padding], className)}
+      {...props}
+    >
       {children}
     </div>
   );

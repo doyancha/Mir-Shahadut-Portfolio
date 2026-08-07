@@ -410,9 +410,13 @@ Deliverables:
 
 Verification:
 
+- Phase 9A is complete and locked
+- Phase 9B is implemented and pending owner approval
+- Phase 9C and Phase 9D have not started
 - Dates and roles are verified
-- Resume links are valid when approved
+- Resume links are valid
 - Experience page remains factual and concise
+- Resume web page remains separate from the Experience page
 - Resume PDF is only published when owner-approved content is available
 
 Exit criteria:

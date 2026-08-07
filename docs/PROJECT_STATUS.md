@@ -17,8 +17,8 @@
 - Phase 8D HRH Shopping case study has been implemented and is locked.
 - Phase 8E Media Integration has been implemented and is locked.
 - Phase 8F Case-Study Final QA & Lock has been completed and locked.
-- Phase 9A Experience page has been implemented and is pending owner approval.
-- Phase 9B Resume web page has not started.
+- Phase 9A Experience page has been implemented and is locked.
+- Phase 9B Resume web page has been implemented and is pending owner approval.
 - Phase 9C Resume PDF has not started.
 - Phase 9D Final QA & Lock has not started.
 - The application uses Next.js App Router.
@@ -56,7 +56,8 @@
 - Approved project screenshots now render on the homepage, Projects index, and case-study pages without placeholders or fallback media.
 - Unsupported case-study sections remain omitted from rendering until authored.
 - The Experience page now presents verified professional background and education facts in a structured page distinct from About.
-- The Resume page remains pending Phase 9B and still uses the placeholder route shell.
+- The Resume page now presents a concise recruiter-facing web resume with verified identity, skills, experience, education, and selected projects.
+- The Resume page remains web-first and intentionally omits a PDF download until a later phase.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 

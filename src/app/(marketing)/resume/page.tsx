@@ -1,29 +1,31 @@
 import type { Metadata } from "next";
 
-import { PageContainer } from "@/components/layout/page-container";
-import { Prose } from "@/components/layout/prose";
-import { Section } from "@/components/layout/section";
-import { Stack } from "@/components/layout/stack";
+import { ResumeCta } from "@/components/resume/resume-cta";
+import { ResumeEducation } from "@/components/resume/resume-education";
+import { ResumeExperienceSnapshot } from "@/components/resume/resume-experience-snapshot";
+import { ResumeHero } from "@/components/resume/resume-hero";
+import { ResumeProjects } from "@/components/resume/resume-projects";
+import { ResumeSkills } from "@/components/resume/resume-skills";
+import { ResumeSummary } from "@/components/resume/resume-summary";
+import { resumePageDescription } from "@/content/resume";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   path: "/resume",
   title: "Resume",
-  description: "The full Resume page will be implemented in a later phase.",
+  description: resumePageDescription,
 });
 
 export default function ResumePage() {
   return (
-    <Section>
-      <PageContainer size="prose">
-        <Stack gap="md">
-          <p className="type-label text-[hsl(var(--accent))]">Resume</p>
-          <h1 className="type-page-title text-[hsl(var(--foreground))]">Resume</h1>
-          <Prose className="p-0">
-            <p>The full Resume page will be implemented in a later phase.</p>
-          </Prose>
-        </Stack>
-      </PageContainer>
-    </Section>
+    <>
+      <ResumeHero />
+      <ResumeSummary />
+      <ResumeSkills />
+      <ResumeExperienceSnapshot />
+      <ResumeEducation />
+      <ResumeProjects />
+      <ResumeCta />
+    </>
   );
 }

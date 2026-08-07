@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 9B
+
+- Implemented the Resume web page as a recruiter-friendly summary of verified identity, skills, experience, education, and selected project evidence.
+- Added a compact resume-specific content layer and small server-rendered sections while keeping the PDF download boundary closed for a later phase.
+- Kept the Resume page distinct from the Experience page and synchronized the site phase state to Phase 9B.
+
 ### Phase 9A
 
 - Implemented the Experience page as a factual professional-background view using verified employment and education details only.
