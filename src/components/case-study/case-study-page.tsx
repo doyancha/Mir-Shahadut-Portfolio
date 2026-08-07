@@ -52,12 +52,15 @@ function getSectionContainerSize(key: OrderedSectionKey) {
 export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
   const relatedProject = getRelatedProject(caseStudy.relatedProjectSlug);
   const currentStatus = caseStudy.sections?.currentStatus;
+  const screenshots = caseStudy.sections?.screenshots ?? [];
+  const heroScreenshot = screenshots[0];
+  const galleryScreenshots = screenshots.slice(1);
 
   return (
     <div className="pb-16 md:pb-24">
       <Section className="pb-0 pt-10 md:pt-16">
         <PageContainer size="wide">
-          <CaseStudyHero caseStudy={caseStudy} />
+          <CaseStudyHero caseStudy={caseStudy} screenshot={heroScreenshot} />
         </PageContainer>
       </Section>
 
@@ -119,10 +122,10 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
         );
       })}
 
-      {caseStudy.sections?.screenshots?.length ? (
+      {galleryScreenshots.length ? (
         <Section className="pt-8 md:pt-12">
           <PageContainer size="wide">
-            <CaseStudyScreenshots screenshots={caseStudy.sections.screenshots} />
+            <CaseStudyScreenshots screenshots={galleryScreenshots} />
           </PageContainer>
         </Section>
       ) : null}

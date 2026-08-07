@@ -180,5 +180,43 @@ export const hrhShoppingCaseStudy = {
         "Large customer experiences benefit from consistent shared account and navigation patterns.",
       ],
     },
+    screenshots: [
+      {
+        src: "/images/projects/hrh-shopping/01-primary-desktop.png",
+        alt: "HRH Shopping storefront homepage with hero promotion, search, and category shortcuts.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/images/projects/hrh-shopping/02-listing-desktop.png",
+        alt: "HRH Shopping category listing with filters and product cards.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/images/projects/hrh-shopping/03-detail-desktop.png",
+        alt: "HRH Shopping product detail page for a compact smartwatch with pricing and purchase options.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/images/projects/hrh-shopping/04-tracking-desktop.png",
+        alt: "HRH Shopping order tracking page with shipping status and timeline.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/images/projects/hrh-shopping/05-account-desktop.png",
+        alt: "HRH Shopping customer reviews page with ratings summary and review targets.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/images/projects/hrh-shopping/06-checkout-mobile.png",
+        alt: "HRH Shopping mobile checkout view with cart summary and purchase actions.",
+        width: 390,
+        height: 844,
+      },
+    ],
   },
 } satisfies CaseStudy;

@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 8E
+
+- Added approved project screenshots for HRH Shopping, BookEasy, and TaskOrbit to the public media library.
+- Rendered approved media in the homepage featured projects, Projects index, and locked case-study pages with next/image and optional gallery behavior.
+- Preserved the locked Phase 8A–8D case-study structure while keeping rejected authentication fallback screenshots out of the portfolio.
+
 ### Phase 8D
 
 - Authored the HRH Shopping case-study narrative from verified customer-facing implementation evidence only.

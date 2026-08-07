@@ -215,5 +215,13 @@ export const taskOrbitCaseStudy = {
         "Lifecycle and recovery states need deliberate authorization rules rather than ad hoc exceptions.",
       ],
     },
+    screenshots: [
+      {
+        src: "/images/projects/taskorbit/01-primary-desktop.png",
+        alt: "TaskOrbit landing page with workspace operations overview and login actions.",
+        width: 1440,
+        height: 900,
+      },
+    ],
   },
 } satisfies CaseStudy;

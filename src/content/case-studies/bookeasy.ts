@@ -191,5 +191,25 @@ export const bookEasyCaseStudy = {
         "Keeping testable scheduling logic separate from the UI makes the system easier to maintain.",
       ],
     },
+    screenshots: [
+      {
+        src: "/images/projects/bookeasy/01-primary-desktop.png",
+        alt: "BookEasy homepage with appointment calendar and booking call to action.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/images/projects/bookeasy/02-booking-desktop.png",
+        alt: "BookEasy booking flow with service selection, date selection, and available times.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/images/projects/bookeasy/05-booking-mobile.png",
+        alt: "BookEasy mobile booking flow showing service selection on a narrow screen.",
+        width: 390,
+        height: 844,
+      },
+    ],
   },
 } satisfies CaseStudy;

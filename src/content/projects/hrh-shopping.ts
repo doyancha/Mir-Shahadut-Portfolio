@@ -23,8 +23,22 @@ export const hrhShoppingProject: ProjectRecord = {
   repositoryVisibility: "private",
   repositoryUrl: null,
   liveDemoUrl: "https://hrh-shopping.vercel.app/",
-  desktopScreenshots: [],
-  mobileScreenshots: [],
+  desktopScreenshots: [
+    {
+      src: "/images/projects/hrh-shopping/01-primary-desktop.png",
+      alt: "HRH Shopping storefront homepage with hero promotion, search, and category shortcuts.",
+      width: 1440,
+      height: 900,
+    },
+  ],
+  mobileScreenshots: [
+    {
+      src: "/images/projects/hrh-shopping/06-checkout-mobile.png",
+      alt: "HRH Shopping mobile checkout view with cart summary and purchase actions.",
+      width: 390,
+      height: 844,
+    },
+  ],
   accessibilityNotes: [],
   performanceNotes: [],
   lessonsLearned: [],

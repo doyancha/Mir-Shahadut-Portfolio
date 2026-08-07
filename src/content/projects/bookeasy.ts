@@ -32,8 +32,22 @@ export const bookEasyProject: ProjectRecord = {
   repositoryVisibility: "private",
   repositoryUrl: null,
   liveDemoUrl: "https://bookeasy-topaz.vercel.app/",
-  desktopScreenshots: [],
-  mobileScreenshots: [],
+  desktopScreenshots: [
+    {
+      src: "/images/projects/bookeasy/01-primary-desktop.png",
+      alt: "BookEasy homepage with appointment calendar and booking call to action.",
+      width: 1440,
+      height: 900,
+    },
+  ],
+  mobileScreenshots: [
+    {
+      src: "/images/projects/bookeasy/05-booking-mobile.png",
+      alt: "BookEasy mobile booking flow showing service selection on a narrow screen.",
+      width: 390,
+      height: 844,
+    },
+  ],
   accessibilityNotes: [],
   performanceNotes: [],
   lessonsLearned: [],

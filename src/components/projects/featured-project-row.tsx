@@ -6,56 +6,7 @@ import { Cluster } from "@/components/layout/cluster";
 import { Stack } from "@/components/layout/stack";
 import type { ProjectRecord } from "@/types/project";
 import { cn } from "@/lib/utils";
-
-function ProjectMediaPlaceholder({ project, rank }: { project: ProjectRecord; rank: string }) {
-  return (
-    <Card
-      aria-hidden="true"
-      surface="default"
-      padding="none"
-      className="overflow-hidden border-[hsl(var(--border-strong))]"
-    >
-      <div className="relative min-h-[15rem] aspect-[16/10] bg-[hsl(var(--background-elevated))]">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-60"
-          style={{
-            background:
-              "radial-gradient(circle at top left, hsl(var(--accent) / 0.1), transparent 28%), radial-gradient(circle at bottom right, hsl(var(--accent) / 0.05), transparent 25%)",
-          }}
-        />
-        <div className="relative flex h-full min-h-[15rem] min-w-0 flex-col justify-between gap-4 p-4 sm:p-5 md:p-6">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-            <div className="min-w-0 space-y-1">
-              <p className="type-metadata text-[hsl(var(--accent))]">{rank}</p>
-              <p className="type-card-title break-words text-[hsl(var(--foreground))]">
-                {project.name}
-              </p>
-              <p className="type-body-small text-[hsl(var(--foreground-secondary))]">
-                Project preview
-              </p>
-            </div>
-            <span className="inline-flex w-fit max-w-full self-start rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--surface))] px-2.5 py-1 text-left text-[length:var(--text-caption)] font-medium text-[hsl(var(--foreground-secondary))]">
-              Screenshot pending
-            </span>
-          </div>
-
-          <div className="min-w-0 space-y-3">
-            <div className="grid gap-2">
-              <div className="h-2 rounded-full bg-[hsl(var(--border) / 0.75)]" />
-              <div className="h-2 w-[78%] rounded-full bg-[hsl(var(--border) / 0.55)]" />
-              <div className="h-2 w-[58%] rounded-full bg-[hsl(var(--border) / 0.65)]" />
-            </div>
-            <div className="grid min-w-0 grid-cols-[repeat(3,minmax(0,1fr))] gap-2">
-              <div className="h-10 min-w-0 rounded-[var(--radius-md)] border border-[hsl(var(--border))] bg-[hsl(var(--background))]" />
-              <div className="h-10 min-w-0 rounded-[var(--radius-md)] border border-[hsl(var(--border))] bg-[hsl(var(--background))]" />
-              <div className="h-10 min-w-0 rounded-[var(--radius-md)] border border-[hsl(var(--border))] bg-[hsl(var(--background))]" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </Card>
-  );
-}
+import { ProjectMediaPreview } from "./project-media-preview";
 
 export function FeaturedProjectRow({ project, index }: { project: ProjectRecord; index: number }) {
   const rank = String(index + 1).padStart(2, "0");
@@ -63,6 +14,7 @@ export function FeaturedProjectRow({ project, index }: { project: ProjectRecord;
   const liveDemoUrl = project.liveDemoUrl ?? null;
   const techLabels = (project.homepageTechnologyStack ?? project.technologyStack).slice(0, 5);
   const summary = project.homepageSummary ?? project.shortSummary ?? "Pending owner input";
+  const previewScreenshot = project.desktopScreenshots[0];
 
   return (
     <article
@@ -72,7 +24,11 @@ export function FeaturedProjectRow({ project, index }: { project: ProjectRecord;
       )}
     >
       <div className="lg:w-[58%]">
-        <ProjectMediaPlaceholder project={project} rank={rank} />
+        <ProjectMediaPreview
+          screenshot={previewScreenshot}
+          priority
+          sizes="(max-width: 1024px) 100vw, 58vw"
+        />
       </div>
 
       <div className="lg:w-[42%]">

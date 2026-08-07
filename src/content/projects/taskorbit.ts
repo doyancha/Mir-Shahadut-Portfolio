@@ -30,7 +30,14 @@ export const taskOrbitProject: ProjectRecord = {
   repositoryVisibility: "private",
   repositoryUrl: null,
   liveDemoUrl: "https://taskorbit-mu.vercel.app/",
-  desktopScreenshots: [],
+  desktopScreenshots: [
+    {
+      src: "/images/projects/taskorbit/01-primary-desktop.png",
+      alt: "TaskOrbit landing page with workspace operations overview and login actions.",
+      width: 1440,
+      height: 900,
+    },
+  ],
   mobileScreenshots: [],
   accessibilityNotes: [],
   performanceNotes: [],

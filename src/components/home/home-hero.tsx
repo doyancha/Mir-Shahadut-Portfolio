@@ -53,9 +53,6 @@ function HeroPreviewTile({
           </div>
 
           <div className="space-y-4">
-            <p className="type-body-small text-[hsl(var(--foreground-secondary))]">
-              Screenshot pending
-            </p>
             <div className="grid gap-2">
               <div className="h-2 rounded-full bg-[hsl(var(--border) / 0.72)]" />
               <div className="h-2 w-[76%] rounded-full bg-[hsl(var(--border) / 0.56)]" />
