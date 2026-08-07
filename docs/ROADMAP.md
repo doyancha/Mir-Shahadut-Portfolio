@@ -366,11 +366,17 @@ Deliverables:
 - `/projects/[slug]`
 - Case-study section components
 - Content-driven project detail pages
+- Phase 8A - Case-Study System Foundation
+- Phase 8B - BookEasy Case Study
+- Phase 8C - TaskOrbit Case Study
+- Phase 8D - HRH Shopping Case Study
+- Phase 8E - Media Integration
+- Phase 8F - Case-Study Final QA & Lock
 
 Verification:
 
 - Only factual sections render
-- Missing sections remain hidden or marked `Pending owner input`
+- Missing sections remain hidden
 
 Exit criteria:
 

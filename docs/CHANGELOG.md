@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 8A
+
+- Implemented the reusable case-study system foundation with static-first routing, per-project metadata, optional section rendering, and related-project navigation.
+- Added the approved case-study content index and the three minimal project scaffolds without authoring full case-study narratives.
+- Kept unsupported sections hidden and left the live-demo architecture ready for future approved screenshots.
+
 ### Phase 7
 
 - Implemented the Projects Index page as an evidence-led public view of HRH Shopping, BookEasy, and TaskOrbit.
