@@ -50,7 +50,8 @@ export function CaseStudyHero({ caseStudy, screenshot }: CaseStudyHeroProps) {
                 alt={screenshot.alt}
                 width={screenshot.width}
                 height={screenshot.height}
-                priority
+                loading="eager"
+                fetchPriority="high"
                 sizes="(max-width: 1024px) 100vw, 42vw"
                 className="h-auto w-full"
               />

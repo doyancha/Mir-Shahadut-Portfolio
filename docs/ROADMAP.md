@@ -352,7 +352,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
 ## Phase 8 - Project Case-Study System
 
@@ -378,11 +378,11 @@ Verification:
 - Only factual sections render
 - Missing sections remain hidden
 - Phase 8A is locked
-- Phase 8B is implemented and locked
-- Phase 8C is implemented and locked
-- Phase 8D is implemented and locked
-- Phase 8E is implemented and pending owner approval
-- Phase 8F has not started
+- Phase 8B is locked
+- Phase 8C is locked
+- Phase 8D is locked
+- Phase 8E is locked
+- Phase 8F is locked
 
 Exit criteria:
 
@@ -392,7 +392,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
 ## Phase 9 - Experience and Resume
 

@@ -202,7 +202,6 @@ export const taskOrbitCaseStudy = {
         "The product is still in active development, so additional scope remains unfinished.",
         "The public demo does not imply commercial production usage.",
         "The repository is private, so the case study must stand on documented implementation evidence.",
-        "No approved screenshot gallery has been added yet.",
         "No conventional unit or Playwright test suite was found in the repository scan.",
       ],
     },

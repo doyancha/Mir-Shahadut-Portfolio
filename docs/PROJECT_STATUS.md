@@ -10,13 +10,13 @@
 - Phase 4B-2 homepage completion has been implemented.
 - Phase 5 About page has been implemented and is locked.
 - Phase 6 Skills and Capabilities page has been implemented and is locked.
-- Phase 7 Projects Index page has been implemented and is pending owner approval.
+- Phase 7 Projects Index page has been implemented and is locked.
 - Phase 8A Case-Study System Foundation has been implemented and is locked.
 - Phase 8B BookEasy case study has been implemented and is locked.
 - Phase 8C TaskOrbit case study has been implemented and is locked.
 - Phase 8D HRH Shopping case study has been implemented and is locked.
-- Phase 8E Media Integration has been implemented and is pending owner approval.
-- Phase 8F Case-Study Final QA & Lock has not started.
+- Phase 8E Media Integration has been implemented and is locked.
+- Phase 8F Case-Study Final QA & Lock has been completed and locked.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -44,9 +44,9 @@
 - The Skills and Capabilities page now uses structured content for verified project-applied capabilities and technologies.
 - The Skills and Capabilities page remains verified-only and intentionally omits percentages, ratings, and learning/exposure claims.
 - The Projects Index page now uses structured content for verified project evidence, public status labels, private repository disclosure, and live demos.
-- The Projects Index page remains evidence-led and intentionally omits case-study routes until a later phase.
+- The Projects Index page remains evidence-led and now includes the approved case-study routes.
 - The reusable project case-study route foundation now exists for the approved slugs and remains content-driven and static-first.
-- The BookEasy case-study narrative now presents verified implementation evidence without screenshots or unsupported claims.
+- The BookEasy case-study narrative now presents verified implementation evidence with approved media and without unsupported claims.
 - The TaskOrbit case-study narrative now presents verified implementation evidence with the same reusable shell and section-width behavior.
 - The HRH Shopping case-study narrative now presents verified customer-facing implementation evidence without unsupported backend or admin claims.
 - Approved project screenshots now render on the homepage, Projects index, and case-study pages without placeholders or fallback media.

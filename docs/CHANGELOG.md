@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 8F
+
+- Finalized the Phase 8 governance documents to reflect the locked Phase 8A-F baseline.
+- Removed stale BookEasy and TaskOrbit screenshot-gallery wording now that approved media is rendered.
+- Normalized case-study hero image loading to match the shared eager-loading strategy used by project previews.
+
 ### Phase 8E
 
 - Added approved project screenshots for HRH Shopping, BookEasy, and TaskOrbit to the public media library.

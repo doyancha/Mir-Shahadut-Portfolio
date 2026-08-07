@@ -178,7 +178,6 @@ export const bookEasyCaseStudy = {
       items: [
         "The product is modeled around one service business and one location.",
         "Database-backed booking and dashboards depend on configured Supabase services.",
-        "No approved screenshot gallery has been added yet.",
         "The portfolio evidence should not be read as a commercial production adoption claim.",
         "The contact form remains a local demo validation flow in the repository documentation.",
       ],
