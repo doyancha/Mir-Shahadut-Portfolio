@@ -57,6 +57,7 @@ export type CaseStudySections = {
   responsive?: CaseStudyTextSection;
   accessibility?: CaseStudyListSection;
   security?: CaseStudyListSection;
+  validation?: CaseStudyListSection;
   testing?: CaseStudyListSection;
   deployment?: CaseStudyTextSection;
   currentStatus?: CaseStudyTextSection;

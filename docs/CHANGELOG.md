@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 8C
+
+- Authored the TaskOrbit case-study narrative from verified implementation evidence only.
+- Added TaskOrbit overview, architecture, workflow, authorization, validation, testing, deployment, limitations, and lessons sections to the reusable case-study content layer.
+- Preserved the locked Key Facts shell, optional-section behavior, and screenshot-free presentation while widening the reusable section shell for structured evidence at large desktop widths.
+
 ### Phase 8A
 
 - Implemented the reusable case-study system foundation with static-first routing, per-project metadata, optional section rendering, and related-project navigation.

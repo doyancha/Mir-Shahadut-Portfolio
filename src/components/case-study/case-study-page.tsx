@@ -26,12 +26,26 @@ const orderedSections = [
   ["responsive", "Responsive"],
   ["accessibility", "Accessibility"],
   ["security", "Security"],
+  ["validation", "Validation and data integrity"],
   ["testing", "Testing"],
   ["deployment", "Deployment"],
   ["currentStatus", "Current status"],
   ["limitations", "Limitations"],
   ["lessons", "Lessons"],
 ] as const;
+
+type OrderedSectionKey = (typeof orderedSections)[number][0];
+
+const proseSectionKeys = new Set<OrderedSectionKey>([
+  "overview",
+  "problem",
+  "responsive",
+  "deployment",
+]);
+
+function getSectionContainerSize(key: OrderedSectionKey) {
+  return proseSectionKeys.has(key) ? "prose" : "content";
+}
 
 export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
   const relatedProject = getRelatedProject(caseStudy.relatedProjectSlug);
@@ -66,7 +80,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
 
         return (
           <Section key={key} className="pt-8 md:pt-12">
-            <PageContainer size="prose">
+            <PageContainer size={getSectionContainerSize(key)}>
               <CaseStudySection
                 id={key}
                 title={title}
