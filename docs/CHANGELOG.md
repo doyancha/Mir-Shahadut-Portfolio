@@ -2,6 +2,12 @@
 
 # 2026-08-08
 
+### Phase 11
+
+- Implemented restrained CSS-only motion and interaction polish for shared controls, mobile navigation, contact feedback, and project media.
+- Preserved the motion-light editorial layout while adding subtle press, reveal, and hover feedback with reduced-motion support.
+- Updated the phase-tracking documents and site configuration to reflect Phase 11 as complete and locked.
+
 ### Phase 10A
 
 - Implemented the Contact page foundation with a professional hero, curated contact methods, and a server-action submission form.

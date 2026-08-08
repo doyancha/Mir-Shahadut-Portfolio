@@ -30,7 +30,7 @@ const sizeClasses: Record<ButtonSize, string> = {
 };
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)] border font-medium transition-[background-color,border-color,color,transform,box-shadow] duration-[var(--motion-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--focus-ring))] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--background))] disabled:pointer-events-none disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)] border font-medium transition-[background-color,border-color,color,transform,box-shadow] duration-[var(--motion-fast)] ease-[var(--ease-standard)] active:scale-[0.985] active:shadow-none motion-reduce:active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--focus-ring))] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--background))] disabled:pointer-events-none disabled:opacity-60";
 
 function getButtonClasses(variant: ButtonVariant, size: ButtonSize, className?: string): string {
   return cn(baseClasses, variantClasses[variant], sizeClasses[size], "shadow-soft", className);

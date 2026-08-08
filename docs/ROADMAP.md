@@ -450,7 +450,8 @@ Verification:
 - Phase 10A contact-system foundation is implemented and locked
 - Phase 10B contact-system final QA and lock is complete and locked
 - Phase 10 contact system is complete and locked
-- Phase 11 has not started
+- Phase 11 motion and interaction polish is complete and locked
+- Phase 12 has not started
 - Contact details are owner-approved
 - Any form behavior is approved before use
 
@@ -490,7 +491,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
 ## Phase 12 - Accessibility Audit
 

@@ -44,7 +44,7 @@ function StatusMessage({ state }: { state: ContactFormState }) {
   return (
     <div
       className={cn(
-        "rounded-[var(--radius-md)] border px-4 py-3 text-sm leading-6",
+        "status-feedback rounded-[var(--radius-md)] border px-4 py-3 text-sm leading-6 motion-reduce:animate-none",
         isSuccess
           ? "border-[hsl(var(--accent))] bg-[hsl(var(--accent) / 0.08)] text-[hsl(var(--foreground))]"
           : "border-[hsl(var(--border-strong))] bg-[hsl(var(--surface-muted))] text-[hsl(var(--foreground))]"
@@ -132,7 +132,7 @@ export function ContactForm({ action }: ContactFormProps) {
         </Stack>
 
         <div ref={statusRef} tabIndex={-1}>
-          <StatusMessage state={state} />
+          <StatusMessage key={`${state.status}-${state.message}`} state={state} />
         </div>
 
         {state.status === "error" && !state.fieldErrors.form ? (

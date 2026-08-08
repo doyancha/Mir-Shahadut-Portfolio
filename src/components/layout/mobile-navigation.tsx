@@ -40,16 +40,92 @@ function CloseIcon() {
 export function MobileNavigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isRendered, setIsRendered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const openFrameRef = useRef<number | null>(null);
+  const closeTimerRef = useRef<number | null>(null);
+
+  const clearOpenFrame = useCallback(() => {
+    if (openFrameRef.current === null) {
+      return;
+    }
+
+    window.cancelAnimationFrame(openFrameRef.current);
+    openFrameRef.current = null;
+  }, []);
+
+  const clearCloseTimer = useCallback(() => {
+    if (closeTimerRef.current === null) {
+      return;
+    }
+
+    window.clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = null;
+  }, []);
 
   const closeMenu = useCallback(() => {
-    setIsOpen(false);
+    clearOpenFrame();
+    clearCloseTimer();
+    setIsVisible(false);
+
+    if (prefersReducedMotion) {
+      setIsOpen(false);
+      setIsRendered(false);
+      return;
+    }
+
+    closeTimerRef.current = window.setTimeout(() => {
+      setIsOpen(false);
+      setIsRendered(false);
+      closeTimerRef.current = null;
+    }, 180);
+  }, [clearCloseTimer, clearOpenFrame, prefersReducedMotion]);
+
+  const openMenu = useCallback(() => {
+    clearOpenFrame();
+    clearCloseTimer();
+    setIsRendered(true);
+    setIsOpen(true);
+
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
+    setIsVisible(false);
+    openFrameRef.current = window.requestAnimationFrame(() => {
+      setIsVisible(true);
+      openFrameRef.current = null;
+    });
+  }, [clearCloseTimer, clearOpenFrame, prefersReducedMotion]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => {
+      setPrefersReducedMotion(mediaQuery.matches);
+    };
+
+    updatePreference();
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", updatePreference);
+      return () => {
+        mediaQuery.removeEventListener("change", updatePreference);
+      };
+    }
+
+    mediaQuery.addListener(updatePreference);
+    return () => {
+      mediaQuery.removeListener(updatePreference);
+    };
   }, []);
 
   useEffect(() => {
-    if (!isOpen) {
+    if (!isRendered) {
       return;
     }
 
@@ -107,12 +183,14 @@ export function MobileNavigation() {
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      clearOpenFrame();
+      clearCloseTimer();
       window.cancelAnimationFrame(frame);
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
       triggerElement?.focus();
     };
-  }, [closeMenu, isOpen]);
+  }, [clearCloseTimer, clearOpenFrame, closeMenu, isRendered]);
 
   return (
     <div className="lg:hidden">
@@ -122,7 +200,7 @@ export function MobileNavigation() {
         aria-expanded={isOpen}
         aria-controls="mobile-navigation-panel"
         aria-haspopup="dialog"
-        onClick={() => setIsOpen((current) => !current)}
+        onClick={isOpen ? closeMenu : openMenu}
         className={cn(
           isOpen && "border-[hsl(var(--border-strong))] bg-[hsl(var(--surface-muted))]"
         )}
@@ -130,16 +208,24 @@ export function MobileNavigation() {
         {isOpen ? <CloseIcon /> : <MenuIcon />}
       </IconButton>
 
-      {isOpen ? (
+      {isRendered ? (
         <div
           ref={panelRef}
           id="mobile-navigation-panel"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className="fixed inset-0 z-50 h-[100dvh] bg-[hsl(var(--background))]"
+          className={cn(
+            "fixed inset-0 z-50 h-[100dvh] bg-[hsl(var(--background))] transition-opacity duration-[var(--motion-standard)] ease-[var(--ease-standard)] motion-reduce:transition-none",
+            isVisible ? "opacity-100" : "opacity-0"
+          )}
         >
-          <div className="flex h-full flex-col">
+          <div
+            className={cn(
+              "flex h-full flex-col transition-[opacity,transform] duration-[var(--motion-standard)] ease-[var(--ease-standard)] motion-reduce:transform-none motion-reduce:transition-none",
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+            )}
+          >
             <div className="border-b border-[hsl(var(--border))]">
               <div className="container-page flex items-center justify-between py-4">
                 <Link

@@ -25,7 +25,10 @@ export function ProjectMediaPreview({
     <Card
       surface="default"
       padding="none"
-      className={cn("overflow-hidden rounded-[28px] border-[hsl(var(--border-strong))]", className)}
+      className={cn(
+        "group overflow-hidden rounded-[28px] border-[hsl(var(--border-strong))]",
+        className
+      )}
     >
       <Image
         src={screenshot.src}
@@ -35,7 +38,7 @@ export function ProjectMediaPreview({
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
         sizes={sizes}
-        className="h-auto w-full"
+        className="h-auto w-full origin-center transition-[transform] duration-[var(--motion-standard)] ease-[var(--ease-standard)] motion-reduce:transition-none motion-reduce:transform-none lg:group-hover:scale-[1.015]"
       />
     </Card>
   );

@@ -23,7 +23,7 @@
 - Phase 9D Final QA & Lock has been completed and locked.
 - Phase 10A Contact System Foundation has been implemented and locked.
 - Phase 10B Contact System Final QA & Lock has been completed and locked.
-- Phase 11 has not started.
+- Phase 11 motion and interaction polish has been completed and is locked.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -64,6 +64,7 @@
 - The Resume page now links directly to the approved downloadable PDF.
 - Phase 9A, Phase 9B, Phase 9C, and Phase 9D are locked.
 - The Contact page now provides the complete Phase 10 contact system with direct contact methods and a server-action form.
+- Phase 11 now adds restrained CSS-only motion and interaction polish with reduced-motion support and is locked.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 
