@@ -541,6 +541,9 @@ Verification:
 
 - Titles and descriptions are correct
 - Social previews are valid
+- Sitemap includes all public indexable routes
+- JSON-LD is supported and factual
+- `/resume/print` remains noindex and excluded from crawlable surfaces
 
 Exit criteria:
 
@@ -550,7 +553,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
 ## Phase 14 - Performance Optimization
 

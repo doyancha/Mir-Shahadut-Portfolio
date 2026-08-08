@@ -5,6 +5,7 @@ import { Geist, IBM_Plex_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SkipLink } from "@/components/layout/skip-link";
+import { StructuredData } from "@/components/seo/structured-data";
 import { createMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className="flex min-h-screen flex-col bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
         <SkipLink />
         <SiteHeader />
+        <StructuredData />
         <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
           {children}
         </main>

@@ -24,8 +24,9 @@
 - Phase 10A Contact System Foundation has been implemented and locked.
 - Phase 10B Contact System Final QA & Lock has been completed and locked.
 - Phase 11 motion and interaction polish has been completed and is locked.
-- Phase 12 accessibility remediation has been completed and locked.
-- Phase 13 has not started.
+- Phase 12 accessibility remediation is complete and locked.
+- Phase 13 SEO and social sharing is complete and locked.
+- Phase 14 has not started.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -68,6 +69,7 @@
 - The Contact page now provides the complete Phase 10 contact system with direct contact methods and a server-action form.
 - Phase 11 now adds restrained CSS-only motion and interaction polish with reduced-motion support and is locked.
 - Phase 12 now closes the shared contrast gaps and mobile-nav ARIA noise discovered in the locked accessibility audit and is locked.
+- Phase 13 now adds the page-specific metadata, social preview image, structured data, and sitemap completeness updates, and is locked.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 

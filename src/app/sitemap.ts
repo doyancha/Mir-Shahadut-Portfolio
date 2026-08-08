@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { caseStudyEntries } from "@/content/case-studies";
 import { navigationItems } from "@/content/navigation";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -10,10 +11,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return [];
   }
 
-  return navigationItems.map((item) => ({
-    url: new URL(item.href, siteUrl).toString(),
-    lastModified: new Date(),
+  const publicRoutes = [
+    ...navigationItems.map((item) => item.href),
+    ...caseStudyEntries.map((caseStudy) => caseStudy.canonicalPath),
+  ];
+
+  return publicRoutes.map((href) => ({
+    url: new URL(href, siteUrl).toString(),
     changeFrequency: "weekly",
-    priority: item.href === "/" ? 1 : 0.7,
+    priority: href === "/" ? 1 : 0.7,
   }));
 }

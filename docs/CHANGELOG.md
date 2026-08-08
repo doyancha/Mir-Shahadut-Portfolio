@@ -1,5 +1,13 @@
 # Changelog
 
+### Phase 13
+
+- Updated the shared metadata helper so page titles, descriptions, and canonical paths now drive the default Open Graph and Twitter text metadata.
+- Added a single global social preview image for the portfolio and wired the site to use the richer social-card presentation.
+- Extended the sitemap to include the public case-study routes while preserving `/resume/print` as a non-indexable internal preview.
+- Added conservative JSON-LD for the person and website identities using only verified public facts.
+- Finalized the Phase 13 SEO and social-sharing lock state.
+
 ### Phase 12
 
 - Remediated the locked accessibility audit findings by splitting the shared accent tokens for text and primary surfaces so contrast meets WCAG AA.
