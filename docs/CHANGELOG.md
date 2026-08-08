@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 12
+
+- Remediated the locked accessibility audit findings by splitting the shared accent tokens for text and primary surfaces so contrast meets WCAG AA.
+- Removed the unstable mobile-navigation `aria-controls` relationship so the trigger keeps a clear accessible name and state without axe noise.
+- Updated the phase-tracking documents and site configuration to reflect Phase 12 as complete and locked.
+
 # 2026-08-08
 
 ### Phase 11

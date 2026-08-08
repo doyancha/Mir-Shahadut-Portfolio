@@ -510,6 +510,7 @@ Verification:
 - Focus order works
 - Contrast is sufficient
 - Semantics are correct
+- Phase 12 remediation has been completed and locked
 
 Exit criteria:
 
@@ -519,7 +520,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
 ## Phase 13 - SEO and Social Sharing
 

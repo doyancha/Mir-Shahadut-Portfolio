@@ -11,8 +11,10 @@
   --foreground-muted: 215 13% 63%;
   --border: 219 16% 24%;
   --border-strong: 219 17% 35%;
-  --accent: 217 100% 62%;
-  --accent-hover: 217 100% 68%;
+  --accent: 217 100% 66%;
+  --accent-hover: 217 100% 70%;
+  --accent-surface: 217 100% 48%;
+  --accent-surface-hover: 217 100% 50%;
   --accent-foreground: 220 38% 97%;
   --success: 158 64% 47%;
   --warning: 39 92% 59%;

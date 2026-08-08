@@ -198,7 +198,6 @@ export function MobileNavigation() {
         ref={triggerRef}
         label={isOpen ? "Close navigation menu" : "Open navigation menu"}
         aria-expanded={isOpen}
-        aria-controls="mobile-navigation-panel"
         aria-haspopup="dialog"
         onClick={isOpen ? closeMenu : openMenu}
         className={cn(

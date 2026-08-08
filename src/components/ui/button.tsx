@@ -16,7 +16,7 @@ type ButtonProps = ButtonBaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "border-[hsl(var(--accent))] bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))] hover:border-[hsl(var(--accent-hover))] hover:bg-[hsl(var(--accent-hover))]",
+    "border-[hsl(var(--accent-surface))] bg-[hsl(var(--accent-surface))] text-[hsl(var(--accent-foreground))] hover:border-[hsl(var(--accent-surface-hover))] hover:bg-[hsl(var(--accent-surface-hover))]",
   secondary:
     "border-[hsl(var(--border))] bg-[hsl(var(--surface))] text-[hsl(var(--foreground))] hover:border-[hsl(var(--border-strong))] hover:bg-[hsl(var(--surface-muted))]",
   ghost:
