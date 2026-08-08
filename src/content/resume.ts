@@ -21,6 +21,10 @@ export const resumePageHeading = "Professional resume";
 export const resumePageDescription =
   "A concise professional resume covering background, technical skills, experience, education, and selected projects.";
 
+export const resumePdfFileName = "mir-shahadut-hossain-resume.pdf";
+export const resumePdfPath = `/documents/resume/${resumePdfFileName}`;
+export const resumePdfDownloadLabel = "Download Resume";
+
 export const resumeHeroIntroduction =
   "Full Stack Web Developer based in Dhaka, Bangladesh, with experience in system and web development, project management, computer science study, and hands-on development of modern web applications.";
 

@@ -19,7 +19,7 @@
 - Phase 8F Case-Study Final QA & Lock has been completed and locked.
 - Phase 9A Experience page has been implemented and is locked.
 - Phase 9B Resume web page has been implemented and is pending owner approval.
-- Phase 9C Resume PDF has not started.
+- Phase 9C Resume PDF has been implemented and is pending owner approval.
 - Phase 9D Final QA & Lock has not started.
 - The application uses Next.js App Router.
 - The package manager is npm.
@@ -57,7 +57,8 @@
 - Unsupported case-study sections remain omitted from rendering until authored.
 - The Experience page now presents verified professional background and education facts in a structured page distinct from About.
 - The Resume page now presents a concise recruiter-facing web resume with verified identity, skills, experience, education, and selected projects.
-- The Resume page remains web-first and intentionally omits a PDF download until a later phase.
+- The Resume PDF now provides a one-page ATS-safe downloadable artifact based on the canonical resume content.
+- The Resume page now links directly to the approved downloadable PDF.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 
@@ -65,6 +66,7 @@
 - `src/app/(marketing)/experience/page.tsx`
 - `src/app/(marketing)/projects/page.tsx`
 - `src/app/(marketing)/resume/page.tsx`
+- `src/app/(marketing)/resume/print/page.tsx`
 - `src/app/(marketing)/skills/page.tsx`
 - `src/app/(marketing)/about/page.tsx`
 - `src/app/layout.tsx`
@@ -83,6 +85,7 @@
 - `src/components/home/core-capabilities.tsx`
 - `src/components/home/engineering-approach.tsx`
 - `src/components/home/resume-cta.tsx`
+- `src/components/resume/resume-pdf-document.tsx`
 - `src/components/home/selected-technologies.tsx`
 - `src/components/layout/desktop-navigation.tsx`
 - `src/components/layout/mobile-navigation.tsx`
@@ -94,6 +97,7 @@
 - `src/content/about.ts`
 - `src/content/site-config.ts`
 - `src/content/homepage.ts`
+- `src/content/resume-pdf.ts`
 - `src/lib/metadata.ts`
 - `src/lib/navigation.ts`
 - `src/lib/site-url.ts`

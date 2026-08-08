@@ -1,5 +1,14 @@
 # Changelog
 
+# 2026-08-08
+
+### Phase 9C
+
+- Added the dedicated one-page resume PDF generation flow and the internal print-focused `/resume/print` preview route.
+- Linked the public Resume page to the downloadable PDF while keeping the web resume structure intact.
+- Kept the PDF content driven by canonical identity, experience, skills, education, and selected-project data.
+- Updated the phase-tracking documents to reflect Phase 9C as implemented and pending owner approval.
+
 ### Phase 9B
 
 - Implemented the Resume web page as a recruiter-friendly summary of verified identity, skills, experience, education, and selected project evidence.

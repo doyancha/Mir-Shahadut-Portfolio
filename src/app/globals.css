@@ -281,3 +281,37 @@ a {
     scroll-behavior: auto !important;
   }
 }
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  body > header,
+  body > footer,
+  body > nav,
+  body > .skip-link {
+    display: none !important;
+  }
+
+  .resume-print-shell {
+    min-height: auto !important;
+    padding: 0 !important;
+  }
+}
+
+body:has(.resume-print-shell) > header,
+body:has(.resume-print-shell) > footer,
+body:has(.resume-print-shell) > .skip-link {
+  display: none !important;
+}
+
+body:has(.resume-print-shell) {
+  background: #fff;
+}

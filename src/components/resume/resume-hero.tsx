@@ -6,6 +6,8 @@ import { Stack } from "@/components/layout/stack";
 import {
   resumeHeroFacts,
   resumeHeroIntroduction,
+  resumePdfDownloadLabel,
+  resumePdfPath,
   resumePageEyebrow,
   resumePageHeading,
 } from "@/content/resume";
@@ -27,15 +29,18 @@ export function ResumeHero() {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <LinkButton href="/projects" size="lg" className="w-full sm:w-auto">
-                View Projects
+              <LinkButton href={resumePdfPath} size="lg" className="w-full sm:w-auto" download>
+                {resumePdfDownloadLabel}
               </LinkButton>
               <LinkButton
-                href="/contact"
+                href="/projects"
                 size="lg"
                 variant="secondary"
                 className="w-full sm:w-auto"
               >
+                View Projects
+              </LinkButton>
+              <LinkButton href="/contact" size="lg" variant="ghost" className="w-full sm:w-auto">
                 Contact Me
               </LinkButton>
             </div>

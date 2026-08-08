@@ -412,7 +412,8 @@ Verification:
 
 - Phase 9A is complete and locked
 - Phase 9B is implemented and pending owner approval
-- Phase 9C and Phase 9D have not started
+- Phase 9C is implemented and pending owner approval
+- Phase 9D has not started
 - Dates and roles are verified
 - Resume links are valid
 - Experience page remains factual and concise
