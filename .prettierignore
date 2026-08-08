@@ -4,3 +4,4 @@ out
 coverage
 .vercel
 package-lock.json
+next-env.d.ts
