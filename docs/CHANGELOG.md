@@ -1,5 +1,12 @@
 # Changelog
 
+### Phase 15
+
+- Added a small Vitest layer for contact validation, contact server-action behavior, metadata helpers, case-study lookup helpers, and the approved resume PDF.
+- Added a focused Playwright layer for route smoke checks, navigation behavior, case-study links, contact validation, resume download behavior, SEO/indexability, and responsive smoke coverage.
+- Added lightweight CI workflow support so the same high-value checks can run consistently in automation.
+- Updated the phase-tracking documents and site configuration to reflect Phase 15 as complete and locked.
+
 ### Phase 13
 
 - Updated the shared metadata helper so page titles, descriptions, and canonical paths now drive the default Open Graph and Twitter text metadata.
@@ -12,7 +19,7 @@
 
 - Narrowed the project preview image loading strategy so only the first visible preview in each list can retain priority loading.
 - Preserved case-study hero image behavior and the approved shared preview architecture while reducing unnecessary eager requests for non-critical previews.
-- Updated the phase-tracking documents and site configuration to reflect Phase 14 as implemented and pending owner approval.
+- Updated the phase-tracking documents and site configuration to reflect Phase 14 as complete and locked.
 
 ### Phase 12
 

@@ -573,7 +573,7 @@ Verification:
 
 - Key routes remain efficient
 - Performance targets are assessed
-- Phase 14 remediation is implemented and pending owner approval
+- Phase 14 remediation has been completed and locked
 
 Exit criteria:
 
@@ -583,7 +583,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Implemented`
+Status: `Complete`
 
 ## Phase 15 - Testing
 
@@ -602,6 +602,8 @@ Verification:
 
 - Representative viewport checks pass
 - Core journeys are validated
+- Focused automated tests cover the highest-value public behaviors
+- Phase 15 is complete and locked
 
 Exit criteria:
 
@@ -611,7 +613,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
 ## Phase 16 - Final Content and Visual Polish
 

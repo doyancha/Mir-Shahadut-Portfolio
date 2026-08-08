@@ -9,6 +9,9 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit && npm run build && npm run test:e2e",
     "resume:pdf:legacy": "node -e \"console.error('resume:pdf:legacy is deprecated. The canonical resume PDF is public/documents/resume/mir-shahadut-hossain-resume.pdf. Use scripts/generate-resume-pdf.ts only with ALLOW_RESUME_PDF_OVERWRITE=1 and explicit intent.'); process.exit(1)\"",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -33,7 +36,8 @@
     "postcss": "^8.5.26",
     "prettier": "^3.9.6",
     "tailwindcss": "^4.3.3",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
   },
   "engines": {
     "node": ">=20.0.0"

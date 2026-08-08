@@ -26,8 +26,9 @@
 - Phase 11 motion and interaction polish has been completed and is locked.
 - Phase 12 accessibility remediation is complete and locked.
 - Phase 13 SEO and social sharing is complete and locked.
-- Phase 14 performance remediation is implemented and pending owner approval.
-- Phase 15 has not started.
+- Phase 14 performance remediation is complete and locked.
+- Phase 15 automated testing and CI is complete and locked.
+- Phase 16 has not started.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -71,6 +72,8 @@
 - Phase 11 now adds restrained CSS-only motion and interaction polish with reduced-motion support and is locked.
 - Phase 12 now closes the shared contrast gaps and mobile-nav ARIA noise discovered in the locked accessibility audit and is locked.
 - Phase 13 now adds the page-specific metadata, social preview image, structured data, and sitemap completeness updates, and is locked.
+- Phase 14 now narrows project preview image loading to protect the established LCP path while leaving the rest of the rendering strategy intact, and is locked.
+- Phase 15 now adds the focused automated test layer and CI workflow for the portfolio's highest-value routes and behaviors.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 
