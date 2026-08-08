@@ -26,7 +26,7 @@ export function FeaturedProjectRow({ project, index }: { project: ProjectRecord;
       <div className="lg:w-[58%]">
         <ProjectMediaPreview
           screenshot={previewScreenshot}
-          priority
+          priority={index === 0}
           sizes="(max-width: 1024px) 100vw, 58vw"
         />
       </div>

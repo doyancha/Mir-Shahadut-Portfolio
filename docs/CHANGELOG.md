@@ -8,6 +8,12 @@
 - Added conservative JSON-LD for the person and website identities using only verified public facts.
 - Finalized the Phase 13 SEO and social-sharing lock state.
 
+### Phase 14
+
+- Narrowed the project preview image loading strategy so only the first visible preview in each list can retain priority loading.
+- Preserved case-study hero image behavior and the approved shared preview architecture while reducing unnecessary eager requests for non-critical previews.
+- Updated the phase-tracking documents and site configuration to reflect Phase 14 as implemented and pending owner approval.
+
 ### Phase 12
 
 - Remediated the locked accessibility audit findings by splitting the shared accent tokens for text and primary surfaces so contrast meets WCAG AA.

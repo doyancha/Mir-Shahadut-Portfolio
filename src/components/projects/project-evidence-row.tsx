@@ -37,7 +37,7 @@ export function ProjectEvidenceRow({ project, index }: ProjectEvidenceRowProps) 
           <div className="min-w-0">
             <ProjectMediaPreview
               screenshot={previewScreenshot}
-              priority
+              priority={index === 0}
               sizes="(max-width: 1024px) 100vw, 58vw"
             />
           </div>

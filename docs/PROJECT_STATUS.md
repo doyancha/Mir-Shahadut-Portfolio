@@ -26,7 +26,8 @@
 - Phase 11 motion and interaction polish has been completed and is locked.
 - Phase 12 accessibility remediation is complete and locked.
 - Phase 13 SEO and social sharing is complete and locked.
-- Phase 14 has not started.
+- Phase 14 performance remediation is implemented and pending owner approval.
+- Phase 15 has not started.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
