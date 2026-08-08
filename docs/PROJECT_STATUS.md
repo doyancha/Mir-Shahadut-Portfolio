@@ -21,6 +21,7 @@
 - Phase 9B Resume web page has been implemented and is locked.
 - Phase 9C Resume PDF has been implemented and is locked.
 - Phase 9D Final QA & Lock has been completed and locked.
+- Phase 10A Contact System Foundation has been implemented.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -60,6 +61,7 @@
 - The Resume PDF now provides a one-page ATS-safe downloadable artifact based on the canonical resume content.
 - The Resume page now links directly to the approved downloadable PDF.
 - Phase 9A, Phase 9B, Phase 9C, and Phase 9D are locked.
+- The Contact page now provides the Phase 10A contact-system foundation with direct contact methods and a server-action form.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 

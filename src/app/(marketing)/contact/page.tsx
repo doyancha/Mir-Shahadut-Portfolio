@@ -1,29 +1,34 @@
 import type { Metadata } from "next";
 
+import { ContactForm } from "@/components/contact/contact-form";
+import { ContactHero } from "@/components/contact/contact-hero";
+import { ContactMethods } from "@/components/contact/contact-methods";
 import { PageContainer } from "@/components/layout/page-container";
-import { Prose } from "@/components/layout/prose";
 import { Section } from "@/components/layout/section";
-import { Stack } from "@/components/layout/stack";
 import { createMetadata } from "@/lib/metadata";
+
+import { submitContactForm } from "./actions";
 
 export const metadata: Metadata = createMetadata({
   path: "/contact",
   title: "Contact",
-  description: "The full Contact page will be implemented in a later phase.",
+  description:
+    "Contact Mir Shahadut Hossain about freelance work, job opportunities, or project discussions.",
 });
 
 export default function ContactPage() {
   return (
-    <Section>
-      <PageContainer size="prose">
-        <Stack gap="md">
-          <p className="type-label text-[hsl(var(--accent))]">Contact</p>
-          <h1 className="type-page-title text-[hsl(var(--foreground))]">Contact</h1>
-          <Prose className="p-0">
-            <p>The full Contact page will be implemented in a later phase.</p>
-          </Prose>
-        </Stack>
-      </PageContainer>
-    </Section>
+    <>
+      <ContactHero />
+
+      <Section className="pt-10 pb-16 md:pt-12 md:pb-20">
+        <PageContainer size="wide">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+            <ContactMethods />
+            <ContactForm action={submitContactForm} />
+          </div>
+        </PageContainer>
+      </Section>
+    </>
   );
 }

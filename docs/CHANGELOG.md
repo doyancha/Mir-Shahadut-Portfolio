@@ -2,6 +2,12 @@
 
 # 2026-08-08
 
+### Phase 10A
+
+- Implemented the Contact page foundation with a professional hero, curated contact methods, and a server-action submission form.
+- Added Resend-based transactional email delivery with server-side validation, a honeypot field, and plain-text message handling.
+- Updated the phase-tracking documents and site configuration to reflect Phase 10A as the active contact-system baseline.
+
 ### Phase 9D
 
 - Normalized the locked Phase 9 baseline so Phase 9A, Phase 9B, and Phase 9C are reflected as locked in the phase-tracking docs and site configuration.
