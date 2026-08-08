@@ -17,18 +17,18 @@ function normalizePath(path: string): string {
 
 export function createMetadata({ path = "/", ...overrides }: CreateMetadataOptions = {}): Metadata {
   const canonicalPath = normalizePath(path);
+  const siteUrl = getSiteUrl();
+  const hasSiteUrl = Boolean(siteUrl);
 
   return {
-    metadataBase: new URL(getSiteUrl()),
+    ...(hasSiteUrl ? { metadataBase: new URL(siteUrl) } : {}),
     title: {
       default: SITE_NAME,
       template: `%s | ${SITE_NAME}`,
     },
     description: SITE_DESCRIPTION,
     applicationName: SITE_NAME,
-    alternates: {
-      canonical: canonicalPath,
-    },
+    ...(hasSiteUrl ? { alternates: { canonical: canonicalPath } } : {}),
     icons: {
       icon: "/icon.svg",
     },
@@ -38,7 +38,7 @@ export function createMetadata({ path = "/", ...overrides }: CreateMetadataOptio
       siteName: SITE_NAME,
       title: SITE_NAME,
       description: SITE_DESCRIPTION,
-      url: canonicalPath,
+      ...(hasSiteUrl ? { url: canonicalPath } : {}),
     },
     twitter: {
       card: "summary",

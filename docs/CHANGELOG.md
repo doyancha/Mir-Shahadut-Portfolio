@@ -2,12 +2,18 @@
 
 # 2026-08-08
 
+### Phase 9D
+
+- Normalized the locked Phase 9 baseline so Phase 9A, Phase 9B, and Phase 9C are reflected as locked in the phase-tracking docs and site configuration.
+- Hardened canonical URL handling so production no longer falls back to localhost when `NEXT_PUBLIC_SITE_URL` is missing.
+- Finalized the Phase 9D lock state across the tracking docs and site configuration.
+
 ### Phase 9C
 
 - Added the dedicated one-page resume PDF generation flow and the internal print-focused `/resume/print` preview route.
 - Linked the public Resume page to the downloadable PDF while keeping the web resume structure intact.
 - Kept the PDF content driven by canonical identity, experience, skills, education, and selected-project data.
-- Updated the phase-tracking documents to reflect Phase 9C as implemented and pending owner approval.
+- Updated the phase-tracking documents to reflect the Phase 9C implementation baseline.
 
 ### Phase 9B
 

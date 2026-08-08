@@ -6,6 +6,10 @@ import { getSiteUrl } from "@/lib/site-url";
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
 
+  if (!siteUrl) {
+    return [];
+  }
+
   return navigationItems.map((item) => ({
     url: new URL(item.href, siteUrl).toString(),
     lastModified: new Date(),

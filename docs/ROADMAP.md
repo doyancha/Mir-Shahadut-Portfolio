@@ -411,9 +411,9 @@ Deliverables:
 Verification:
 
 - Phase 9A is complete and locked
-- Phase 9B is implemented and pending owner approval
-- Phase 9C is implemented and pending owner approval
-- Phase 9D has not started
+- Phase 9B is complete and locked
+- Phase 9C is complete and locked
+- Phase 9D final QA & lock has been completed and locked
 - Dates and roles are verified
 - Resume links are valid
 - Experience page remains factual and concise
@@ -428,7 +428,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `In Progress`
+Status: `Complete`
 
 ## Phase 10 - Contact System
 

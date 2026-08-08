@@ -18,9 +18,9 @@
 - Phase 8E Media Integration has been implemented and is locked.
 - Phase 8F Case-Study Final QA & Lock has been completed and locked.
 - Phase 9A Experience page has been implemented and is locked.
-- Phase 9B Resume web page has been implemented and is pending owner approval.
-- Phase 9C Resume PDF has been implemented and is pending owner approval.
-- Phase 9D Final QA & Lock has not started.
+- Phase 9B Resume web page has been implemented and is locked.
+- Phase 9C Resume PDF has been implemented and is locked.
+- Phase 9D Final QA & Lock has been completed and locked.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -59,6 +59,7 @@
 - The Resume page now presents a concise recruiter-facing web resume with verified identity, skills, experience, education, and selected projects.
 - The Resume PDF now provides a one-page ATS-safe downloadable artifact based on the canonical resume content.
 - The Resume page now links directly to the approved downloadable PDF.
+- Phase 9A, Phase 9B, Phase 9C, and Phase 9D are locked.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 
