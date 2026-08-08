@@ -14,8 +14,7 @@ export function CaseStudyCta({ liveDemoUrl }: CaseStudyCtaProps) {
         <div className="space-y-2">
           <h2 className="text-2xl font-semibold tracking-tight text-white">Explore the project</h2>
           <p className="max-w-2xl text-sm leading-6 text-[hsl(var(--foreground-secondary))]">
-            Follow the live demo for the approved portfolio destination, or return to the projects
-            index.
+            Follow the live demo to review the project in detail, or return to the projects index.
           </p>
         </div>
         <Cluster gap="sm">

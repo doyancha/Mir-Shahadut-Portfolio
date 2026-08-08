@@ -26,7 +26,7 @@ export const resumePdfPath = `/documents/resume/${resumePdfFileName}`;
 export const resumePdfDownloadLabel = "Download Resume";
 
 export const resumeHeroIntroduction =
-  "Full Stack Web Developer based in Dhaka, Bangladesh, with experience in system and web development, project management, computer science study, and hands-on development of modern web applications.";
+  "Full Stack Web Developer based in Dhaka, Bangladesh, focused on modern web applications with clear interfaces and maintainable architecture.";
 
 export const resumeHeroFacts = [
   {
@@ -49,7 +49,7 @@ export const resumeHeroFacts = [
 
 export const resumeSummaryHeading = "Professional summary";
 export const resumeSummaryDescription =
-  "My background brings together system and web development, project management experience, computer science study, and hands-on portfolio work across modern web applications.";
+  "My background combines system and web development, project management experience, computer science study, and portfolio work across three current full-stack projects.";
 
 export const resumeSkillHeading = "Technical skills";
 export const resumeSkillDescription =

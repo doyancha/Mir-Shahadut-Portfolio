@@ -631,6 +631,7 @@ Verification:
 
 - No invented or stale content remains
 - Visual consistency is maintained
+- Phase 16 is complete and locked
 
 Exit criteria:
 
@@ -640,7 +641,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Complete`
 
 ## Phase 17 - Deployment
 
@@ -667,7 +668,7 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Not started`
 
 ## Phase 18 - Post-Launch Maintenance
 

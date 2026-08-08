@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 16
+
+- Tightened the case-study CTA language to remove internal-sounding wording while keeping the approved live-demo flow intact.
+- Refined the Resume page introduction and summary so the hero positioning and resume background context read as distinct copy.
+- Updated the phase-tracking documents and site configuration to reflect Phase 16 as complete and locked.
+
 ### Phase 15
 
 - Added a small Vitest layer for contact validation, contact server-action behavior, metadata helpers, case-study lookup helpers, and the approved resume PDF.

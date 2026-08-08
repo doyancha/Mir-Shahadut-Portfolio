@@ -28,7 +28,8 @@
 - Phase 13 SEO and social sharing is complete and locked.
 - Phase 14 performance remediation is complete and locked.
 - Phase 15 automated testing and CI is complete and locked.
-- Phase 16 has not started.
+- Phase 16 final content and visual polish is complete and locked.
+- Phase 17 has not started.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
