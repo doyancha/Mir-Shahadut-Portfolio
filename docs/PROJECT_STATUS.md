@@ -30,6 +30,7 @@
 - Phase 15 automated testing and CI is complete and locked.
 - Phase 16 final content and visual polish is complete and locked.
 - Phase 17 Production Deployment is complete and locked.
+- Phase 18 Post-Launch Maintenance & Monitoring is ongoing.
 - Live production URL recorded: `https://mir-shahadut-portfolio.vercel.app`.
 - Production contact sender verification remains deferred.
 - Node runtime alignment remains deferred.
@@ -80,6 +81,7 @@
 - Phase 14 now narrows project preview image loading to protect the established LCP path while leaving the rest of the rendering strategy intact, and is locked.
 - Phase 15 now adds the focused automated test layer and CI workflow for the portfolio's highest-value routes and behaviors.
 - Phase 17 now records the controlled production deployment to the approved Vercel production origin and remains locked.
+- Phase 18 now records the ongoing post-launch maintenance and monitoring program without introducing new product scope.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 
@@ -144,3 +146,4 @@
 - Some project facts remain intentionally neutral or pending owner input.
 - Production contact sender verification is intentionally deferred and the direct-email fallback remains available.
 - Node runtime alignment between Vercel and CI is intentionally deferred.
+- Phase 18 is an operational maintenance program, not feature development.

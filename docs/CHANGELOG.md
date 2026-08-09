@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 18
+
+- Recorded Phase 18 as the ongoing post-launch maintenance and monitoring program.
+- Documented the recurring production checks, deferred operational items, and incident-response boundaries without adding new product scope.
+- Preserved the live production release state and the locked Phase 17 deployment baseline.
+
 ### Phase 17
 
 - Completed the controlled production deployment to the approved Vercel origin `https://mir-shahadut-portfolio.vercel.app`.

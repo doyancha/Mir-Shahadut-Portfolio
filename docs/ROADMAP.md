@@ -668,9 +668,9 @@ Approval before moving forward:
 
 - Required
 
-Status: `Not started`
+Status: `Complete`
 
-Phase 17 now remains locked after the approved controlled production deployment to `https://mir-shahadut-portfolio.vercel.app`.
+Phase 17 is complete and locked after the approved controlled production deployment to `https://mir-shahadut-portfolio.vercel.app`.
 Production contact sender verification is intentionally deferred.
 Node runtime alignment to CI is intentionally deferred.
 
@@ -685,11 +685,15 @@ Deliverables:
 
 - Maintenance notes
 - Post-launch update process
+- Operational monitoring checklist
+- Recurring maintenance checklist
+- Incident-response guidance
 
 Verification:
 
 - Critical issues are tracked
 - Future improvements are recorded
+- Monitoring and maintenance tasks are documented, not treated as feature development
 
 Exit criteria:
 
@@ -699,9 +703,9 @@ Approval before moving forward:
 
 - Required
 
-Status: `Pending`
+Status: `Ongoing`
 
-Phase 18 has not started.
+Phase 18 is an ongoing operational maintenance and monitoring program.
 
 ## Version 1 Out Of Scope
 
