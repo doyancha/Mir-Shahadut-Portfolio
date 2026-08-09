@@ -4,7 +4,7 @@ export const siteConfig = {
   siteName: SITE_NAME,
   ownerName: OWNER_NAME,
   currentPhase: "Phase 17",
-  currentState: "Final Content and Visual Polish Complete and Locked",
+  currentState: "Production Deployment Complete and Locked",
   developmentUrl: DEFAULT_SITE_URL,
-  productionUrl: null,
+  productionUrl: "https://mir-shahadut-portfolio.vercel.app",
 };

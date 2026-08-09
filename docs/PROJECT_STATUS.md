@@ -29,7 +29,10 @@
 - Phase 14 performance remediation is complete and locked.
 - Phase 15 automated testing and CI is complete and locked.
 - Phase 16 final content and visual polish is complete and locked.
-- Phase 17 has not started.
+- Phase 17 Production Deployment is complete and locked.
+- Live production URL recorded: `https://mir-shahadut-portfolio.vercel.app`.
+- Production contact sender verification remains deferred.
+- Node runtime alignment remains deferred.
 - The application uses Next.js App Router.
 - The package manager is npm.
 - Git is initialized on `main`.
@@ -38,6 +41,7 @@
 - Phase 4B-2 is complete.
 - Phase 5 is complete.
 - The Phase 4A blueprint is ready for review.
+- Phase 17 production deployment is complete and locked.
 
 ## Implementation Summary
 
@@ -75,6 +79,7 @@
 - Phase 13 now adds the page-specific metadata, social preview image, structured data, and sitemap completeness updates, and is locked.
 - Phase 14 now narrows project preview image loading to protect the established LCP path while leaving the rest of the rendering strategy intact, and is locked.
 - Phase 15 now adds the focused automated test layer and CI workflow for the portfolio's highest-value routes and behaviors.
+- Phase 17 now records the controlled production deployment to the approved Vercel production origin and remains locked.
 
 ## Files Added Or Changed Across Phases 3A Through 4B-2
 
@@ -137,3 +142,5 @@
 - The preview homepage is temporary and remains in place until Phase 4.
 - The homepage now includes all authorized Phase 4B sections.
 - Some project facts remain intentionally neutral or pending owner input.
+- Production contact sender verification is intentionally deferred and the direct-email fallback remains available.
+- Node runtime alignment between Vercel and CI is intentionally deferred.

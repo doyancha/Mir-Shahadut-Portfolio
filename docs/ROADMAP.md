@@ -670,6 +670,10 @@ Approval before moving forward:
 
 Status: `Not started`
 
+Phase 17 now remains locked after the approved controlled production deployment to `https://mir-shahadut-portfolio.vercel.app`.
+Production contact sender verification is intentionally deferred.
+Node runtime alignment to CI is intentionally deferred.
+
 ## Phase 18 - Post-Launch Maintenance
 
 Goals:
@@ -696,6 +700,8 @@ Approval before moving forward:
 - Required
 
 Status: `Pending`
+
+Phase 18 has not started.
 
 ## Version 1 Out Of Scope
 

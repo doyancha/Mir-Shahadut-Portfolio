@@ -1,5 +1,11 @@
 # Changelog
 
+### Phase 17
+
+- Completed the controlled production deployment to the approved Vercel origin `https://mir-shahadut-portfolio.vercel.app`.
+- Locked the production release after smoke QA confirmed routes, metadata, media, sitemap, robots, resume PDF, and 404 behavior.
+- Recorded the deferred production contact sender verification boundary and the deferred Node runtime alignment maintenance item.
+
 ### Phase 16
 
 - Tightened the case-study CTA language to remove internal-sounding wording while keeping the approved live-demo flow intact.
