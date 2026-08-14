@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { AnalyticsProjectPage } from "@/components/analytics-project/analytics-project-page";
 import { CaseStudyPage } from "@/components/case-study/case-study-page";
 import { getCaseStudyBySlug, getCaseStudyStaticParams } from "@/content/case-studies";
+import {
+  getAnalyticsProjectBySlug,
+  getAnalyticsProjectStaticParams,
+} from "@/content/analytics-projects";
 import { createMetadata } from "@/lib/metadata";
 
 type ProjectCaseStudyPageProps = {
@@ -22,14 +27,23 @@ async function resolveParams(params: ProjectCaseStudyPageProps["params"]) {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return getCaseStudyStaticParams();
+  return [...getCaseStudyStaticParams(), ...getAnalyticsProjectStaticParams()];
 }
 
 export async function generateMetadata({ params }: ProjectCaseStudyPageProps): Promise<Metadata> {
   const resolvedParams = await resolveParams(params);
   const caseStudy = getCaseStudyBySlug(resolvedParams.slug);
+  const analyticsProject = getAnalyticsProjectBySlug(resolvedParams.slug);
 
   if (!caseStudy) {
+    if (analyticsProject) {
+      return createMetadata({
+        path: analyticsProject.canonicalPath,
+        title: analyticsProject.title,
+        description: analyticsProject.shortSummary,
+      });
+    }
+
     return createMetadata({
       path: `/projects/${resolvedParams.slug}`,
       title: "Project case study",
@@ -48,9 +62,14 @@ export async function generateMetadata({ params }: ProjectCaseStudyPageProps): P
 export default async function ProjectCaseStudyRoute({ params }: ProjectCaseStudyPageProps) {
   const resolvedParams = await resolveParams(params);
   const caseStudy = getCaseStudyBySlug(resolvedParams.slug);
+  const analyticsProject = getAnalyticsProjectBySlug(resolvedParams.slug);
 
   if (!caseStudy) {
-    notFound();
+    if (!analyticsProject) {
+      notFound();
+    }
+
+    return <AnalyticsProjectPage project={analyticsProject} />;
   }
 
   return <CaseStudyPage caseStudy={caseStudy} />;

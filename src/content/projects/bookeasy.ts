@@ -39,6 +39,30 @@ export const bookEasyProject: ProjectRecord = {
       width: 1440,
       height: 900,
     },
+    {
+      src: "/images/projects/bookeasy/02-booking-desktop.png",
+      alt: "BookEasy booking flow showing service selection and available appointment times.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/bookeasy/03-services-desktop.png",
+      alt: "BookEasy services directory with appointment options and pricing cards.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/bookeasy/04-service-detail-desktop.png",
+      alt: "BookEasy service detail page with booking call to action and service details.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/bookeasy/06-booking-summary-desktop.png",
+      alt: "BookEasy booking flow with selected service and confirmation summary.",
+      width: 1440,
+      height: 900,
+    },
   ],
   mobileScreenshots: [
     {

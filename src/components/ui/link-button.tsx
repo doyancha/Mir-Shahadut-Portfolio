@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
@@ -48,6 +49,16 @@ export function LinkButton({
 }: LinkButtonProps) {
   const isExternal = external ?? /^https?:\/\//.test(href);
   const classes = cn(baseClasses, variantClasses[variant], sizeClasses[size], className);
+
+  if (!isExternal) {
+    const internalLinkProps = props as any;
+
+    return (
+      <Link href={href} className={classes} {...internalLinkProps}>
+        {children}
+      </Link>
+    );
+  }
 
   return (
     <a

@@ -6,7 +6,7 @@ import { Cluster } from "@/components/layout/cluster";
 import { Stack } from "@/components/layout/stack";
 import type { ProjectRecord } from "@/types/project";
 import { cn } from "@/lib/utils";
-import { ProjectMediaPreview } from "./project-media-preview";
+import { ProjectMediaGallery } from "./project-media-gallery";
 
 export function FeaturedProjectRow({ project, index }: { project: ProjectRecord; index: number }) {
   const rank = String(index + 1).padStart(2, "0");
@@ -14,7 +14,6 @@ export function FeaturedProjectRow({ project, index }: { project: ProjectRecord;
   const liveDemoUrl = project.liveDemoUrl ?? null;
   const techLabels = (project.homepageTechnologyStack ?? project.technologyStack).slice(0, 5);
   const summary = project.homepageSummary ?? project.shortSummary ?? "Pending owner input";
-  const previewScreenshot = project.desktopScreenshots[0];
 
   return (
     <article
@@ -24,8 +23,9 @@ export function FeaturedProjectRow({ project, index }: { project: ProjectRecord;
       )}
     >
       <div className="lg:w-[58%]">
-        <ProjectMediaPreview
-          screenshot={previewScreenshot}
+        <ProjectMediaGallery
+          screenshots={project.desktopScreenshots.slice(0, 5)}
+          ariaLabel={`${project.name} screenshots`}
           priority={index === 0}
           sizes="(max-width: 1024px) 100vw, 58vw"
         />

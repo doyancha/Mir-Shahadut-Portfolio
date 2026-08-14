@@ -71,9 +71,12 @@ export function ProjectEvidenceRow({ project, index }: ProjectEvidenceRowProps) 
             </div>
 
             <div className="flex flex-wrap items-center gap-3 pt-1">
+              <LinkButton href={`/projects/${project.slug}`} size="md">
+                View Case Study
+              </LinkButton>
               {liveDemoUrl ? (
                 <LinkButton href={liveDemoUrl} external variant="secondary">
-                  Open live demo
+                  Live Demo
                 </LinkButton>
               ) : null}
             </div>

@@ -1,11 +1,11 @@
 import { PageContainer } from "@/components/layout/page-container";
 import { Section } from "@/components/layout/section";
+import { projectBySlug } from "@/content/projects";
 import type { CaseStudy } from "@/content/case-studies";
 import { getRelatedProject } from "@/content/case-studies";
 import { CaseStudyArchitecture } from "./case-study-architecture";
 import { CaseStudyCta } from "./case-study-cta";
 import { CaseStudyHero } from "./case-study-hero";
-import { CaseStudyScreenshots } from "./case-study-screenshots";
 import { CaseStudySection } from "./case-study-section";
 import { CaseStudyStatus } from "./case-study-status";
 import { CaseStudyWorkflows } from "./case-study-workflows";
@@ -51,16 +51,15 @@ function getSectionContainerSize(key: OrderedSectionKey) {
 
 export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
   const relatedProject = getRelatedProject(caseStudy.relatedProjectSlug);
+  const project = projectBySlug[caseStudy.projectSlug];
   const currentStatus = caseStudy.sections?.currentStatus;
-  const screenshots = caseStudy.sections?.screenshots ?? [];
-  const heroScreenshot = screenshots[0];
-  const galleryScreenshots = screenshots.slice(1);
+  const screenshots = project?.desktopScreenshots ?? caseStudy.sections?.screenshots ?? [];
 
   return (
     <div className="pb-16 md:pb-24">
       <Section className="pb-0 pt-10 md:pt-16">
         <PageContainer size="wide">
-          <CaseStudyHero caseStudy={caseStudy} screenshot={heroScreenshot} />
+          <CaseStudyHero caseStudy={caseStudy} screenshots={screenshots} />
         </PageContainer>
       </Section>
 
@@ -121,15 +120,6 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
           </Section>
         );
       })}
-
-      {galleryScreenshots.length ? (
-        <Section className="pt-8 md:pt-12">
-          <PageContainer size="wide">
-            <CaseStudyScreenshots screenshots={galleryScreenshots} />
-          </PageContainer>
-        </Section>
-      ) : null}
-
       <Section className="pt-8 md:pt-12">
         <PageContainer size="wide">
           <CaseStudyCta liveDemoUrl={caseStudy.liveDemoUrl} />

@@ -1,5 +1,12 @@
 # Changelog
 
+### Admin + Dynamic Projects Phase 1
+
+- Added the PostgreSQL + Prisma foundation for the future Admin + Dynamic Projects architecture.
+- Defined the unified project domain enums and records for software, analytics, and future project types.
+- Added the database client singleton, environment placeholder, and verification scripts needed for future admin and dynamic-project phases.
+- Preserved the existing public portfolio behavior, static registries, and current routes without wiring the database into public rendering yet.
+
 ### Phase 18
 
 - Recorded Phase 18 as the ongoing post-launch maintenance and monitoring program.

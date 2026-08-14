@@ -217,7 +217,7 @@ export const taskOrbitCaseStudy = {
     screenshots: [
       {
         src: "/images/projects/taskorbit/01-primary-desktop.png",
-        alt: "TaskOrbit landing page with workspace operations overview and login actions.",
+        alt: "TaskOrbit dashboard with workspace overview and active workspace switching.",
         width: 1440,
         height: 900,
       },

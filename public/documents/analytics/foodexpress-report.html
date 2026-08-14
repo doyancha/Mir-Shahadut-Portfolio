@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodExpress · Data Analytics Report</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0a0d0f;
+    --bg2:       #111418;
+    --bg3:       #181d22;
+    --border:    rgba(255,255,255,0.07);
+    --border2:   rgba(255,255,255,0.13);
+    --text:      #e8e4dc;
+    --muted:     #7a7870;
+    --accent1:   #f2a343;
+    --accent2:   #3de8b0;
+    --accent3:   #e05c5c;
+    --accent4:   #5c9fe0;
+    --accent5:   #b87cff;
+    --mono:      'DM Mono', monospace;
+    --serif:     'DM Serif Display', serif;
+    --sans:      'Outfit', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(242,163,67,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent1);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent1);
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 1.0;
+    color: #fff;
+    margin-bottom: 12px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent1);
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 580px;
+    margin-bottom: 56px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .hero-meta-item {
+    border-left: 2px solid var(--border2);
+    padding-left: 16px;
+  }
+
+  .hero-meta-item .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-meta-item .value {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+    margin-top: 2px;
+  }
+
+  .hero-meta-item .value span {
+    color: var(--accent2);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px; left: 60px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+    animation: fadeUp 0.7s 0.5s ease both;
+  }
+
+  /* ─── NAV DOTS ─── */
+  .nav-dots {
+    position: fixed;
+    right: 28px; top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+  }
+
+  .nav-dots a {
+    display: block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border2);
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .nav-dots a:hover { background: var(--accent1); transform: scale(1.4); }
+
+  /* ─── MAIN CONTENT ─── */
+  main { position: relative; z-index: 1; }
+
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+
+  .section-number {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 8px;
+    min-width: 28px;
+  }
+
+  .section-title-group { flex: 1; }
+
+  .section-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4vw, 44px);
+    color: #fff;
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 10px;
+    max-width: 600px;
+  }
+
+  /* ─── DATASET OVERVIEW GRID ─── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+
+  .stat-box {
+    background: var(--bg2);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+
+  .stat-box:hover { background: var(--bg3); }
+
+  .stat-box::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
+  }
+
+  .stat-box.c1::before { background: var(--accent1); }
+  .stat-box.c2::before { background: var(--accent2); }
+  .stat-box.c3::before { background: var(--accent3); }
+  .stat-box.c4::before { background: var(--accent4); }
+  .stat-box.c5::before { background: var(--accent5); }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .stat-value {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* ─── COLUMNS TABLE ─── */
+  .columns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .col-item {
+    background: var(--bg2);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .col-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .col-name {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  .col-type {
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+
+  /* ─── CODE BLOCKS ─── */
+  .code-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent1);
+    border-radius: 2px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    overflow-x: auto;
+    position: relative;
+  }
+
+  .code-block::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 8px; right: 14px;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .code-block pre {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    white-space: pre;
+  }
+
+  .kw  { color: var(--accent4); }
+  .fn  { color: var(--accent2); }
+  .st  { color: var(--accent1); }
+  .cm  { color: var(--muted); font-style: italic; }
+  .nm  { color: var(--accent5); }
+  .op  { color: var(--accent3); }
+
+  /* ─── RESULT BOXES ─── */
+  .result-box {
+    border: 1px solid var(--border2);
+    background: var(--bg3);
+    padding: 18px 22px;
+    border-radius: 2px;
+    margin: 16px 0;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.8;
+    color: #c5c0b6;
+  }
+
+  .result-highlight { color: var(--accent2); font-weight: 500; }
+
+  /* ─── INSIGHT CARDS ─── */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .insight-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .insight-card:hover { border-color: var(--border2); }
+
+  .insight-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+  }
+
+  .insight-card.amber::before { background: var(--accent1); }
+  .insight-card.green::before  { background: var(--accent2); }
+  .insight-card.red::before    { background: var(--accent3); }
+  .insight-card.blue::before   { background: var(--accent4); }
+  .insight-card.purple::before { background: var(--accent5); }
+
+  .insight-icon {
+    font-size: 22px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .insight-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .insight-text {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .insight-value {
+    font-family: var(--mono);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--accent2);
+    margin-top: 12px;
+  }
+
+  /* ─── CLEANING PIPELINE ─── */
+  .pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 32px 0;
+  }
+
+  .pipeline-step {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    align-items: center;
+    gap: 20px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    transition: background 0.2s;
+  }
+
+  .pipeline-step:hover { background: var(--bg3); }
+
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .step-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .step-desc {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  .step-badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .step-badge.fixed  { background: rgba(61,232,176,0.12); color: var(--accent2); }
+  .step-badge.warn   { background: rgba(242,163,67,0.12);  color: var(--accent1); }
+  .step-badge.danger { background: rgba(224,92,92,0.12);   color: var(--accent3); }
+
+  /* ─── STAT TEST CARDS ─── */
+  .test-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .test-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+
+  .test-name {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .test-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .test-hypo {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-family: var(--mono);
+  }
+
+  .test-sep { height: 1px; background: var(--border); margin: 18px 0; }
+
+  .test-result {
+    display: flex;
+    gap: 24px;
+  }
+
+  .test-stat { flex: 1; }
+
+  .test-stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .test-stat-value {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    margin-top: 2px;
+  }
+
+  .verdict {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    margin-top: 18px;
+  }
+
+  .verdict.reject  { background: rgba(224,92,92,0.15);   color: var(--accent3); border: 1px solid rgba(224,92,92,0.3); }
+  .verdict.fail    { background: rgba(61,232,176,0.12);  color: var(--accent2); border: 1px solid rgba(61,232,176,0.3); }
+
+  /* ─── CHARTS (CSS-only bar charts) ─── */
+  .chart-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 28px;
+    margin: 32px 0;
+  }
+
+  .chart-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .bar-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .bar-row { display: grid; grid-template-columns: 130px 1fr 60px; align-items: center; gap: 12px; }
+
+  .bar-label { font-size: 12px; color: var(--muted); text-align: right; }
+
+  .bar-track {
+    height: 24px;
+    background: var(--bg3);
+    border-radius: 1px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 1px;
+    transition: width 1s cubic-bezier(0.16,1,0.3,1);
+    position: relative;
+  }
+
+  .bar-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 60%, rgba(255,255,255,0.07));
+  }
+
+  .bar-val { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+  /* ─── NET REVENUE CITY TABLE ─── */
+  .rev-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+  .rev-table th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rev-table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rev-table tr:hover td { background: var(--bg3); }
+  .rev-table .city-name { font-weight: 500; color: var(--text); }
+  .rev-table .city-val  { font-family: var(--mono); color: var(--accent2); }
+  .rev-table .top-row td { border-left: 3px solid var(--accent1); }
+
+  /* ─── FORMULA BOX ─── */
+  .formula {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent5);
+    padding: 24px 28px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .formula-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .formula-eq {
+    font-family: var(--mono);
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .formula-eq .var  { color: var(--accent2); }
+  .formula-eq .oper { color: var(--accent3); }
+  .formula-eq .con  { color: var(--accent1); }
+
+  /* ─── RECOMMENDATION BLOCK ─── */
+  .rec-block {
+    background: linear-gradient(135deg, rgba(242,163,67,0.06) 0%, rgba(61,232,176,0.04) 100%);
+    border: 1px solid rgba(242,163,67,0.2);
+    padding: 32px 36px;
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .rec-block::before {
+    content: 'RECOMMENDATION';
+    position: absolute;
+    top: -1px; left: 28px;
+    background: var(--bg);
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    color: var(--accent1);
+    padding: 0 8px;
+  }
+
+  .rec-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+
+  .rec-list li {
+    display: flex;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .rec-list li::before {
+    content: '→';
+    color: var(--accent1);
+    flex-shrink: 0;
+    font-family: var(--mono);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: #fff;
+  }
+
+  .footer-brand em { color: var(--accent1); font-style: italic; }
+
+  .footer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 0;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .divider-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ─── CHIP ─── */
+  .chip {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 9px;
+    border: 1px solid var(--border2);
+    border-radius: 2px;
+    color: var(--muted);
+    margin: 2px;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero { padding: 60px 24px 40px; }
+    section { padding: 60px 24px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .columns-grid { grid-template-columns: 1fr 1fr; }
+    .insight-grid, .test-grid { grid-template-columns: 1fr; }
+    .bar-row { grid-template-columns: 90px 1fr 50px; }
+    footer { flex-direction: column; gap: 24px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV DOTS -->
+<nav class="nav-dots">
+  <a href="#overview"   title="Overview"></a>
+  <a href="#cleaning"   title="Data Cleaning"></a>
+  <a href="#python"     title="Python Analysis"></a>
+  <a href="#features"   title="Feature Engineering"></a>
+  <a href="#viz"        title="Visualizations"></a>
+  <a href="#stats"      title="Statistical Tests"></a>
+  <a href="#business"   title="Business Intelligence"></a>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <p class="hero-eyebrow">Data Analytics Report &nbsp;·&nbsp; September 2024</p>
+  <h1 class="hero-title">Food<em>Express</em></h1>
+  <p class="hero-subtitle">
+    End-to-end analysis of one month of delivery operations — covering data cleaning,
+    exploratory analysis, statistical inference, and business intelligence.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="label">Total orders</div>
+      <div class="value"><span>1,000</span></div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Clean records</div>
+      <div class="value"><span>990</span></div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Total revenue</div>
+      <div class="value"><span>$35,576</span></div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Columns</div>
+      <div class="value"><span>24</span></div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Cities</div>
+      <div class="value"><span>4</span> zones</div>
+    </div>
+  </div>
+  <p class="scroll-hint">↓ scroll to explore</p>
+</header>
+
+<main>
+
+<!-- ═══════════════ 0. DATASET OVERVIEW ═══════════════ -->
+<section id="overview">
+  <div class="section-header">
+    <div class="section-number">00</div>
+    <div class="section-title-group">
+      <div class="section-badge" style="color: var(--accent2);">Dataset</div>
+      <h2 class="section-title">Platform & Data Overview</h2>
+      <p class="section-desc">FoodExpress connects customers with local restaurants across four city zones. The dataset captures one full month of delivery operations.</p>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-box c1">
+      <div class="stat-label">Orders analyzed</div>
+      <div class="stat-value">1,000</div>
+      <div class="stat-sub">Raw rows ingested</div>
+    </div>
+    <div class="stat-box c2">
+      <div class="stat-label">Missing values</div>
+      <div class="stat-value">294</div>
+      <div class="stat-sub">Across 4 columns</div>
+    </div>
+    <div class="stat-box c3">
+      <div class="stat-label">Outliers removed</div>
+      <div class="stat-value">10</div>
+      <div class="stat-sub">DeliveryTime &gt; P99 or OrderValue &lt; $5</div>
+    </div>
+    <div class="stat-box c4">
+      <div class="stat-label">Clean dataset</div>
+      <div class="stat-value">990</div>
+      <div class="stat-sub">Rows used for analysis</div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-label">Column schema</span></div>
+
+  <div class="columns-grid">
+    <div class="col-item"><div class="col-dot" style="background:var(--accent4)"></div><span class="col-name">OrderID</span><span class="col-type">int64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent4)"></div><span class="col-name">OrderDate</span><span class="col-type">datetime</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent4)"></div><span class="col-name">OrderTime</span><span class="col-type">object</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent2)"></div><span class="col-name">City</span><span class="col-type">object</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent2)"></div><span class="col-name">CustomerSegment</span><span class="col-type">object</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent2)"></div><span class="col-name">CuisineType</span><span class="col-type">object</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent1)"></div><span class="col-name">OrderValue</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent1)"></div><span class="col-name">DeliveryFee</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent1)"></div><span class="col-name">DeliveryTime</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent1)"></div><span class="col-name">DeliveryDistance</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent3)"></div><span class="col-name">CustomerRating</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent3)"></div><span class="col-name">RestaurantRating</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent5)"></div><span class="col-name">CashPayment</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent5)"></div><span class="col-name">CardPayment</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent5)"></div><span class="col-name">WalletPayment</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent5)"></div><span class="col-name">UPIPayment</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent1)"></div><span class="col-name">DiscountAmount</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent1)"></div><span class="col-name">PromoDiscount</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent1)"></div><span class="col-name">TipAmount</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent2)"></div><span class="col-name">TimePeriod</span><span class="col-type">object</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent2)"></div><span class="col-name">WeatherCondition</span><span class="col-type">object</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent2)"></div><span class="col-name">DayOfWeek</span><span class="col-type">object</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent3)"></div><span class="col-name">DeliveryPartnerRating</span><span class="col-type">float64</span></div>
+    <div class="col-item"><div class="col-dot" style="background:var(--accent4)"></div><span class="col-name">RestaurantID</span><span class="col-type">int64</span></div>
+  </div>
+
+  <div style="margin-top:16px; display:flex; gap:24px; flex-wrap:wrap;">
+    <span><span class="chip" style="border-color:rgba(92,159,224,0.4); color:var(--accent4)">● Identifiers</span></span>
+    <span><span class="chip" style="border-color:rgba(61,232,176,0.4); color:var(--accent2)">● Categorical</span></span>
+    <span><span class="chip" style="border-color:rgba(242,163,67,0.4); color:var(--accent1)">● Financial / Metric</span></span>
+    <span><span class="chip" style="border-color:rgba(224,92,92,0.4); color:var(--accent3)">● Rating</span></span>
+    <span><span class="chip" style="border-color:rgba(184,124,255,0.4); color:var(--accent5)">● Payment method</span></span>
+  </div>
+</section>
+
+<!-- ═══════════════ 1. DATA CLEANING ═══════════════ -->
+<section id="cleaning">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <div class="section-title-group">
+      <div class="section-badge" style="color: var(--accent3);">Data Cleaning</div>
+      <h2 class="section-title">Six-Step Cleaning Pipeline</h2>
+      <p class="section-desc">The raw CSV contained missing values, sentinel errors, invalid strings, and incorrectly typed columns. All issues were resolved before analysis.</p>
+    </div>
+  </div>
+
+  <div class="pipeline">
+    <div class="pipeline-step">
+      <div class="step-num">01</div>
+      <div>
+        <div class="step-name">Handle missing values</div>
+        <div class="step-desc">CustomerRating (79) · RestaurantRating (75) · DeliveryTime (70) · TipAmount (70) — imputed with column median</div>
+      </div>
+      <div class="step-badge warn">294 nulls</div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-num">02</div>
+      <div>
+        <div class="step-name">Replace sentinel outliers</div>
+        <div class="step-desc">DeliveryTime contained the value 99999 — replaced with median of valid values</div>
+      </div>
+      <div class="step-badge fixed">median imputed</div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-num">03</div>
+      <div>
+        <div class="step-name">Clean string values in CustomerRating</div>
+        <div class="step-desc">"INVALID", "N/A" strings found in numeric column — replaced with NaN → then median filled → cast to float64</div>
+      </div>
+      <div class="step-badge fixed">dtype: float64</div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-num">04</div>
+      <div>
+        <div class="step-name">Fix data types</div>
+        <div class="step-desc">OrderDate → datetime64 · All financial & rating columns → float64</div>
+      </div>
+      <div class="step-badge fixed">types corrected</div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-num">05</div>
+      <div>
+        <div class="step-name">Remove statistical outliers</div>
+        <div class="step-desc">Dropped rows where DeliveryTime &gt; 99th percentile (1,650 min) OR OrderValue &lt; $5</div>
+      </div>
+      <div class="step-badge danger">10 rows dropped</div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-num">06</div>
+      <div>
+        <div class="step-name">Reshape payment data with melt()</div>
+        <div class="step-desc">4 wide payment columns → single PaymentMethod + PaymentAmount columns (long format, filter PaymentAmount &gt; 0)</div>
+      </div>
+      <div class="step-badge fixed">990 rows · 1:1 map</div>
+    </div>
+  </div>
+
+  <div class="code-block" data-lang="Python">
+<pre><span class="cm"># Step 3 – Clean string values in CustomerRating</span>
+invalid_values = [<span class="st">'INVALID'</span>, <span class="st">'N/A'</span>, <span class="st">'NA'</span>, <span class="st">''</span>]
+df[<span class="st">'CustomerRating'</span>] = df[<span class="st">'CustomerRating'</span>].replace(invalid_values, np.nan)
+df[<span class="st">'CustomerRating'</span>] = pd.to_numeric(df[<span class="st">'CustomerRating'</span>], errors=<span class="st">'coerce'</span>)
+df[<span class="st">'CustomerRating'</span>] = df[<span class="st">'CustomerRating'</span>].fillna(df[<span class="st">'CustomerRating'</span>].median())
+
+<span class="cm"># Step 5 – Remove outliers</span>
+delivery_99th = df[<span class="st">'DeliveryTime'</span>].quantile(<span class="nm">0.99</span>)
+outliers = df[(df[<span class="st">'DeliveryTime'</span>] &gt; delivery_99th) | (df[<span class="st">'OrderValue'</span>] &lt; <span class="nm">5</span>)]
+df_clean = df.drop(outliers.index).copy()   <span class="cm"># → 990 rows</span>
+
+<span class="cm"># Step 6 – Reshape payments from wide to long</span>
+payment_cols = [<span class="st">'CashPayment'</span>, <span class="st">'CardPayment'</span>, <span class="st">'WalletPayment'</span>, <span class="st">'UPIPayment'</span>]
+df_payment = df_clean.melt(
+    id_vars=[c <span class="kw">for</span> c <span class="kw">in</span> df_clean.columns <span class="kw">if</span> c <span class="kw">not in</span> payment_cols],
+    value_vars=payment_cols, var_name=<span class="st">'PaymentType'</span>, value_name=<span class="st">'PaymentAmount'</span>
+)
+df_payment = df_payment[df_payment[<span class="st">'PaymentAmount'</span>] &gt; <span class="nm">0</span>].copy()</pre>
+  </div>
+</section>
+
+<!-- ═══════════════ 2. PYTHON FUNDAMENTALS ═══════════════ -->
+<section id="python">
+  <div class="section-header">
+    <div class="section-number">02</div>
+    <div class="section-title-group">
+      <div class="section-badge" style="color: var(--accent5);">Python Fundamentals</div>
+      <h2 class="section-title">Core Analysis Functions</h2>
+      <p class="section-desc">Three foundational Python exercises demonstrating loops, conditionals, and function design on the FoodExpress dataset.</p>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="divider"><span class="divider-label">Question 1 — Revenue loop</span></div>
+
+  <div class="code-block" data-lang="Python">
+<pre><span class="cm"># Total Revenue using a for-loop</span>
+total_revenue = <span class="nm">0.0</span>
+<span class="kw">for</span> value <span class="kw">in</span> df[<span class="st">'OrderValue'</span>]:
+    total_revenue += value
+<span class="fn">print</span>(<span class="st">f"Total Revenue: ${total_revenue:,.2f}"</span>)</pre>
+  </div>
+  <div class="result-box">Total Revenue: <span class="result-highlight">$35,575.93</span></div>
+
+  <!-- Q2 -->
+  <div class="divider"><span class="divider-label">Question 2 — Premium delivery classifier</span></div>
+
+  <div class="code-block" data-lang="Python">
+<pre><span class="kw">def</span> <span class="fn">is_premium_delivery</span>(order_id):
+    <span class="st">"""
+    Returns True if: DeliveryFee > $5.00  AND  DeliveryTime < 25 min
+    """</span>
+    row = df[df[<span class="st">'OrderID'</span>] == order_id]
+    <span class="kw">if</span> row.empty:
+        <span class="kw">return</span> <span class="nm">False</span>
+    fee  = row[<span class="st">'DeliveryFee'</span>].iloc[<span class="nm">0</span>]
+    time = row[<span class="st">'DeliveryTime'</span>].iloc[<span class="nm">0</span>]
+    <span class="kw">return</span> (fee &gt; <span class="nm">5.00</span>) <span class="op">and</span> (time &lt; <span class="nm">25</span>)
+
+<span class="cm"># Vectorized bonus scan</span>
+premium_orders = df[(df[<span class="st">'DeliveryFee'</span>] &gt; <span class="nm">5.00</span>) &amp; (df[<span class="st">'DeliveryTime'</span>] &lt; <span class="nm">25</span>)]</pre>
+  </div>
+  <div class="result-box">Premium deliveries found: <span class="result-highlight">49 orders</span>
+Sample IDs: 5016, 5019, 5034, 5057, 5120, 5125, 5146, 5150, 5194, 5217 …</div>
+
+  <!-- Q3 -->
+  <div class="divider"><span class="divider-label">Question 3 — Average order value by cuisine</span></div>
+
+  <div class="code-block" data-lang="Python">
+<pre><span class="kw">def</span> <span class="fn">avg_order_value_by_cuisine</span>(cuisine_type):
+    subset = df[df[<span class="st">'CuisineType'</span>] == cuisine_type][<span class="st">'OrderValue'</span>]
+    <span class="kw">if</span> subset.empty:
+        <span class="kw">return</span> <span class="nm">None</span>
+    <span class="kw">return</span> {<span class="st">'cuisine'</span>: cuisine_type, <span class="st">'avg'</span>: subset.mean(), <span class="st">'count'</span>: <span class="fn">len</span>(subset)}</pre>
+  </div>
+</section>
+
+<!-- ═══════════════ 3. FEATURE ENGINEERING ═══════════════ -->
+<section id="features">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <div class="section-title-group">
+      <div class="section-badge" style="color: var(--accent1);">Feature Engineering</div>
+      <h2 class="section-title">Net Revenue &amp; City Analysis</h2>
+      <p class="section-desc">A new derived metric captures true platform revenue after discounts and commission costs.</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="formula-label">NetRevenue formula</div>
+    <div class="formula-eq">
+      <span class="var">NetRevenue</span> &nbsp;<span class="oper">=</span>&nbsp;
+      <span class="var">OrderValue</span>
+      &nbsp;<span class="oper">−</span>&nbsp; <span class="var">DiscountAmount</span>
+      &nbsp;<span class="oper">−</span>&nbsp; <span class="var">PromoDiscount</span>
+      &nbsp;<span class="oper">−</span>&nbsp; (<span class="var">OrderValue</span> <span class="oper">×</span> <span class="con">0.20</span>)
+    </div>
+  </div>
+
+  <div class="code-block" data-lang="Python">
+<pre>COMMISSION_RATE = <span class="nm">0.20</span>
+df_payment[<span class="st">'RestaurantCommission'</span>] = df_payment[<span class="st">'OrderValue'</span>] * COMMISSION_RATE
+df_payment[<span class="st">'NetRevenue'</span>] = (
+    df_payment[<span class="st">'OrderValue'</span>]
+    <span class="op">-</span> df_payment[<span class="st">'DiscountAmount'</span>].fillna(<span class="nm">0</span>)
+    <span class="op">-</span> df_payment[<span class="st">'PromoDiscount'</span>].fillna(<span class="nm">0</span>)
+    <span class="op">-</span> df_payment[<span class="st">'RestaurantCommission'</span>]
+)
+city_net_revenue = df_payment.groupby(<span class="st">'City'</span>)[<span class="st">'NetRevenue'</span>].sum().round(<span class="nm">2</span>)</pre>
+  </div>
+
+  <table class="rev-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>City zone</th>
+        <th>Net revenue</th>
+        <th>Share</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="top-row">
+        <td style="color:var(--accent1); font-family:var(--mono);">#1</td>
+        <td class="city-name">North Zone</td>
+        <td class="city-val">$6,631.72</td>
+        <td style="font-family:var(--mono); color:var(--muted);">26.1%</td>
+      </tr>
+      <tr>
+        <td style="color:var(--muted); font-family:var(--mono);">#2</td>
+        <td class="city-name">West Zone</td>
+        <td class="city-val">$6,374.00</td>
+        <td style="font-family:var(--mono); color:var(--muted);">25.1%</td>
+      </tr>
+      <tr>
+        <td style="color:var(--muted); font-family:var(--mono);">#3</td>
+        <td class="city-name">South Zone</td>
+        <td class="city-val">$6,060.36</td>
+        <td style="font-family:var(--mono); color:var(--muted);">23.8%</td>
+      </tr>
+      <tr>
+        <td style="color:var(--muted); font-family:var(--mono);">#4</td>
+        <td class="city-name">East Zone</td>
+        <td class="city-val">$5,947.21</td>
+        <td style="font-family:var(--mono); color:var(--muted);">23.4%</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="city-name" style="color:var(--muted);">All zones</td>
+        <td class="city-val">$25,013.29</td>
+        <td style="font-family:var(--mono); color:var(--muted);">100%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════ 4. VISUALIZATIONS ═══════════════ -->
+<section id="viz">
+  <div class="section-header">
+    <div class="section-number">04</div>
+    <div class="section-title-group">
+      <div class="section-badge" style="color: var(--accent4);">Visualization</div>
+      <h2 class="section-title">Key Charts &amp; Patterns</h2>
+      <p class="section-desc">Six visualizations surface order distribution, revenue by cuisine, payment preferences, and delivery performance across the dataset.</p>
+    </div>
+  </div>
+
+  <!-- Orders by cuisine bar chart -->
+  <div class="chart-wrap">
+    <div class="chart-title">Total orders by cuisine type</div>
+    <div class="bar-list">
+      <div class="bar-row">
+        <div class="bar-label">Indian</div>
+        <div class="bar-track"><div class="bar-fill" style="width:78%; background:var(--accent1);"></div></div>
+        <div class="bar-val">152</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Fast Food</div>
+        <div class="bar-track"><div class="bar-fill" style="width:67%; background:var(--accent2);"></div></div>
+        <div class="bar-val">129</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Italian</div>
+        <div class="bar-track"><div class="bar-fill" style="width:64%; background:var(--accent5);"></div></div>
+        <div class="bar-val">125</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Mexican</div>
+        <div class="bar-track"><div class="bar-fill" style="width:62%; background:var(--accent3);"></div></div>
+        <div class="bar-val">121</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Chinese</div>
+        <div class="bar-track"><div class="bar-fill" style="width:54%; background:var(--accent4);"></div></div>
+        <div class="bar-val">105</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-label">Visualization techniques used</span></div>
+
+  <div class="insight-grid">
+    <div class="insight-card amber">
+      <span class="insight-icon">▦</span>
+      <div class="insight-title">Heatmap — cuisine × city revenue</div>
+      <div class="insight-text">seaborn heatmap with annotated cells showing which cuisine generates the most revenue per city zone.</div>
+    </div>
+    <div class="insight-card blue">
+      <span class="insight-icon">▬</span>
+      <div class="insight-title">Stacked bar — payment by segment</div>
+      <div class="insight-text">100%-stacked bar chart of UPI / Card / Cash / Wallet split across New, Regular, and VIP customers.</div>
+    </div>
+    <div class="insight-card green">
+      <span class="insight-icon">◈</span>
+      <div class="insight-title">Line plot — daily order trends</div>
+      <div class="insight-text">Time-series line chart of daily order count across the full September 2024 period.</div>
+    </div>
+    <div class="insight-card purple">
+      <span class="insight-icon">◉</span>
+      <div class="insight-title">Box plots — delivery time by city</div>
+      <div class="insight-text">Distribution of DeliveryTime per zone with quartile ranges and outlier markers visible.</div>
+    </div>
+  </div>
+
+  <div class="code-block" data-lang="Python">
+<pre><span class="cm"># Heatmap: cuisine × city net revenue</span>
+pivot = df_payment.pivot_table(
+    values=<span class="st">'NetRevenue'</span>, index=<span class="st">'CuisineType'</span>,
+    columns=<span class="st">'City'</span>, aggfunc=<span class="st">'sum'</span>
+)
+sns.heatmap(pivot, annot=<span class="nm">True</span>, fmt=<span class="st">'.0f'</span>, cmap=<span class="st">'YlOrRd'</span>, linewidths=<span class="nm">0.5</span>)
+
+<span class="cm"># Stacked bar: payment method by customer segment</span>
+pct = pd.crosstab(df_clean[<span class="st">'CustomerSegment'</span>],
+                  df_clean[<span class="st">'PaymentMethod'</span>], normalize=<span class="st">'index'</span>) * <span class="nm">100</span>
+pct.plot(kind=<span class="st">'bar'</span>, stacked=<span class="nm">True</span>, color=[<span class="st">'#e74c3c'</span>,<span class="st">'#3498db'</span>,<span class="st">'#2ecc71'</span>,<span class="st">'#f1c40f'</span>])</pre>
+  </div>
+</section>
+
+<!-- ═══════════════ 5. STATISTICAL TESTS ═══════════════ -->
+<section id="stats">
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <div class="section-title-group">
+      <div class="section-badge" style="color: var(--accent3);">Statistical Tests</div>
+      <h2 class="section-title">Hypothesis Testing · α = 0.05</h2>
+      <p class="section-desc">Four formal hypothesis tests were conducted using scipy and statsmodels to validate business assumptions with statistical rigor.</p>
+    </div>
+  </div>
+
+  <div class="test-grid">
+
+    <!-- Test 1 -->
+    <div class="test-card">
+      <div class="test-name">Independent samples t-test</div>
+      <div class="test-title">VIP vs Regular customer ratings</div>
+      <div class="test-hypo">H₀: μ(VIP) = μ(Regular)</div>
+      <div class="test-hypo">H₁: μ(VIP) ≠ μ(Regular)</div>
+      <div class="test-sep"></div>
+      <div class="test-result">
+        <div class="test-stat">
+          <div class="test-stat-label">t-statistic</div>
+          <div class="test-stat-value" style="color:var(--accent4)">—</div>
+        </div>
+        <div class="test-stat">
+          <div class="test-stat-label">p-value</div>
+          <div class="test-stat-value" style="color:var(--accent2)">≥ 0.05</div>
+        </div>
+      </div>
+      <div class="verdict fail">Fail to reject H₀</div>
+      <div style="font-size:12px; color:var(--muted); margin-top:12px;">No significant rating difference between VIP and Regular segments. Operations are consistent and fair across all customers.</div>
+    </div>
+
+    <!-- Test 2 -->
+    <div class="test-card">
+      <div class="test-name">One-sample t-test</div>
+      <div class="test-title">North Zone vs 30-min delivery target</div>
+      <div class="test-hypo">H₀: μ(delivery) = 30 minutes</div>
+      <div class="test-hypo">H₁: μ(delivery) ≠ 30 minutes</div>
+      <div class="test-sep"></div>
+      <div class="test-result">
+        <div class="test-stat">
+          <div class="test-stat-label">Observed mean</div>
+          <div class="test-stat-value" style="color:var(--accent3)">125 min</div>
+        </div>
+        <div class="test-stat">
+          <div class="test-stat-label">Target</div>
+          <div class="test-stat-value" style="color:var(--accent2)">30 min</div>
+        </div>
+      </div>
+      <div class="verdict reject">Reject H₀</div>
+      <div style="font-size:12px; color:var(--muted); margin-top:12px;">North Zone significantly exceeds the 30-minute target. Only 36.7% of orders delivered within target. Operational review required.</div>
+    </div>
+
+    <!-- Test 3 -->
+    <div class="test-card">
+      <div class="test-name">Chi-square test of association</div>
+      <div class="test-title">Payment method vs customer segment</div>
+      <div class="test-hypo">H₀: Payment method ⊥ customer segment</div>
+      <div class="test-hypo">H₁: They are associated</div>
+      <div class="test-sep"></div>
+      <div class="test-result">
+        <div class="test-stat">
+          <div class="test-stat-label">χ² statistic</div>
+          <div class="test-stat-value" style="color:var(--accent4)">—</div>
+        </div>
+        <div class="test-stat">
+          <div class="test-stat-label">p-value</div>
+          <div class="test-stat-value" style="color:var(--accent2)">≥ 0.05</div>
+        </div>
+      </div>
+      <div class="verdict fail">Fail to reject H₀</div>
+      <div style="font-size:12px; color:var(--muted); margin-top:12px;">Payment habits are similar across all customer segments. A uniform payment promotion strategy is recommended.</div>
+    </div>
+
+    <!-- Test 4 -->
+    <div class="test-card">
+      <div class="test-name">Chi-square goodness of fit</div>
+      <div class="test-title">Cuisine order distribution (uniform?)</div>
+      <div class="test-hypo">H₀: Each cuisine = exactly 20% of orders</div>
+      <div class="test-hypo">H₁: Distribution is not uniform</div>
+      <div class="test-sep"></div>
+      <div class="test-result">
+        <div class="test-stat">
+          <div class="test-stat-label">χ² statistic</div>
+          <div class="test-stat-value" style="color:var(--accent4)">9.11</div>
+        </div>
+        <div class="test-stat">
+          <div class="test-stat-label">p-value</div>
+          <div class="test-stat-value" style="color:var(--accent2)">0.0585</div>
+        </div>
+      </div>
+      <div class="verdict fail">Fail to reject H₀</div>
+      <div style="font-size:12px; color:var(--muted); margin-top:12px;">p = 0.0585, just above threshold. Indian cuisine leads (152 orders) but no statistically significant imbalance at α = 0.05.</div>
+    </div>
+
+  </div>
+
+  <div class="code-block" data-lang="Python">
+<pre><span class="kw">from</span> scipy <span class="kw">import</span> stats
+<span class="kw">from</span> scipy.stats <span class="kw">import</span> chisquare
+
+<span class="cm"># Test 1: Independent samples t-test</span>
+vip_ratings     = df[df[<span class="st">'CustomerSegment'</span>] == <span class="st">'VIP Customer'</span>][<span class="st">'CustomerRating'</span>]
+regular_ratings = df[df[<span class="st">'CustomerSegment'</span>] == <span class="st">'Regular Customer'</span>][<span class="st">'CustomerRating'</span>]
+t_stat, p_value = stats.ttest_ind(vip_ratings, regular_ratings)
+
+<span class="cm"># Test 2: One-sample t-test vs 30-min target</span>
+north = df_long[df_long[<span class="st">'City'</span>] == <span class="st">'North Zone'</span>][<span class="st">'DeliveryTime'</span>]
+t_stat, p_value = stats.ttest_1samp(north.dropna(), popmean=<span class="nm">30.0</span>)
+
+<span class="cm"># Test 4: Chi-square goodness of fit</span>
+observed = df_clean[df_clean[<span class="st">'CuisineType'</span>].isin([<span class="st">'Italian'</span>,<span class="st">'Chinese'</span>,<span class="st">'Indian'</span>,
+           <span class="st">'Fast Food'</span>,<span class="st">'Mexican'</span>])][<span class="st">'CuisineType'</span>].value_counts()
+chi2, p_value = chisquare(observed)</pre>
+  </div>
+</section>
+
+<!-- ═══════════════ 6. BUSINESS INTELLIGENCE ═══════════════ -->
+<section id="business">
+  <div class="section-header">
+    <div class="section-number">06</div>
+    <div class="section-title-group">
+      <div class="section-badge" style="color: var(--accent2);">Business Intelligence</div>
+      <h2 class="section-title">Correlation &amp; Campaign Impact</h2>
+      <p class="section-desc">Two advanced analyses: identifying drivers of customer satisfaction and measuring the ROI of a promotional campaign using a paired t-test.</p>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-label">Correlation analysis — drivers of CustomerRating</span></div>
+
+  <div class="insight-grid">
+    <div class="insight-card green">
+      <span class="insight-icon">↗</span>
+      <div class="insight-title">DeliveryPartnerRating</div>
+      <div class="insight-text">The strongest positive correlation with CustomerRating. Delivery partner quality directly drives customer satisfaction scores.</div>
+      <div class="insight-value">+r high</div>
+    </div>
+    <div class="insight-card amber">
+      <span class="insight-icon">↘</span>
+      <div class="insight-title">DeliveryDistance</div>
+      <div class="insight-text">Longer distances are associated with lower customer satisfaction — longer waits reduce perceived service quality.</div>
+      <div class="insight-value">−r low</div>
+    </div>
+    <div class="insight-card blue">
+      <span class="insight-icon">≈</span>
+      <div class="insight-title">RestaurantRating</div>
+      <div class="insight-text">Weak positive correlation with CustomerRating — food quality contributes but delivery experience dominates.</div>
+      <div class="insight-value">+r weak</div>
+    </div>
+    <div class="insight-card red">
+      <span class="insight-icon">≈</span>
+      <div class="insight-title">OrderValue</div>
+      <div class="insight-text">Nearly zero correlation. Spend level does not predict how satisfied a customer will be with the experience.</div>
+      <div class="insight-value">≈ 0</div>
+    </div>
+  </div>
+
+  <div class="code-block" data-lang="Python">
+<pre><span class="cm"># Correlation of factors vs CustomerRating</span>
+factors = [<span class="st">'DeliveryDistance'</span>, <span class="st">'OrderValue'</span>,
+           <span class="st">'RestaurantRating'</span>, <span class="st">'DeliveryPartnerRating'</span>]
+target  = <span class="st">'CustomerRating'</span>
+correlations = {f: df[target].corr(df[f]) <span class="kw">for</span> f <span class="kw">in</span> factors}
+
+<span class="cm"># Visualize with regression scatter plots</span>
+fig, axes = plt.subplots(<span class="nm">2</span>, <span class="nm">2</span>, figsize=(<span class="nm">14</span>, <span class="nm">10</span>))
+<span class="kw">for</span> idx, factor <span class="kw">in</span> enumerate(factors):
+    sns.regplot(data=df, x=factor, y=target, ax=axes.ravel()[idx],
+                scatter_kws={<span class="st">'alpha'</span>: <span class="nm">0.6</span>}, line_kws={<span class="st">'color'</span>: <span class="st">'red'</span>})</pre>
+  </div>
+
+  <div class="divider"><span class="divider-label">Promotional campaign A/B analysis — paired t-test</span></div>
+
+  <div class="code-block" data-lang="Python">
+<pre><span class="cm"># Compare average order value before (Week 1) vs after (Week 3)</span>
+before = df_campaign[df_campaign[<span class="st">'Period'</span>] == <span class="st">'Before (Week 1)'</span>] \
+             .groupby(<span class="st">'RestaurantID'</span>)[<span class="st">'OrderValue'</span>].mean()
+after  = df_campaign[df_campaign[<span class="st">'Period'</span>] == <span class="st">'After (Week 3)'</span>] \
+             .groupby(<span class="st">'RestaurantID'</span>)[<span class="st">'OrderValue'</span>].mean()
+
+paired_data = pd.concat([before, after], axis=<span class="nm">1</span>, join=<span class="st">'inner'</span>)
+t_stat, p_value = stats.ttest_rel(paired_data.iloc[:,<span class="nm">0</span>], paired_data.iloc[:,<span class="nm">1</span>])
+
+percentage_change = ((after.mean() - before.mean()) / before.mean()) * <span class="nm">100</span></pre>
+  </div>
+
+  <div class="result-box">
+Estimated revenue lift from campaign: <span class="result-highlight">$−7,228.79</span>
+Percentage change in AOV:             <span class="result-highlight">−13.3%</span>
+p-value:                              <span class="result-highlight">≥ 0.05  (not significant)</span>
+Conclusion:                           Campaign neither helped nor hurt AOV</div>
+
+  <div class="rec-block">
+    <ul class="rec-list">
+      <li>The paired t-test shows no statistically significant change in average order value following the promotional campaign — the observed −13.3% lift is within noise.</li>
+      <li>Extend the post-campaign measurement window to at least 4–6 weeks before drawing conclusions; short windows under-power the test.</li>
+      <li>Test alternative promo mechanics — bundling, limited-time offers, or minimum spend thresholds — rather than flat discounts that erode AOV.</li>
+      <li>Shift campaign focus from AOV uplift to order volume increase (e.g., free delivery promotions) where the signal is more measurable.</li>
+      <li>Always pair future campaigns with pre/post paired t-tests like this to ensure decisions are grounded in statistical evidence, not raw revenue noise.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-brand">Food<em>Express</em></div>
+  <div class="footer-meta">
+    Data Analytics Report · September 2024<br>
+    Python 3.13 · pandas · scipy · seaborn · statsmodels<br>
+    1,000 orders analyzed · 990 clean records
+  </div>
+</footer>
+
+<script>
+  // Animate bars on load
+  window.addEventListener('load', () => {
+    const fills = document.querySelectorAll('.bar-fill');
+    fills.forEach(f => {
+      const w = f.style.width;
+      f.style.width = '0';
+      setTimeout(() => { f.style.width = w; }, 200);
+    });
+  });
+
+  // Active nav dot highlight on scroll
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.nav-dots a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        dots.forEach(d => d.style.background = '');
+        const id = e.target.id;
+        const dot = document.querySelector(`.nav-dots a[href="#${id}"]`);
+        if (dot) dot.style.background = 'var(--accent1)';
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

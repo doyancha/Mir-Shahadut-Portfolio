@@ -1,18 +1,18 @@
-import Image from "next/image";
-
+import { ProjectMediaGallery } from "@/components/projects/project-media-gallery";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Cluster } from "@/components/layout/cluster";
 import { Stack } from "@/components/layout/stack";
 import { LinkButton } from "@/components/ui/link-button";
-import type { CaseStudy, CaseStudyScreenshot } from "@/content/case-studies";
+import type { CaseStudy } from "@/content/case-studies";
+import type { ProjectScreenshot } from "@/types/project";
 
 type CaseStudyHeroProps = {
   caseStudy: CaseStudy;
-  screenshot: CaseStudyScreenshot | undefined;
+  screenshots: ProjectScreenshot[];
 };
 
-export function CaseStudyHero({ caseStudy, screenshot }: CaseStudyHeroProps) {
+export function CaseStudyHero({ caseStudy, screenshots }: CaseStudyHeroProps) {
   return (
     <Card padding="lg" className="overflow-hidden rounded-[32px]">
       <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
@@ -39,25 +39,12 @@ export function CaseStudyHero({ caseStudy, screenshot }: CaseStudyHeroProps) {
         </Stack>
 
         <Stack gap="md" className="min-w-0">
-          {screenshot ? (
-            <Card
-              surface="muted"
-              padding="none"
-              className="overflow-hidden rounded-[28px] border-[hsl(var(--border-strong))]"
-            >
-              <Image
-                src={screenshot.src}
-                alt={screenshot.alt}
-                width={screenshot.width}
-                height={screenshot.height}
-                loading="eager"
-                fetchPriority="high"
-                sizes="(max-width: 1024px) 100vw, 42vw"
-                className="h-auto w-full"
-              />
-            </Card>
-          ) : null}
-
+          <ProjectMediaGallery
+            screenshots={screenshots}
+            ariaLabel={`${caseStudy.title} screenshots`}
+            priority
+            sizes="(max-width: 1024px) 100vw, 42vw"
+          />
           <Card padding="lg" surface="muted" className="space-y-4 rounded-[28px]">
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(var(--accent))]">

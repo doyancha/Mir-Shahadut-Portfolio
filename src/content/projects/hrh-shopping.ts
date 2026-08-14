@@ -30,6 +30,30 @@ export const hrhShoppingProject: ProjectRecord = {
       width: 1440,
       height: 900,
     },
+    {
+      src: "/images/projects/hrh-shopping/02-listing-desktop.png",
+      alt: "HRH Shopping product listing page with filters, category navigation, and product cards.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/hrh-shopping/03-detail-desktop.png",
+      alt: "HRH Shopping product detail page with image gallery, pricing, and purchase actions.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/hrh-shopping/04-tracking-desktop.png",
+      alt: "HRH Shopping order tracking screen with shipment progress and order status details.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/hrh-shopping/05-account-desktop.png",
+      alt: "HRH Shopping customer account dashboard with profile and order management sections.",
+      width: 1440,
+      height: 900,
+    },
   ],
   mobileScreenshots: [
     {

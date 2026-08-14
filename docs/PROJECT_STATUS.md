@@ -44,6 +44,14 @@
 - The Phase 4A blueprint is ready for review.
 - Phase 17 production deployment is complete and locked.
 
+## Admin + Dynamic Projects Foundation
+
+- Phase 1 - Database & Domain Foundation has been implemented.
+- The PostgreSQL + Prisma schema foundation is in place.
+- The unified project domain model is defined for future admin and dynamic-project work.
+- Static content registries remain the source/fallback for the public portfolio during this phase.
+- Admin UI, authentication, CRUD, publishing workflows, and dynamic public rendering remain out of scope for Phase 1.
+
 ## Implementation Summary
 
 - The reusable dark-neutral design system remains in place from Phase 2.

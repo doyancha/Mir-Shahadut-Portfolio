@@ -4,6 +4,7 @@ import { ProjectsCta } from "@/components/projects/projects-cta";
 import { ProjectsEvidenceNote } from "@/components/projects/projects-evidence-note";
 import { ProjectsHero } from "@/components/projects/projects-hero";
 import { ProjectEvidenceRow } from "@/components/projects/project-evidence-row";
+import { AnalyticsProjectsSection } from "@/components/projects/analytics-projects-section";
 import { ProjectsStatusGuide } from "@/components/projects/projects-status-guide";
 import { PageContainer } from "@/components/layout/page-container";
 import { Section } from "@/components/layout/section";
@@ -35,6 +36,7 @@ export default function ProjectsPage() {
         </PageContainer>
       </Section>
 
+      <AnalyticsProjectsSection />
       <ProjectsEvidenceNote />
       <ProjectsCta />
     </div>

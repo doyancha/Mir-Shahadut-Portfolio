@@ -33,7 +33,31 @@ export const taskOrbitProject: ProjectRecord = {
   desktopScreenshots: [
     {
       src: "/images/projects/taskorbit/01-primary-desktop.png",
-      alt: "TaskOrbit landing page with workspace operations overview and login actions.",
+      alt: "TaskOrbit dashboard with workspace overview and active workspace switching.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/taskorbit/02-workflow-desktop.png",
+      alt: "TaskOrbit project overview with lifecycle controls, project settings, and project membership.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/taskorbit/03-tasks-desktop.png",
+      alt: "TaskOrbit project task directory with task filters, counts, and task cards.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/taskorbit/04-task-detail-desktop.png",
+      alt: "TaskOrbit task detail view with task state, dependencies, and update controls.",
+      width: 1440,
+      height: 900,
+    },
+    {
+      src: "/images/projects/taskorbit/05-team-desktop.png",
+      alt: "TaskOrbit workspace team page with members, invitations, and access management.",
       width: 1440,
       height: 900,
     },
