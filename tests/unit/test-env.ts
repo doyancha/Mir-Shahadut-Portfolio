@@ -6,6 +6,12 @@ const trackedEnvKeys = [
   "RESEND_API_KEY",
   "CONTACT_FROM_EMAIL",
   "CONTACT_TO_EMAIL",
+  "AUTH_SECRET",
+  "NEXTAUTH_SECRET",
+  "GITHUB_ID",
+  "GITHUB_SECRET",
+  "ADMIN_ALLOWED_GITHUB_LOGINS",
+  "ADMIN_ALLOWED_EMAILS",
 ] as const;
 
 export type TrackedEnvKey = (typeof trackedEnvKeys)[number];
