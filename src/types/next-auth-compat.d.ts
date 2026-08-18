@@ -1,5 +1,11 @@
+/// <reference types="react" />
+
 // Temporary NextAuth v4 compatibility declarations for strict TypeScript.
 // Remove this layer once the auth stack no longer reaches these published gaps.
+
+declare namespace JSX {
+  interface Element {}
+}
 
 declare module "@auth/core/adapters" {
   export type Awaitable<T> = T | PromiseLike<T>;
